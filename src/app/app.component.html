@@ -1,64 +1,35 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div>
-    <md-toolbar color="primary">
-      <span><button md-icon-button>
-          <md-icon>theaters</md-icon>
-        </button></span>
-      <span style="text-align:center;font-size: 30px;">Welcome to the {{title}}!</span>
-      <button md-icon-button [md-menu-trigger-for]="menu">
-        <md-icon>more_vert</md-icon>
-      </button>
-      
-    <md-toolbar-row style="text-align: center;">
-        <md-form-field class="example-full-width">
-            <input type="search" style="font-size: 20px;" mdInput placeholder="Search">
-            <button md-icon-button><md-icon mdSuffix>search</md-icon></button>
-        </md-form-field>
-    </md-toolbar-row>
-    
-    </md-toolbar>
-    
-    <md-menu x-position="before" #menu="mdMenu">
-      <button md-menu-item><md-icon>account_circle</md-icon>Profile</button>
-      <button md-menu-item><md-icon>exit_to_app</md-icon>Login</button>
-    </md-menu>
-    
-    <!--md-card>
-      <button md-button>Review</button>
-      <button md-raised-button>Of</button>
-      <button md-raised-button color="primary">The</button>
-      <button md-raised-button color="accent">Movie</button>
-    </md-card>
-  
-    <span class="done">
-      <button md-fab>
-        <md-icon>check circle</md-icon>
-      </button>
-    </span-->
-  </div>
-
-      <md-card>
-          <md-card-header>
-            <md-card-title style="font-size: 23px">Top Rated Movies</md-card-title>
-          </md-card-header>
-          <md-card-content>
-              <p>
-                  <a href="">Harry Potter I</a><br><br>
-                  <a href="">Harry Potter II</a><br><br>
-                  <a href="">Harry Potter III</a>          
-              </p>
-          </md-card-content>
-        </md-card>
-
-      <md-card>
-          <md-card-header>
-            <md-card-title style="font-size: 23px">Recommended Movies</md-card-title>
-          </md-card-header>
-          <md-card-content>
-            <p>
-                <a href="">Harry Potter I</a><br><br>
-                <a href="">Harry Potter II</a><br><br>
-                <a href="">Harry Potter III</a>          
-            </p>
-          </md-card-content>
-        </md-card>
+<app-nav></app-nav>
+<body>
+	<div class="container">
+		<div class="starter-template">
+			<div class="row">
+			  <div class="col-sm-6">
+			    <div class="card">
+			      <div class="card-block">
+			        <h4 class="card-title">TOP RATED MOVIES</h4>
+			        <p class="card-text">
+			        	Baby Driver<br>
+			        	Wonder Woman<br>
+			        	Logan
+			        </p>
+			        <a href="#" class="btn btn-primary">See More</a>
+			      </div>
+			    </div>
+			  </div>
+			  <div class="col-sm-6">
+			    <div class="card">
+			      <div class="card-block">
+			        <h4 class="card-title">RECOMMENDED MOVIES</h4>
+			        <p class="card-text">
+			        	Harry Potter II<br>
+			        	Star Wars<br>
+			        	Dunkirk
+			        </p>
+			        <a href="#" class="btn btn-primary">See More</a>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+		</div>
+	</div>
+</body>

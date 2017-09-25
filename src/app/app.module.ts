@@ -1,36 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import {MdButtonModule, MdCheckboxModule, MdMenuModule, MdToolbarModule, MdIconModule, MdCardModule} from '@angular/material';
 import { AppComponent } from './app.component';
-import { Page2Component } from './page2/page2.component';
-import { Page3Component } from './page3/page3.component';
-import {
-  MdButtonModule,
-  MdMenuModule,
-  MdToolbarModule,
-  MdIconModule,
-  MdCardModule
-} from '@angular/material';
+import { NavComponent } from './nav/nav.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
     AppComponent,
-    Page2Component,
-    Page3Component
+    NavComponent
   ],
   imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule,
-    BrowserAnimationsModule,
-    MdButtonModule,
-    MdMenuModule,
-    MdToolbarModule,
-    MdIconModule,
-    MdCardModule
+    BrowserAnimationsModule, BrowserModule, MdButtonModule, MdCheckboxModule,MdMenuModule, MdToolbarModule, MdIconModule, MdCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
