@@ -5,7 +5,7 @@ a {
 
 
 form {
-	display: center-block;
+	display: inline-block;
 	text-align: center;
 }
 
@@ -28,13 +28,4 @@ container-fluid {
 
 span {
 	color: darkblue;
-}
-#primary-nav{
-	left:10%;
-}
-#secondary-nav{
-	left:30%;
-}
-#menu1{
-	left: 80%;
 }
