@@ -1,28 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {UserService} from '../user.service';
+import { NgForm } from '@angular/forms';
+import {Http, Response, RequestOptions, Headers} from '@angular/http';
+import { User } from './user';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent{
 
-  constructor(private router:Router, private user:UserService) { }
+  constructor(private http: Http) {}
+  submitted = false;
+  model = new User ('', '');
 
-  ngOnInit() {
-  }
-
-  loginUser(e) {
-  	e.preventDefault();
-  	console.log(e);
-  	var email = e.target.elements[0].value;
-  	var password = e.target.elements[1].value;
-  	
-  	if((email == 'admin@gmail.com' && password == 'admin') || (email == 'raji@gmail.com' && password == 'sund')) {
-  		this.user.setUserLoggedIn(email);
-  		this.router.navigate(['profile']);
-  	}
+  onSubmit(form: NgForm) {
+    let formData = JSON.stringify(form.value);
+    console.log(formData);
+    const req = this.http.post('/loginuser', formData);
+    req.subscribe();  
   }
 }

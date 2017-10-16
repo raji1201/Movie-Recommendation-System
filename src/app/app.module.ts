@@ -1,5 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+import { HttpModule }    from '@angular/http';
 import {MdButtonModule, MdCheckboxModule, MdMenuModule, MdToolbarModule, MdIconModule, MdCardModule} from '@angular/material';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
@@ -29,6 +32,9 @@ const appRoutes: Routes = [
     ProfileComponent
   ],
   imports: [
+  HttpModule,
+  HttpClientModule,
+  FormsModule,
   RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
