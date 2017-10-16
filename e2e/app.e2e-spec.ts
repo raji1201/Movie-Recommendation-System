@@ -15,7 +15,6 @@ describe('Movie Recommendation App', () => {
 
   	it('should display login page', () => {
         page.navigateTo('/login');
-        //expect(page.getLogin()).toBe(true);
     });
 
 
@@ -33,7 +32,6 @@ describe('Movie Recommendation App', () => {
 
     it('should display signup page', () => {
         page.navigateTo('/signup');
-        //expect(page.getSignup()).toBe(true);
     });
 
     it('should fill in the signup form', () => {
@@ -54,8 +52,18 @@ describe('Movie Recommendation App', () => {
         //Check if redirected to profile
     });
 
-    it('should display home page', () => {
-        page.navigateTo('/');    
-    	expect(page.getTitle()).toEqual('Movie Recommendation Engine');
+    it('should display profile page', () => {
+        page.navigateTo('/profile');
     });
+
+    it('should display movie review page', () => {
+        page.navigateTo('/profile');
+        let movieBtn = page.getReview();
+        movieBtn.click();
+    });
+
+    it('should display movie review page', () => {
+        page.navigateTo('/reviews');
+    });
+
 });
