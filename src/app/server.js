@@ -1,6 +1,7 @@
-var express = require('express');
-var mysql=require('mysql');
-var app=express();
+var express	= require('express');
+var mysql	= require('mysql');
+var app		= express();
+var path	= require('path');
 
 var connection= mysql.createConnection({
 	host 		: 'mydbinstance.cfhesrdyzslw.us-east-2.rds.amazonaws.com',
@@ -22,9 +23,25 @@ connection.connect(function(err){
 
 app.get("/",function(req,res){
 
-	console.log("Came here");
-	res.sendFile('/home/home.component.html');
+	
+	res.sendFile(path.join(__dirname+'/home/home.component.html'));
 });
+
+app.get("/login",function(req,res){
+
+	
+	res.sendFile(path.join(__dirname+'/login/login.component.html'));
+});
+
+
+app.get("/sign-up",function(req,res){
+
+	
+	res.sendFile(path.join(__dirname+'/sign-up/sign-up.component.html'));
+});
+
+
+
 
 });
 
