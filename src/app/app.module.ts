@@ -8,11 +8,14 @@ import { RouterModule, Routes} from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { HomeComponent } from './home/home.component';
+import { ProfileComponent } from './profile/profile.component';
+import { UserService } from './user.service';
 
 const appRoutes: Routes = [
 	{path: 'login', component: LoginComponent },
 	{path: 'signup', component: SignUpComponent},
-	{path: '', component: HomeComponent}
+	{path: '', component: HomeComponent},
+  {path: 'profile', component: ProfileComponent}
 ]
 
 
@@ -22,7 +25,8 @@ const appRoutes: Routes = [
     NavComponent,
     LoginComponent,
     SignUpComponent,
-    HomeComponent
+    HomeComponent,
+    ProfileComponent
   ],
   imports: [
   RouterModule.forRoot(
@@ -31,7 +35,7 @@ const appRoutes: Routes = [
     ),
     BrowserAnimationsModule, BrowserModule, MdButtonModule, MdCheckboxModule,MdMenuModule, MdToolbarModule, MdIconModule, MdCardModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
