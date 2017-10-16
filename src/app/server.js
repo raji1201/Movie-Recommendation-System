@@ -20,6 +20,12 @@ connection.connect(function(err){
 	}
 
 
+app.get("/",function(req,res){
 
+	console.log("Came here");
+	res.sendFile('/home/home.component.html');
+});
 
-})
+});
+
+app.listen(8080);
