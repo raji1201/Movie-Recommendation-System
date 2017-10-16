@@ -28,8 +28,21 @@ app.get("/",function(req,res){
 });
 
 app.get("/login",function(req,res){
-
 	
+	var sql="SELECT * from user where name="+ip_name+" and password="+ip_password;
+
+	console.log(sql);
+	connection.query(sql,function(err,result,fields){
+		if(err) throw err;
+		console.log(result);
+		var name=result[0].name;
+		var email=result[0].email;
+		var password=result[0].password;
+		console.log(name);
+		console.log(email);
+		console.log(password);
+
+	});
 	res.sendFile(path.join(__dirname+'/login/login.component.html'));
 });
 
