@@ -13,12 +13,14 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UserService } from './user.service';
+import { MovieReviewComponent } from './movie-review/movie-review.component';
 
 const appRoutes: Routes = [
 	{path: 'login', component: LoginComponent },
 	{path: 'signup', component: SignUpComponent},
 	{path: '', component: HomeComponent},
-  {path: 'profile', component: ProfileComponent}
+  {path: 'profile', component: ProfileComponent},
+  {path: 'reviews', component: MovieReviewComponent}
 ]
 
 
@@ -29,7 +31,8 @@ const appRoutes: Routes = [
     LoginComponent,
     SignUpComponent,
     HomeComponent,
-    ProfileComponent
+    ProfileComponent,
+    MovieReviewComponent
   ],
   imports: [
   HttpModule,
