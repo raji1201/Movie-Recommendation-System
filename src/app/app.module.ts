@@ -15,13 +15,14 @@ import { ProfileComponent } from './profile/profile.component';
 import { UserService } from './user.service';
 import { MovieReviewComponent } from './movie-review/movie-review.component';
 
+
 const appRoutes: Routes = [
 	{path: 'login', component: LoginComponent },
 	{path: 'signup', component: SignUpComponent},
 	{path: '', component: HomeComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'reviews', component: MovieReviewComponent}
-]
+];
 
 
 @NgModule({
@@ -38,6 +39,7 @@ const appRoutes: Routes = [
   HttpModule,
   HttpClientModule,
   FormsModule,
+  
   RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
