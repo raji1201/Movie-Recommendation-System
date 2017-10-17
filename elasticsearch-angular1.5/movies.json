@@ -1,0 +1,93 @@
+[
+  {
+    "name": "The Godfather",
+    "year": "1972",
+    "posterurl": "https://images-na.ssl-images-amazon.com/images/M/MV5BZTRmNjQ1ZDYtNDgzMy00OGE0LWE4N2YtNTkzNWQ5ZDhlNGJmL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SY500_CR0,0,352,500_AL_.jpg",
+    "imdbRating": "9.2",
+    "releaseDate": "1972-09-27",
+    "storyline": "When the aging head of a famous crime family decides to transfer his position to one of his subalterns, a series of unfortunate events start happening to the family, and a war begins between all the well-known families leading to insolence, deportation, murder and revenge, and ends with the favorable successor being finally chosen.                Written by\nJ. S. Golden",
+    "actors": [
+            "Marlon Brando",
+            "Al Pacino",
+            "James Caan"
+    ],
+    "duration": "PT175M",
+    "genres": [
+            "Crime",
+            "Drama"
+    ]
+  },
+  {
+    "name": "The Shawshank Redemption",
+    "year": "1994",
+    "posterurl": "https://images-na.ssl-images-amazon.com/images/M/MV5BODU4MjU4NjIwNl5BMl5BanBnXkFtZTgwMDU2MjEyMDE@._V1_SY500_CR0,0,336,500_AL_.jpg",
+    "imdbRating": "9.3",
+    "releaseDate": "1995-03-03",
+    "storyline": "Chronicles the experiences of a formerly successful banker as a prisoner in the gloomy jailhouse of Shawshank after being found guilty of a crime he did not commit. The film portrays the man's unique way of dealing with his new, torturous life; along the way he befriends a number of fellow prisoners, most notably a wise long-term inmate named Red.                Written by\nJ-S-Golden",
+     "actors": [
+            "Tim Robbins",
+            "Morgan Freeman",
+            "Bob Gunton"
+    ],
+    "duration": "PT142M",
+    "genres": [
+            "Crime",
+            "Drama"
+    ]
+  },
+  {
+    "name": "Logan: The Wolverine",
+    "year": "2017",
+    "posterurl": "https://images-na.ssl-images-amazon.com/images/M/MV5BMjI1MjkzMjczMV5BMl5BanBnXkFtZTgwNDk4NjYyMTI@._V1_SY500_CR0,0,338,500_AL_.jpg",
+    "imdbRating": "9.5",
+    "releaseDate": "2017-03-01",
+    "storyline": "In the near future, a weary Logan cares for an ailing Professor X in a hide out on the Mexican border. But Logan's attempts to hide from the world and his legacy are up-ended when a young mutant arrives, being pursued by dark forces.                Written by\nTwentieth Century Fox Films",
+    "actors": [
+            "Hugh Jackman",
+            "Patrick Stewart",
+            "Dafne Keen"
+    ],
+    "duration": "PT137M",
+    "genres": [
+            "Action",
+            "Drama",
+            "Sci-Fi"
+    ]
+  },
+  {
+    "name": "Before I Fall",
+    "year": "2017",
+    "posterurl": "https://images-na.ssl-images-amazon.com/images/M/MV5BNDYwOTY0MDI2OV5BMl5BanBnXkFtZTgwOTE5NzM2MDI@._V1_SY500_CR0,0,337,500_AL_.jpg",
+    "imdbRating": "7.0",
+    "releaseDate": "2017-03-02",
+    "storyline": "What if you had only one day to change absolutely everything? Samantha Kingston has it all: the perfect friends, the perfect guy, and a seemingly perfect future. Then, everything changes. After one fateful night, Sam wakes up with no future at all. Trapped reliving the same day over and over she begins to question just how perfect her life really was. And as she begins to untangle the mystery of a life suddenly derailed, she must also unwind the secrets of the people closest to her, and discover the power of a single day to make a difference, not just in her own life, but in the lives of those around her - before she runs out of time for good.",
+    "actors": [
+            "Zoey Deutch",
+            "Liv Hewson",
+            "Logan Miller"
+    ],
+    "duration": "PT99M",
+    "genres": [
+            "Drama",
+            "Mystery"
+    ]
+  },
+  {
+    "name": "Table 19",
+    "year": "2017",
+    "posterurl": "https://images-na.ssl-images-amazon.com/images/M/MV5BNDk0NDgwOTQzNF5BMl5BanBnXkFtZTgwODgyODMyMTI@._V1_SY500_CR0,0,338,500_AL_.jpg",
+    "imdbRating": "7.1",
+    "releaseDate": "2017-03-03",
+    "storyline": "Ex-maid of honor Eloise (Anna Kendrick) - having been relieved of her duties after being unceremoniously dumped by the best man via text - decides to hold her head up high and attend her oldest friend's wedding anyway. She finds herself seated at the 'random' table in the back of the ballroom with a disparate group of strangers, most of whom should have known to just send regrets (but not before sending something nice off the registry). As everyone's secrets are revealed, Eloise learns a thing or two from the denizens of Table 19. Friendships - and even a little romance - can happen under the most unlikely circumstances.                Written by\nFox Searchlight Pictures",
+    "actors": [
+            "Anna Kendrick",
+            "Lisa Kudrow",
+            "Stephen Merchant"
+    ],
+    "duration": "",
+    "genres": [
+            "Comedy",
+            "Drama"
+    ]
+  }
+]
