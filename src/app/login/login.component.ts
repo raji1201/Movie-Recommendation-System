@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
-import {Http, Response, RequestOptions, Headers} from '@angular/http';
+import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { User } from './user';
 
 @Component({
