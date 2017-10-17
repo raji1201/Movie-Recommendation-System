@@ -11,7 +11,7 @@ describe('Movie Recommendation App', () => {
     	page.navigateTo('/');    
     	expect(page.getTitle()).toEqual('Movie Recommendation Engine');
   	});
-  	
+
     it('should display signup page', () => {
         page.navigateTo('/signup');
     });
@@ -24,14 +24,13 @@ describe('Movie Recommendation App', () => {
         let confirmPassword = page.getSignupFormConfirmPassword();
         name.sendKeys('Raji');
         email.sendKeys('raji@gmail.com');
-		password.sendKeys('raji');
-		confirmPassword.sendKeys('raji');
-		expect(name.getAttribute('value')).toEqual('Raji');
-    	expect(email.getAttribute('value')).toEqual('raji@gmail.com');
-    	expect(password.getAttribute('value')).toEqual('raji');
-    	expect(confirmPassword.getAttribute('value')).toEqual('raji');
+		    password.sendKeys('raji');
+		    confirmPassword.sendKeys('raji');
+		    expect(name.getAttribute('value')).toEqual('Raji');
+        expect(email.getAttribute('value')).toEqual('raji@gmail.com');
+        expect(password.getAttribute('value')).toEqual('raji');
+        expect(confirmPassword.getAttribute('value')).toEqual('raji');
         let btn = page.getSignup().click;
-        //Check if redirected to profile
     });
 
   	it('should display login page', () => {
