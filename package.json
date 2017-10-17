@@ -26,7 +26,10 @@
     "angular-bootstrap-md": "^4.3.5",
     "bootstrap": "^4.0.0-alpha.6",
     "core-js": "^2.4.1",
+    "express": "^4.16.2",
     "font-awesome": "^4.7.0",
+    "mysql": "^2.15.0",
+    "path": "^0.12.7",
     "rxjs": "^5.4.2",
     "zone.js": "^0.8.14"
   },
