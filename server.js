@@ -1,7 +1,19 @@
+
+
 var express	= require('express');
 var mysql	= require('mysql');
-var app		= express();
+var bodyParser = require('body-parser');
 var path	= require('path');
+var app		= express();
+
+
+const port	= process.env.PORT || 4200;
+
+app.use(express.static(path.join(__dirname, 'dist')));
+
+
+app.use(bodyParser.urlencoded({ extended: false}));
+app.use(bodyParser.json());
 
 var connection= mysql.createConnection({
 	host 		: 'mydbinstance.cfhesrdyzslw.us-east-2.rds.amazonaws.com',
@@ -12,6 +24,11 @@ var connection= mysql.createConnection({
 
 });
 
+
+
+
+
+
 connection.connect(function(err){
 
 	if(!err) {
@@ -21,14 +38,19 @@ connection.connect(function(err){
 	}
 
 
-app.get("/",function(req,res){
+// app.get("/",function(req,res){
 
-	
-	res.sendFile(path.join(__dirname+'/home/home.component.html'));
-});
+// 	console.log("root");
+// 	res.sendFile(path.join(__dirname+'/src/app/home/home.component.html'));
+// });
 
-app.get("/login",function(req,res){
+app.post("/loginuser",function(req,res){
+	console.log("came into login");
+	var body= req.body;
+	console.log(body);
 	
+	ip_name="'Kavin'";
+	ip_password="'password'";
 	var sql="SELECT * from user where name="+ip_name+" and password="+ip_password;
 
 	console.log(sql);
@@ -43,20 +65,23 @@ app.get("/login",function(req,res){
 		console.log(password);
 
 	});
-	res.sendFile(path.join(__dirname+'/login/login.component.html'));
+	res.json({name:ip_name});
 });
 
 
 app.get("/sign-up",function(req,res){
 
 	
-	res.sendFile(path.join(__dirname+'/sign-up/sign-up.component.html'));
+	res.sendFile(path.join(__dirname+'/src/app/sign-up/sign-up.component.html'));
 });
 
 
-app.post()
 
 
 });
 
-app.listen(8080);
+app.listen(port,function(){
+
+	console.log("Listening on port "+port);
+
+});
