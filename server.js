@@ -13,7 +13,7 @@ app.use(express.static(path.join(__dirname, 'dist')));
 
 
 app.use(bodyParser.urlencoded({ extended: false}));
-app.use(bodyParser.json());
+//app.use(bodyParser.json());
 
 var connection= mysql.createConnection({
 	host 		: 'mydbinstance.cfhesrdyzslw.us-east-2.rds.amazonaws.com',
@@ -23,9 +23,6 @@ var connection= mysql.createConnection({
 	database	: "movie_data"
 
 });
-
-
-
 
 
 
@@ -53,26 +50,28 @@ app.post("/loginuser",function(req,res){
 	ip_password="'password'";
 	var sql="SELECT * from user where name="+ip_name+" and password="+ip_password;
 
-	console.log(sql);
+	//console.log(sql);
 	connection.query(sql,function(err,result,fields){
 		if(err) throw err;
-		console.log(result);
+		//console.log(result);
 		var name=result[0].name;
 		var email=result[0].email;
 		var password=result[0].password;
-		console.log(name);
-		console.log(email);
-		console.log(password);
+		//console.log(name);
+		//console.log(email);
+		//console.log(password);
 
 	});
 	res.json({name:ip_name});
 });
 
 
-app.get("/sign-up",function(req,res){
+app.post("/signupuser",function(req,res){
 
-	
-	res.sendFile(path.join(__dirname+'/src/app/sign-up/sign-up.component.html'));
+	console.log("Entered sign up");
+	//var sql="INSERT INTO USER VALUES("+name+","+email+","+passowrd+");";
+	console.log(req.body);
+	res.json({name:"Kavin"});
 });
 
 
