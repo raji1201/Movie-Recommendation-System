@@ -28,12 +28,10 @@ describe('Movie Recommendation App', () => {
     	expect(email.getAttribute('value')).toEqual('raji@gmail.com');
     	expect(password.getAttribute('value')).toEqual('raji');
         let btn = page.getLogin().click;
-        //Check if redirected to profile
     });
 
     it('should display signup page', () => {
         page.navigateTo('/signup');
-        //expect(page.getSignup()).toBe(true);
     });
 
     it('should fill in the signup form', () => {
@@ -51,7 +49,6 @@ describe('Movie Recommendation App', () => {
     	expect(password.getAttribute('value')).toEqual('raji');
     	expect(confirmPassword.getAttribute('value')).toEqual('raji');
         let btn = page.getSignup().click;
-        //Check if redirected to profile
     });
 
     it('should display home page', () => {
