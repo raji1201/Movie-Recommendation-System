@@ -54,6 +54,7 @@ app.get("/sign-up",function(req,res){
 });
 
 
+app.post()
 
 
 });
