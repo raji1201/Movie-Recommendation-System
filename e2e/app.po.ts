@@ -45,5 +45,13 @@ export class AppPage {
     getSignupFormConfirmPassword(){
         return element(by.id('inputConfirmPassword'));
     }
+
+    getReview() {
+        return element(by.id('movie1'));
+    }
+    
+    getReviewPage() {
+        return element(by.id('head'));
+    }
     
 }
