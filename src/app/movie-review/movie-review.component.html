@@ -1,31 +1,42 @@
-
 <div class="container">
   <div class="starter-template">
-    
-        <h2 id = "head" class="text-center">
-            Movie Review 
-          </h2>
+    <h2 id = "head" class="text-center">
+      Movie Review for The Snowman
+    </h2>
     <br>
     <div class="row">
-      
       <div class="col-sm-3">
-          <img src="./assets/snowman.jpeg" alt="Snowman" class="img-responsive" style="padding-top: 5px" align="left" >
-        <!-- space for image -->
+        <img src="./assets/snowman.jpeg" alt="Snowman" class="img-responsive" style="padding-top: 5px" align="left" >
       </div>
       <div class="col-sm-9">
       <div class="row">
         <div class="col-sm-12">
-            <p class="text-left" >
-                When an elite crime squad's lead detective (Michael Fassbender) investigates the disappearance of a victim on the first snow of winter, he fears an elusive serial killer may be active again. With the help of a brilliant recruit (Rebecca Ferguson), the cop must connect 
-                decades-old cold cases to the brutal new one if he hopes to outwit this unthinkable evil before the next snowfall.
+            <p class="text-left" name="rating" >
+                When an elite crime squad's lead detective (Michael Fassbender) investigates the disappearance of a victim on the first snow of winter, he fears an elusive serial killer may be active again. With the help of a brilliant recruit (Rebecca Ferguson), the cop must connect decades-old cold cases to the brutal new one if he hopes to outwit this unthinkable evil before the next snowfall.
             </p>
+            <div class="float-left">
+                <label for="rating">What's your rating?</label>
+                <span class="fa fa-star checked" id="rating"></span>
+                <span class="fa fa-star checked" id="rating"></span>
+                <span class="fa fa-star checked" id="rating"></span>
+                <span class="fa fa-star" id="rating"></span>
+                <span class="fa fa-star" id="rating"></span>
+            </div>
+            
         </div>
         
-          
-          <div class="col-sm-12">
-              <textarea  rows="10" cols="100" placeholder= "Please enter your review here" class ="submissionfield"  name="review"></textarea>
-                
+        
+          <div class="col-sm-12 float-left" >
+              <!-- <textarea  rows="10" cols="100" placeholder= "Please enter your review here" class ="submissionfield"  name="review"></textarea> -->
+             <p>
+                    <mat-form-field class="example-full-width">
+                            <textarea matInput placeholder="Please enter your review here" rows="7" cols="100"></textarea>
+                          </mat-form-field>
+             </p>
+                    
+                          
           </div>
+          
             
         
           
@@ -35,13 +46,9 @@
             
       <br />
       <div class="col-sm-12 text-left">
-          <input type="submit" name="review-submit" value="Submit">
+            <button mat-raised-button color="primary">Submit</button>
+          <!-- <input type="submit" name="review-submit" value="Submit"> -->
       </div>
     </div>
-
-    
-    </div>
-  </div>
-   
   </div>
 </div>
