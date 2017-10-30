@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
- import { RouterTestingModule } from '@angular/router/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 import { MovieReviewComponent } from './movie-review.component';
+import { MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, MatIconModule, MatCardModule } from '@angular/material';
 
 describe('MovieReviewComponent', () => {
   let component: MovieReviewComponent;
@@ -8,7 +9,7 @@ describe('MovieReviewComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MovieReviewComponent ], imports : [ RouterTestingModule ]
+      declarations: [ MovieReviewComponent ], imports : [ RouterTestingModule, MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, MatIconModule, MatCardModule ]
     })
     .compileComponents();
   }));
