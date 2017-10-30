@@ -26,6 +26,10 @@ export class AppPage {
 		return element(by.id('inputPassword'));         
     }
 
+    getLoginButton(){
+        return element(by.id('loginBtn2'));
+    }
+
     getSignup(){
         return element(by.css('.btn.btn-signin'));
     }
@@ -46,6 +50,10 @@ export class AppPage {
         return element(by.id('inputConfirmPassword'));
     }
 
+    getProfile()
+    {
+        return element(by.id('reco'));
+    }
     getReview() {
         return element(by.id('movie1'));
     }
