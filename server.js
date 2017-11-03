@@ -7,12 +7,13 @@ var path	= require('path');
 var app		= express();
 
 
-const port	= process.env.PORT || 4200;
+const port	= process.env.PORT || 3000;
 
 app.use(express.static(path.join(__dirname, 'dist')));
 
 
 app.use(bodyParser.urlencoded({ extended: false}));
+app.use(bodyParser.json());
 //app.use(bodyParser.json());
 
 var connection= mysql.createConnection({
@@ -33,51 +34,81 @@ connection.connect(function(err){
 	} else {
 		console.log("Error connecting to database");
 	}
+});
 
 
-// app.get("/",function(req,res){
-
-// 	console.log("root");
-// 	res.sendFile(path.join(__dirname+'/src/app/home/home.component.html'));
-// });
 
 app.post("/loginuser",function(req,res){
 	console.log("came into login");
-	var body= req.body;
-	console.log(body);
 	
-	ip_name="'Kavin'";
-	ip_password="'password'";
-	var sql="SELECT * from user where name="+ip_name+" and password="+ip_password;
+	
+	ip_email=req.body.email;
+	ip_password=req.body.password;
+	var op_name="ERROR";
+	var sql="SELECT * from user where email='"+ip_email+"' and password='"+ip_password+"'";
 
-	//console.log(sql);
+
 	connection.query(sql,function(err,result,fields){
-		if(err) throw err;
-		//console.log(result);
-		var name=result[0].name;
-		var email=result[0].email;
-		var password=result[0].password;
-		//console.log(name);
-		//console.log(email);
-		//console.log(password);
+		if(err) {
+			throw err;
+		}		
+		console.log(result);
 
+		if(result.length>0)
+		{
+			op_name=result[0].name;
+			res.json({name:op_name});
+		}
+		else {
+			res.json({name:op_name});
+		}
 	});
-	res.json({name:ip_name});
+
+	
 });
 
 
 app.post("/signupuser",function(req,res){
 
 	console.log("Entered sign up");
-	//var sql="INSERT INTO USER VALUES("+name+","+email+","+passowrd+");";
-	console.log(req.body);
-	res.json({name:"Kavin"});
+	var name=req.body.name;
+	var email=req.body.email;
+	var password=req.body.password;
+	var re_pass=req.body.verifyPassword;
+	if(password != re_pass) {
+		console.log("Not equal");
+		res.json({name:"NOTEQUAL"});
+	}
+	else {
+		var sql="INSERT INTO user VALUES('"+name+"','"+email+"','"+password+"');";
+		
+		connection.query(sql,function(err,result,fields){
+
+			if(err){
+				console.log(err.code);
+				if(err.code == 'ER_DUP_ENTRY') {
+					console.log("Duplicate entry!");
+					res.json({name:"DUPLICATE"});
+				}
+
+			}
+			else 
+			{
+			
+			res.json({name:name});
+		}
+		})
+
+	}
+	
 });
 
 
 
 
-});
+
+
+
 
 app.listen(port,function(){
 
