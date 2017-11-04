@@ -39,8 +39,6 @@ connection.connect(function(err){
 
 
 app.post("/loginuser",function(req,res){
-	console.log("came into login");
-	
 	
 	ip_email=req.body.email;
 	ip_password=req.body.password;
@@ -52,8 +50,7 @@ app.post("/loginuser",function(req,res){
 		if(err) {
 			throw err;
 		}		
-		console.log(result);
-
+		
 		if(result.length>0)
 		{
 			op_name=result[0].name;
@@ -70,13 +67,11 @@ app.post("/loginuser",function(req,res){
 
 app.post("/signupuser",function(req,res){
 
-	console.log("Entered sign up");
 	var name=req.body.name;
 	var email=req.body.email;
 	var password=req.body.password;
 	var re_pass=req.body.verifyPassword;
 	if(password != re_pass) {
-		console.log("Not equal");
 		res.json({name:"NOTEQUAL"});
 	}
 	else {
@@ -85,22 +80,49 @@ app.post("/signupuser",function(req,res){
 		connection.query(sql,function(err,result,fields){
 
 			if(err){
-				console.log(err.code);
 				if(err.code == 'ER_DUP_ENTRY') {
-					console.log("Duplicate entry!");
 					res.json({name:"DUPLICATE"});
 				}
 
 			}
 			else 
-			{
-			
+			{			
 			res.json({name:name});
 		}
 		})
 
-	}
+	}	
+});
+
+app.post("/home", function(req,res){
+
+	var sql="select name from movie where users >= 5 order by rating desc,users desc limit 3;";
 	
+	connection.query(sql,function(err,result,fields){
+
+		if(err) throw err;
+
+		var obj={m1:result[0].name, m2:result[1].name, m3:result[2].name};
+		console.log(obj);
+		res.json(obj);
+
+	})
+});
+
+app.post("/seemore",function(req,res){
+
+	var sql="select name from movie where users >= 5 order by rating desc,users desc limit 5;";
+
+	connection.query(sql,function(err,result,fields){
+
+		if(err) throw err;
+
+		var obj={m1:result[0].name, m2:result[1].name, m3:result[2].name, m4:result[3].name, m5:result[4].name};
+		console.log(obj);
+		res.json(obj);
+
+	})
+
 });
 
 
