@@ -16,7 +16,7 @@ export class LoginComponent{
   model = new User ('', '');
 
   onSubmit(form: NgForm) {
-    let formData = JSON.stringify(form.value);
+    let formData = form.value;
     console.log(formData);
     const req = this.http.post('/loginuser', formData);
     req.subscribe();  

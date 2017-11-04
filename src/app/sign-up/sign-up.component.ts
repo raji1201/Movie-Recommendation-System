@@ -1,4 +1,4 @@
-//user-signup
+
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import {Http, Response, RequestOptions, Headers} from '@angular/http';
@@ -17,7 +17,7 @@ export class SignUpComponent {
 	model = new User ('', '', '', '');
 
 	onSubmit(form: NgForm) {
-		let formData = JSON.stringify(form.value);
+		let formData = form.value;
 		console.log(formData);
 		const req = this.http.post('/signupuser', formData);
 		req.subscribe();	
