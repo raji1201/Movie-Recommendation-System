@@ -29,8 +29,11 @@
     "core-js": "^2.4.1",
     "express": "^4.16.2",
     "font-awesome": "^4.7.0",
+    "merge-descriptors": "^1.0.1",
+    "methods": "^1.1.2",
     "mysql": "^2.15.0",
     "path": "^0.12.7",
+    "path-to-regexp": "^2.1.0",
     "rxjs": "^5.4.2",
     "zone.js": "^0.8.14"
   },

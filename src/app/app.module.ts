@@ -20,7 +20,7 @@ const appRoutes: Routes = [
 	{path: 'login', component: LoginComponent },
 	{path: 'signup', component: SignUpComponent},
 	{path: '', component: HomeComponent},
-  {path: 'profile', component: ProfileComponent},
+  {path: 'profile/:name', component: ProfileComponent},
   {path: 'reviews', component: MovieReviewComponent}
 ];
 
