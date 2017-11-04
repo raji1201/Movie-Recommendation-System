@@ -11,6 +11,7 @@ export class NavComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
+    this.isUserLoggedIn();
   }
 
   isUserLoggedIn()
@@ -23,7 +24,7 @@ export class NavComponent implements OnInit {
 
             }
         });*/
-  	//this.activatedRoute.params.subscribe( params => console.log(params) );
+  	//this.route.params.subscribe( params => console.log(params['name']) );
   		/*console.log(params);
         	if(params == {})
         		return false;

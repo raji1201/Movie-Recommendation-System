@@ -21,18 +21,17 @@ export class ProfileComponent implements OnInit {
 
   		const req = this.http.post('/home', null);
     	req.subscribe(
-    	/*res => {
+    	res => {
           var response = res["_body"];
           //console.log(JSON.parse(response)['name']);
-          
+          console.log(JSON.parse(response));
         },
         err => {
           console.log("ERROR");
-        }*/);
+        });
 
   		this.activatedRoute.params.subscribe((params: Params) => {
         	this.name = params['name'];
-        	console.log(params);
       	});
   	};
 }
