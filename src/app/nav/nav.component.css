@@ -32,3 +32,11 @@ container-fluid {
 span {
 	color: darkblue;
 }
+.navbar{
+	margin-left: auto;
+}
+
+#inner {
+	width: 50%;
+	margin: 0 auto;
+  }
