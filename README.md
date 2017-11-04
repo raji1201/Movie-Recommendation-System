@@ -1,6 +1,11 @@
 # Movie Recommendation System
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.3.
+Instruction to run project
+
+1. Open terminal and run npm install
+2. Run ng build --w
+3. Open another terminal and run node server.js
+4.On your browser open localhost:3000
 
 ## Development server
 
