@@ -1,14 +1,14 @@
 <div class="container">
 		<div class="starter-template">
 			<h2>
- 				Hello, Raji!
+ 				Welcome!
 			</h2>
 			<br>
 			<div class="row">
 			  <div class="col-sm-6">
 			    <div class="card">
 			      <div class="card-block">
-			        <h4 class="card-title">RECOMMENDED MOVIES FOR Raji</h4>
+			        <h4 id="reco" class="card-title">RECOMMENDED MOVIES</h4>
 			        <p class="card-text">
 			        	<a id = "movie1" routerLink="/reviews" routerLinkActive="active">The Snowman</a><br>
 			        	<a routerLink="/reviews" routerLinkActive="active">Movie</a><br>
@@ -21,11 +21,11 @@
 			  <div class="col-sm-6">
 			    <div class="card">
 			      <div class="card-block">
-			        <h4 class="card-title">MOVIES TO WATCH</h4>
+			        <h4 class="card-title">TOP RATED MOVIES</h4>
 			        <p class="card-text">
-			        	<a routerLink="/reviews" routerLinkActive="active">Movie</a><br>
-			        	<a routerLink="/reviews" routerLinkActive="active">Movie</a><br>
-			        	<a routerLink="/reviews" routerLinkActive="active">Movie</a>
+			        	<a routerLink="/reviews" routerLinkActive="active">{{m1}}</a><br>
+			        	<a routerLink="/reviews" routerLinkActive="active">{{m2}}</a><br>
+			        	<a routerLink="/reviews" routerLinkActive="active">{{m3}}</a>
 			        </p>
 			        <a class="btn btn-primary">See More</a>
 			      </div>

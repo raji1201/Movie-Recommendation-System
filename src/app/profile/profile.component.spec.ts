@@ -22,4 +22,18 @@ describe('ProfileComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render title in a h4 tag', async(() => {
+    const fixture = TestBed.createComponent(ProfileComponent);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('h4').textContent).toContain('RECOMMENDED MOVIES FOR Raji');
+  }));
+
+  it('should render title in a a tag', async(() => {
+    const fixture = TestBed.createComponent(ProfileComponent);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('a').textContent).toContain('The Snowman');
+  }));
 });
