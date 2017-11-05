@@ -24,17 +24,13 @@ export class MovieReviewComponent implements OnInit {
         	
         	console.log(params['name']);
         	this.name = params['name'];
-        	const req = this.http.post('/moviereview', params['name']);
-      		req.subscribe(
-      			res => {
-            		var response = res["_body"];
-                this.rating = JSON.parse(response)['rating'];
-                this.users = JSON.parse(response)['users'];
-                this.length = JSON.parse(response)['length'];
-                this.rel = JSON.parse(response)['rel'];
-                this.des = JSON.parse(response)['des'];
-                //console.log(JSON.parse(response));
-          	});
-      	 });
-    }  
+          const req = this.http.post('/moviereview', {movie:this.name});
+    		req.subscribe(
+    			res => {
+          		var response = res["_body"];
+          		//console.log(JSON.parse(response)['name']);
+          		console.log(JSON.parse(response));
+        	});
+      	});
+  }  
 }
