@@ -36,6 +36,21 @@ export class ElasticsearchService {
     });
   }
 
+  fullTextSearch(_index, _type, _queryText): any {
+    return this.client.search({
+      index: _index,
+      type: _type,
+      body: {
+        'query': {
+          'match': {
+            _all: _queryText
+          }
+        }
+      },
+      '_source': ['name', 'year']
+    });
+  }
+
   isAvailable(): any {
     return this.client.ping({
       requestTimeout: Infinity,
