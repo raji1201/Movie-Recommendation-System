@@ -48,21 +48,30 @@ export class MovieReviewComponent implements OnInit {
 //  watched_status='false';
 update_rating(star:number){
   this.rating=star;
+  const req = this.http.post('/rating',JSON.stringify(this.rating) );
+  
+    console.log(this.watched);
+    req.subscribe(); 
+  
   console.log(this.rating);
 }
    watchStatus(){
     this.watched=!this.watched;
+    const req = this.http.post('/watched',JSON.stringify(this.watched) );
+    
+      console.log(this.watched);
+      req.subscribe(); 
    }
   
-  send_updates(movie_details_obj:Movie_Watch_Details){
+  // send_updates(movie_details_obj:Movie_Watch_Details){
     
    
    
-   const headers = new Headers({'Content-Type': 'application/json'});
-  const req = this.http.post('/moviereview',JSON.stringify(movie_details_obj) );
+  //  const headers = new Headers({'Content-Type': 'application/json'});
+  // const req = this.http.post('/moviereview',JSON.stringify(movie_details_obj) );
 
-  console.log(this.watched);
-  req.subscribe(); 
+  // console.log(this.watched);
+  // req.subscribe(); 
 
-  }
+  // }
 }
