@@ -19,7 +19,7 @@ export class MovieReviewComponent implements OnInit {
         	
         	console.log(params['name']);
         	this.name = params['name'];
-        	const req = this.http.post('/moviereview', params['name']);
+          const req = this.http.post('/moviereview', {movie:this.name});
     		req.subscribe(
     			res => {
           		var response = res["_body"];
