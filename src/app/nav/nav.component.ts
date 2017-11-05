@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params, RoutesRecognized } from '@angular/router';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-nav',
@@ -8,28 +9,22 @@ import { Router, ActivatedRoute, Params, RoutesRecognized } from '@angular/route
 })
 export class NavComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  currUser = '';
+  constructor(private route: ActivatedRoute, private router: Router, private userService: UserService) {
+
+  }
 
   ngOnInit() {
-    this.isUserLoggedIn();
   }
 
   isUserLoggedIn()
   {
-  	/*this.router.events.subscribe(val => {
-
-            if (val instanceof RoutesRecognized) {
-
-                console.log(val.state.root.firstChild.params);
-
-            }
-        });*/
-  	//this.route.params.subscribe( params => console.log(params['name']) );
-  		/*console.log(params);
-        	if(params == {})
-        		return false;
-        	else
-        		return true;
-      	});*/
+    if(this.userService.getUserLoggedIn())
+    {
+      this.currUser = this.userService.getCurrUser();
+      return true;
+    }
+    else
+      return false;
   }
 }

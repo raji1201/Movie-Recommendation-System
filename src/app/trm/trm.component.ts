@@ -18,13 +18,11 @@ export class TrmComponent implements OnInit {
   constructor(private http: Http) { }
 
   ngOnInit() {
-  	const req = this.http.post('/seemore', null);
+  	const req = this.http.get('/seemore');
     	req.subscribe(
     	res => {
 
           var response = res["_body"];
-          //var name = JSON.parse(response)['name'];
-          console.log(response);
           this.m1 = JSON.parse(response)['m1'];
           this.m2 = JSON.parse(response)['m2'];
           this.m3 = JSON.parse(response)['m3'];

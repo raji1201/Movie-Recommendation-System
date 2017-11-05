@@ -94,7 +94,7 @@ app.post("/signupuser",function(req,res){
 	}	
 });
 
-app.post("/home", function(req,res){
+app.get("/home", function(req,res){
 
 	var sql="select name from movie where users >= 5 order by rating desc,users desc limit 3;";
 	
@@ -103,13 +103,12 @@ app.post("/home", function(req,res){
 		if(err) throw err;
 
 		var obj={m1:result[0].name, m2:result[1].name, m3:result[2].name};
-		console.log(obj);
 		res.json(obj);
 
 	})
 });
 
-app.post("/seemore",function(req,res){
+app.get("/seemore",function(req,res){
 
 	var sql="select name from movie where users >= 5 order by rating desc,users desc limit 5;";
 
@@ -118,12 +117,30 @@ app.post("/seemore",function(req,res){
 		if(err) throw err;
 
 		var obj={m1:result[0].name, m2:result[1].name, m3:result[2].name, m4:result[3].name, m5:result[4].name};
-		console.log(obj);
 		res.json(obj);
 
 	})
 
 });
+
+app.post("/moviereview",function(req,res){
+
+	console.log(req.body);
+	
+	res.json({name:"Kavin"});
+
+
+})
+
+app.post("/reviews",function(req,res){
+	console.log("reviews");
+	console.log(req.body);
+	console.log(req);
+
+	res.json({name:"Kavin"});
+
+
+})
 
 
 

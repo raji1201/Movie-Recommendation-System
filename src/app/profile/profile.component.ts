@@ -19,12 +19,10 @@ export class ProfileComponent implements OnInit {
 
   	ngOnInit() {
 
-  		const req = this.http.post('/home', null);
+  		const req = this.http.get('/home');
     	req.subscribe(
     	res => {
           var response = res["_body"];
-          //console.log(JSON.parse(response)['name']);
-          console.log(JSON.parse(response));
           this.m1 = JSON.parse(response)['m1'];
           this.m2 = JSON.parse(response)['m2'];
           this.m3 = JSON.parse(response)['m3'];
