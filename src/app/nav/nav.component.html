@@ -8,6 +8,14 @@
 </div>
 <div class="navbar navbar-default" id="secondary-nav" style="z-index:30;">
   <div class="container-fluid">
+    <div class="row">
+      <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+        <div class="form-group">
+          <input type="text" class="form-control">
+        </div>
+        <button type="submit" [disabled]="!isConnected" class="'btn btn-primary">Submit!</button>
+      </form>
+    </div>
     <ul class="nav">
         <li><input class="form-control" type="text" placeholder="Search"></li>
         <li><button class="btn btn-primary" color="primary" type="submit">GO!</button></li>
@@ -15,7 +23,7 @@
             <mat-icon>more_vert</mat-icon>
         </button>
         <mat-menu #menu="matMenu">
-            
+
 
             <a style="font-size: 100%; text-decoration: none;" routerLink="/signup" routerLinkActive="active"><button *ngIf="!isUserLoggedIn()" mat-menu-item id="signupBtn">
                 <mat-icon>account_box</mat-icon>
@@ -26,9 +34,9 @@
                 <span>Log In</span>
             </button>
             </a>
-                
+
         </mat-menu>
-        
+
         </li>
     </ul>
   </div>
