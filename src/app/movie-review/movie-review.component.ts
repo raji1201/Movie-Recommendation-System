@@ -1,8 +1,9 @@
-import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 //import {OnClickEvent, OnRatingChangeEven, OnHoverRatingChangeEvent} from '../../../../node_modules/angular-star-rating/src/star-rating-struct';
-import {MatButtonModule} from '@angular/material';
+
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
+import {MatButtonModule} from '@angular/material';
 import {HttpClientModule} from '@angular/common/http';
 
 @Component({
@@ -12,6 +13,26 @@ import {HttpClientModule} from '@angular/common/http';
 })
 export class MovieReviewComponent implements OnInit {
   watched=false;
+  name  = '';
+
+  constructor(private http: Http,
+    private router: Router,
+     private activatedRoute: ActivatedRoute) { }
+     ngOnInit() {
+       
+           this.activatedRoute.params.subscribe((params: Params) => {
+             
+             console.log(params['name']);
+             
+             const req = this.http.get('/moviereview', params['name']);
+           req.subscribe(
+             res => {
+                 var response = res["_body"];
+                 //console.log(JSON.parse(response)['name']);
+                 console.log(JSON.parse(response));
+             });
+           });
+         }
   getWatchStatus(){
      
 
@@ -26,11 +47,9 @@ export class MovieReviewComponent implements OnInit {
   
   
 //  watched_status='false';
-  constructor(private router: Router,
-               private http: Http) { }
 
-  ngOnInit() {
-  }
+   
+  
   watchStatus(){
     
    this.watched=!this.watched;

@@ -14,17 +14,16 @@ import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UserService } from './user.service';
 import { MovieReviewComponent } from './movie-review/movie-review.component';
+import { TrmComponent } from './trm/trm.component';
 import { StarRatingModule } from 'angular-star-rating';
-
-
-
 
 const appRoutes: Routes = [
 	{path: 'login', component: LoginComponent },
 	{path: 'signup', component: SignUpComponent},
 	{path: '', component: HomeComponent},
-  {path: 'profile', component: ProfileComponent},
-  {path: 'reviews', component: MovieReviewComponent}
+  {path: 'profile/:name', component: ProfileComponent},
+  {path: 'reviews/:name', component: MovieReviewComponent},
+  {path: 'trm', component: TrmComponent}
 ];
 
 
@@ -36,7 +35,8 @@ const appRoutes: Routes = [
     SignUpComponent,
     HomeComponent,
     ProfileComponent,
-    MovieReviewComponent
+    MovieReviewComponent,
+    TrmComponent
   ],
   imports: [
   HttpModule,

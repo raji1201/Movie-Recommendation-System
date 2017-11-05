@@ -1,32 +1,15 @@
 <div class="container">
-		<div class="starter-template">
-			<div class="row">
-			  <div class="col-sm-6">
-			    <div class="card">
-			      <div class="card-block">
-			        <h4 class="card-title">TOP RATED MOVIES</h4>
-			        <p class="card-text">
-			           	<a id = "movie1" routerLink="/reviews" routerLinkActive="active">Baby Driver</a><br>
-			        	<a routerLink="/reviews" routerLinkActive="active">Wonder Woman</a><br>
-			        	<a routerLink="/reviews" routerLinkActive="active">Logan</a>
-			        </p>
-			        <a href="#" class="btn btn-primary" id="seemoreBtn">See More</a>
-			      </div>
-			    </div>
-			  </div>
-			  <div class="col-sm-6">
-			    <div class="card">
-			      <div class="card-block">
-			        <h4 class="card-title">RECOMMENDED MOVIES</h4>
-			        <p class="card-text">
-			        	<a id = "movie1" routerLink="/reviews" routerLinkActive="active">Harry Potter II</a><br>
-			        	<a routerLink="/reviews" routerLinkActive="active">Star Wars</a><br>
-			        	<a routerLink="/reviews" routerLinkActive="active">Dunkirk</a>
-			        </p>
-			        <a href="#" class="btn btn-primary">See More</a>
-			      </div>
-			    </div>
-			  </div>
+	<div class="starter-template">
+	    <div class="card">
+			<div class="card-block">
+			    <h4 class="card-title">TOP RATED MOVIES</h4>
+			    <p class="card-text">
+			     	<a id = "movie1" routerLink="/reviews/{{m1}}" routerLinkActive="active" onclick="getMovieReview(m1)">{{m1}}</a><br>
+			      	<a routerLink="/reviews/{{m2}}" routerLinkActive="active" onclick="getMovieReview(m2)">{{m2}}</a><br>
+			       	<a routerLink="/reviews/{{m3}}" routerLinkActive="active" onclick="getMovieReview(m3)">{{m3}}</a>
+			    </p>
+			    <a class="btn btn-primary" routerLink="/trm" routerLinkActive="active">See More</a>
 			</div>
 		</div>
 	</div>
+</div>
