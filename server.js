@@ -129,35 +129,19 @@ app.post("/moviereview",function(req,res){
 	var movie_name=req.body.movie;
 
 	var sql="select * from movie where name='"+movie_name+"'";
-	console.log(sql);
-
+	
 	connection.query(sql,function(err,result,fields){
 
 		if(err) throw err;
 
-		console.log(result);
+		
 		var obj={name:result[0].name,rating:result[0].rating,users:result[0].users,length:result[0].length,rel:result[0].rel,des:result[0].des};
-		console.log(obj);
+		
 		res.json(obj);
 
 	});
 	
 });
-
-app.post("/reviews",function(req,res){
-	console.log("reviews");
-	console.log(req.body);
-	console.log(req);
-
-	res.json({name:"Kavin"});
-
-
-})
-
-
-
-
-
 
 
 
