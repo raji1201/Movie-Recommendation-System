@@ -30,6 +30,7 @@ export class MovieReviewComponent implements OnInit {
              const req = this.http.get('/moviereview', params['name']);
            req.subscribe(
              res => {
+               this.watched=params['watched'];
               this.name=params['name'];
                  var response = res["_body"];
                  //console.log(JSON.parse(response)['name']);
