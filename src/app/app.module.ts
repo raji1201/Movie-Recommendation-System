@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { HttpModule }    from '@angular/http';
+import { HttpModule } from '@angular/http';
 import { MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, MatIconModule, MatCardModule } from '@angular/material';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
@@ -14,6 +14,9 @@ import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UserService } from './user.service';
 import { MovieReviewComponent } from './movie-review/movie-review.component';
+import { StarRatingModule } from 'angular-star-rating';
+
+
 
 
 const appRoutes: Routes = [
@@ -39,6 +42,8 @@ const appRoutes: Routes = [
   HttpModule,
   HttpClientModule,
   FormsModule,
+  StarRatingModule.forRoot(),
+ 
   
   RouterModule.forRoot(
       appRoutes,
