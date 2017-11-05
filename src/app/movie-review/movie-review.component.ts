@@ -10,6 +10,11 @@ import { Http, Response, RequestOptions, Headers } from '@angular/http';
 export class MovieReviewComponent implements OnInit {
 
 	name  = '';
+  rating = '';
+  users = '';
+  length = '';
+  rel = '';
+  des = '';
 
   constructor(private http: Http, private router: Router, private activatedRoute: ActivatedRoute) { }
 
@@ -28,5 +33,4 @@ export class MovieReviewComponent implements OnInit {
         	});
       	});
   }  
-
 }
