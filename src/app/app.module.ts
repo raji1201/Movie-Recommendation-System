@@ -15,7 +15,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { UserService } from './user.service';
 import { MovieReviewComponent } from './movie-review/movie-review.component';
 import { TrmComponent } from './trm/trm.component';
-import { StarRatingModule } from 'angular-star-rating';
+// import {OnClickEvent, OnRatingChangeEven, OnHoverRatingChangeEvent} from 'angular-star-rating/src/star-rating-struct';
+// import {StarRatingModule} from 'angular-star-rating/src/star-rating-module';
 
 const appRoutes: Routes = [
 	{path: 'login', component: LoginComponent },
@@ -42,7 +43,7 @@ const appRoutes: Routes = [
   HttpModule,
   HttpClientModule,
   FormsModule,
-  StarRatingModule.forRoot(),
+//cl  StarRatingModule.forRoot(),
  
   
   RouterModule.forRoot(
