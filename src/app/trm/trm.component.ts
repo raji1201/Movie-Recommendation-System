@@ -9,6 +9,12 @@ import { Http, Response, RequestOptions, Headers } from '@angular/http';
 })
 export class TrmComponent implements OnInit {
 
+  m1 = '';
+  m2 = '';
+  m3 = '';
+  m4 = '';
+  m5 = '';
+
   constructor(private http: Http) { }
 
   ngOnInit() {
@@ -19,7 +25,11 @@ export class TrmComponent implements OnInit {
           var response = res["_body"];
           //var name = JSON.parse(response)['name'];
           console.log(response);
-          
+          this.m1 = JSON.parse(response)['m1'];
+          this.m2 = JSON.parse(response)['m2'];
+          this.m3 = JSON.parse(response)['m3'];
+          this.m4 = JSON.parse(response)['m4'];
+          this.m5 = JSON.parse(response)['m5'];
         },
         err => {
           console.log("ERROR");

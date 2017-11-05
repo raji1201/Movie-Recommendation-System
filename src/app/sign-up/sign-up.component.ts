@@ -25,7 +25,10 @@ export class SignUpComponent {
           var response = res["_body"];
           //console.log(JSON.parse(response)['name']);
           var name = JSON.parse(response)['name'];
-          this.router.navigate(['/profile', name]);
+          if(name == "DUPLICATE")
+            this.router.navigate(['/']);
+          else
+            this.router.navigate(['/profile', name]);
         },
         err => {
           console.log("ERROR");
