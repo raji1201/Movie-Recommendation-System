@@ -4,22 +4,19 @@
       Movie Review for {{name}}
     </h2>
     <br>
-    <div class="row">
-      <div class="col-sm-9">
-        <p>{{rating}}</p>
-        <p>{{users}}</p>
-        <p>{{length}}</p>
-        <p>{{rel}}</p>
-        <p class="text-left" name="rating"> {{des}} </p>
-          <div class="float-left">
-            <label for="rating">What's your rating?</label>
-            <span class="fa fa-star checked" id="rating"></span>
-            <span class="fa fa-star checked" id="rating"></span>
-            <span class="fa fa-star checked" id="rating"></span>
-            <span class="fa fa-star" id="rating"></span>
-            <span class="fa fa-star" id="rating"></span>
-          </div> 
-        </div>
-    </div>
+    
+    <p>Rated {{rating}} by {{users}} users!</p><br>
+    <p>Running time : {{length}}</p><br>
+    <p>Release year : {{rel}}</p><br>
+    
+    <p class="text-left" name="rating">Movie description : {{des}} </p><br>
+    <div class="float-left">
+      <label for="rating">What's your rating?</label>
+        <span class="fa fa-star checked" id="rating"></span>
+        <span class="fa fa-star checked" id="rating"></span>
+        <span class="fa fa-star checked" id="rating"></span>
+        <span class="fa fa-star" id="rating"></span>
+        <span class="fa fa-star" id="rating"></span>
+    </div> 
   </div>
 </div>
