@@ -15,8 +15,15 @@ export class NavComponent implements OnInit {
   form: FormGroup;
   status: string;
 
+  private readonly INDEX = 'testmovies';
+  private readonly TYPE = 'movie';
+
+  movieResults = [];
+  private queryText = '';
+
   constructor(private route: ActivatedRoute, private router: Router, private fbuilder: FormBuilder, private es: ElasticsearchService, private cd: ChangeDetectorRef ) {
     this.isConnected = false;
+    this.queryText = '';
 
     this.form = fbuilder.group({
       index: '',
@@ -37,17 +44,23 @@ export class NavComponent implements OnInit {
     });
   }
 
-  onSubmit(value) {
+  onSubmit(searchTerm:string) {
+   this.queryText = searchTerm;
+   console.log(searchTerm);
 
-    this.es.createIndex({ index: value.index}).then(
-      result => {
-        console.log(result);
-        alert('Index added, see log for more info');
-      }, error => {
-        alert('Something went wrong, see log for more info');
-        console.error(error);
-      }
-    );
+   this.es.fullTextSearch(
+     this.INDEX,
+     this.TYPE,
+     this.queryText).then(
+       response => {
+         this.movieResults = response.hits.hits;
+         console.log('response');
+       }, err => {
+         console.error(err);
+     }).then(() => {
+     console.log('Search completed!');
+     }
+   );
   }
 
   isUserLoggedIn()
@@ -60,7 +73,7 @@ export class NavComponent implements OnInit {
 
             }
         });*/
-  	//this.route.params.subscribe( params => console.log(params['name']) );
+  	// this.route.params.subscribe( params => console.log(params['name']) );
   		/*console.log(params);
         	if(params == {})
         		return false;
