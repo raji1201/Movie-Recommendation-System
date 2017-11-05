@@ -11,7 +11,27 @@ describe('Movie Recommendation App', () => {
     	page.navigateTo('/');    
     	expect(page.getTitle()).toEqual('Movie Recommendation Engine');
   	});
-  	
+
+    it('should display signup page', () => {
+        page.navigateTo('/signup');
+    });
+
+    it('should fill in the signup form', () => {
+        page.navigateTo('/signup');
+        let name = page.getSignupFormName();
+        let email = page.getSignupFormEmail();
+        let password = page.getSignupFormPassword();
+        let confirmPassword = page.getSignupFormConfirmPassword();
+        name.sendKeys('Raji');
+        email.sendKeys('raji@gmail.com');
+		    password.sendKeys('raji');
+		    confirmPassword.sendKeys('raji');
+		    expect(name.getAttribute('value')).toEqual('Raji');
+        expect(email.getAttribute('value')).toEqual('raji@gmail.com');
+        expect(password.getAttribute('value')).toEqual('raji');
+        expect(confirmPassword.getAttribute('value')).toEqual('raji');
+        let btn = page.getSignup().click;
+    });
 
   	it('should display login page', () => {
         page.navigateTo('/login');
@@ -26,30 +46,10 @@ describe('Movie Recommendation App', () => {
 		password.sendKeys('raji');
     	expect(email.getAttribute('value')).toEqual('raji@gmail.com');
     	expect(password.getAttribute('value')).toEqual('raji');
-        let btn = page.getLogin().click;
-        //Check if redirected to profile
-    });
-
-    it('should display signup page', () => {
-        page.navigateTo('/signup');
-    });
-
-    it('should fill in the signup form', () => {
-        page.navigateTo('/signup');
-        let name = page.getSignupFormName();
-        let email = page.getSignupFormEmail();
-        let password = page.getSignupFormPassword();
-        let confirmPassword = page.getSignupFormConfirmPassword();
-        name.sendKeys('Raji');
-        email.sendKeys('raji@gmail.com');
-		password.sendKeys('raji');
-		confirmPassword.sendKeys('raji');
-		expect(name.getAttribute('value')).toEqual('Raji');
-    	expect(email.getAttribute('value')).toEqual('raji@gmail.com');
-    	expect(password.getAttribute('value')).toEqual('raji');
-    	expect(confirmPassword.getAttribute('value')).toEqual('raji');
-        let btn = page.getSignup().click;
-        //Check if redirected to profile
+        let btn = page.getLoginButton();
+        btn.click();
+        let prof = page.getProfile();
+        expect(prof.getAttribute('id')).toEqual('reco');
     });
 
     it('should display profile page', () => {

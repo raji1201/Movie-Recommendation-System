@@ -1,9 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { HttpModule }    from '@angular/http';
-import {MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, MatIconModule, MatCardModule} from '@angular/material';
+import { MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, MatIconModule, MatCardModule } from '@angular/material';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -14,14 +14,17 @@ import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UserService } from './user.service';
 import { MovieReviewComponent } from './movie-review/movie-review.component';
+import { TrmComponent } from './trm/trm.component';
+
 
 const appRoutes: Routes = [
 	{path: 'login', component: LoginComponent },
 	{path: 'signup', component: SignUpComponent},
 	{path: '', component: HomeComponent},
-  {path: 'profile', component: ProfileComponent},
-  {path: 'reviews', component: MovieReviewComponent}
-]
+  {path: 'profile/:name', component: ProfileComponent},
+  {path: 'reviews', component: MovieReviewComponent},
+  {path: 'trm', component: TrmComponent}
+];
 
 
 @NgModule({
@@ -32,12 +35,14 @@ const appRoutes: Routes = [
     SignUpComponent,
     HomeComponent,
     ProfileComponent,
-    MovieReviewComponent
+    MovieReviewComponent,
+    TrmComponent
   ],
   imports: [
   HttpModule,
   HttpClientModule,
   FormsModule,
+  
   RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only

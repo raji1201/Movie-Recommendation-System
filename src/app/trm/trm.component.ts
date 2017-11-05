@@ -1,22 +1,24 @@
 import { Component, OnInit } from '@angular/core';
+import {Router, ActivatedRoute, Params} from '@angular/router';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-trm',
+  templateUrl: './trm.component.html',
+  styleUrls: ['./trm.component.css']
 })
-export class HomeComponent implements OnInit {
+export class TrmComponent implements OnInit {
 
   constructor(private http: Http) { }
 
   ngOnInit() {
-  	const req = this.http.post('/home', null);
+  	const req = this.http.post('/seemore', null);
     	req.subscribe(
     	res => {
+
           var response = res["_body"];
-          console.log(JSON.parse(response));
-          //console.log(JSON.parse(response)['name']);
+          //var name = JSON.parse(response)['name'];
+          console.log(response);
           
         },
         err => {

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {UserService} from '../user.service';
+import {Router, ActivatedRoute, Params} from '@angular/router';
+import { Http, Response, RequestOptions, Headers } from '@angular/http';
 
 @Component({
   selector: 'app-profile',
@@ -9,10 +10,28 @@ import {UserService} from '../user.service';
 export class ProfileComponent implements OnInit {
 
 	name = '';
-  constructor(private user: UserService) { }
+	m1 = '';
+	m2 = '';
+	m3 = '';
 
-  ngOnInit() {
-  	this.name = this.user.username;
-  }
+  	constructor(private http: Http, private activatedRoute: ActivatedRoute) {
+  	}
 
+  	ngOnInit() {
+
+  		const req = this.http.post('/home', null);
+    	req.subscribe(
+    	res => {
+          var response = res["_body"];
+          //console.log(JSON.parse(response)['name']);
+          console.log(JSON.parse(response));
+        },
+        err => {
+          console.log("ERROR");
+        });
+
+  		this.activatedRoute.params.subscribe((params: Params) => {
+        	this.name = params['name'];
+      	});
+  	};
 }

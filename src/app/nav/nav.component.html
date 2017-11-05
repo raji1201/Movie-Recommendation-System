@@ -17,7 +17,7 @@
         <mat-menu #menu="matMenu">
             
 
-            <a style="font-size: 100%; text-decoration: none;" routerLink="/signup" routerLinkActive="active"><button mat-menu-item id="signupBtn">
+            <a style="font-size: 100%; text-decoration: none;" routerLink="/signup" routerLinkActive="active"><button *ngIf="!isUserLoggedIn()" mat-menu-item id="signupBtn">
                 <mat-icon>account_box</mat-icon>
                 <span>Sign Up</span>
             </button> </a>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
-import {Http, Response, RequestOptions, Headers} from '@angular/http';
+import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { User } from './user';
 
 @Component({
@@ -11,14 +11,23 @@ import { User } from './user';
 })
 export class LoginComponent{
 
-  constructor(private http: Http) {}
+  constructor(private http: Http, private router: Router) {}
   submitted = false;
   model = new User ('', '');
 
   onSubmit(form: NgForm) {
-    let formData = JSON.stringify(form.value);
-    console.log(formData);
+    let formData = form.value;
+    //console.log(formData);
     const req = this.http.post('/loginuser', formData);
-    req.subscribe();  
+    req.subscribe(
+    	res => {
+          var response = res["_body"];
+          //console.log(JSON.parse(response)['name']);
+          var name = JSON.parse(response)['name'];
+          this.router.navigate(['/profile', name]);
+        },
+        err => {
+          console.log("ERROR");
+        });  
   }
 }
