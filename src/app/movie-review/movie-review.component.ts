@@ -17,6 +17,7 @@ export class MovieReviewComponent implements OnInit {
   watched=false;
   name  = '';
   rating=0.0;
+  movie_review='';
 
   constructor(private http: Http,
     private router: Router,
@@ -30,6 +31,7 @@ export class MovieReviewComponent implements OnInit {
              const req = this.http.get('/moviereview', params['name']);
            req.subscribe(
              res => {
+               this.movie_review=params['movie_review'];
                this.watched=params['watched'];
               this.name=params['name'];
                  var response = res["_body"];
