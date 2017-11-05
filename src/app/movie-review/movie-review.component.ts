@@ -1,5 +1,6 @@
-import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Http, Response, RequestOptions, Headers } from '@angular/http';
 
 @Component({
   selector: 'app-movie-review',
@@ -8,11 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovieReviewComponent implements OnInit {
 
-  constructor(private router: Router) { }
+	name  = '';
+
+  constructor(private http: Http, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-  }
 
-  
+  	this.activatedRoute.params.subscribe((params: Params) => {
+        	
+        	console.log(params['name']);
+        	this.name = params['name'];
+        	const req = this.http.post('/moviereview', params['name']);
+    		req.subscribe(
+    			res => {
+          		var response = res["_body"];
+          		//console.log(JSON.parse(response)['name']);
+          		console.log(JSON.parse(response));
+        	});
+      	});
+  }  
 
 }

@@ -17,16 +17,25 @@
         <mat-menu #menu="matMenu">
             
 
-            <a *ngIf="!isUserLoggedIn()" style="font-size: 100%; text-decoration: none;" routerLink="/signup" routerLinkActive="active"><button mat-menu-item id="signupBtn">
+            <a style="font-size: 100%; text-decoration: none;" routerLink="/signup" routerLinkActive="active"><button *ngIf="!isUserLoggedIn()" mat-menu-item id="signupBtn">
                 <mat-icon>account_box</mat-icon>
                 <span>Sign Up</span>
             </button> </a>
-            <a style="font-size: 100%; text-decoration: none;" routerLink="/login" routerLinkActive="active"> <button mat-menu-item id="loginBtn">
+            <a style="font-size: 100%; text-decoration: none;" routerLink="/login" routerLinkActive="active"> <button *ngIf="!isUserLoggedIn()" mat-menu-item id="loginBtn">
                 <mat-icon>account_circle</mat-icon>
                 <span>Log In</span>
             </button>
             </a>
-                
+            <a style="font-size: 100%; text-decoration: none;" routerLink="/" routerLinkActive="active"> <button *ngIf="isUserLoggedIn()" mat-menu-item id="logoutBtn">
+                <mat-icon>account_circle</mat-icon>
+                <span>Logout</span>
+            </button>
+            </a>
+            <a style="font-size: 100%; text-decoration: none;" routerLink="/profile/{{currUser}}" routerLinkActive="active"> <button *ngIf="isUserLoggedIn()" mat-menu-item id="profileBtn">
+                <mat-icon>account_circle</mat-icon>
+                <span>Profile</span>
+            </button>
+            </a>                
         </mat-menu>
         
         </li>

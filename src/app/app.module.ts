@@ -14,6 +14,7 @@ import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UserService } from './user.service';
 import { MovieReviewComponent } from './movie-review/movie-review.component';
+import { TrmComponent } from './trm/trm.component';
 
 
 const appRoutes: Routes = [
@@ -21,7 +22,8 @@ const appRoutes: Routes = [
 	{path: 'signup', component: SignUpComponent},
 	{path: '', component: HomeComponent},
   {path: 'profile/:name', component: ProfileComponent},
-  {path: 'reviews', component: MovieReviewComponent}
+  {path: 'reviews/:name', component: MovieReviewComponent},
+  {path: 'trm', component: TrmComponent}
 ];
 
 
@@ -33,7 +35,8 @@ const appRoutes: Routes = [
     SignUpComponent,
     HomeComponent,
     ProfileComponent,
-    MovieReviewComponent
+    MovieReviewComponent,
+    TrmComponent
   ],
   imports: [
   HttpModule,
