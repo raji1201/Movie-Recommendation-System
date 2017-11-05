@@ -10,6 +10,11 @@ import { Http, Response, RequestOptions, Headers } from '@angular/http';
 export class MovieReviewComponent implements OnInit {
 
 	name  = '';
+  rating = '';
+  users = '';
+  length = '';
+  rel = '';
+  des = '';
 
   constructor(private http: Http, private router: Router, private activatedRoute: ActivatedRoute) { }
 
@@ -23,8 +28,13 @@ export class MovieReviewComponent implements OnInit {
     		req.subscribe(
     			res => {
           		var response = res["_body"];
-          		//console.log(JSON.parse(response)['name']);
-          		console.log(JSON.parse(response));
+              this.name = JSON.parse(response)['name'];
+              this.rating = JSON.parse(response)['rating'];
+              this.users = JSON.parse(response)['users'];
+              this.length = JSON.parse(response)['length'];
+              this.rel = JSON.parse(response)['rel'];
+              this.des = JSON.parse(response)['des'];
+              console.log(JSON.parse(response));
         	});
       	});
   }  
