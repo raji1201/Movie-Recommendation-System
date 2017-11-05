@@ -18,7 +18,7 @@ export class TrmComponent implements OnInit {
   constructor(private http: Http) { }
 
   ngOnInit() {
-  	const req = this.http.post('/seemore', null);
+  	const req = this.http.get('/seemore');
     	req.subscribe(
     	res => {
 

@@ -19,7 +19,7 @@ export class ProfileComponent implements OnInit {
 
   	ngOnInit() {
 
-  		const req = this.http.post('/home', null);
+  		const req = this.http.get('/home');
     	req.subscribe(
     	res => {
           var response = res["_body"];
