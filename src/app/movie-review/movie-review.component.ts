@@ -18,7 +18,7 @@ export class MovieReviewComponent implements OnInit {
   	this.activatedRoute.params.subscribe((params: Params) => {
         	
         	console.log(params['name']);
-        	
+        	this.name = params['name'];
         	const req = this.http.get('/moviereview', params['name']);
     		req.subscribe(
     			res => {

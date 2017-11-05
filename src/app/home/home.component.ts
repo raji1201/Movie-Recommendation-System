@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { Router } from '@angular/router';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-home',
@@ -13,15 +14,14 @@ export class HomeComponent implements OnInit {
   m2 = '';
   m3 = '';
 
-  constructor(private http: Http, private router: Router) { }
+  constructor(private http: Http, private router: Router, private userService: UserService) { }
 
   ngOnInit() {
+    this.userService.logoutUser();
   	const req = this.http.post('/home', null);
     	req.subscribe(
     	res => {
           var response = res["_body"];
-          console.log(JSON.parse(response));
-          //console.log(JSON.parse(response)['name']);
           this.m1 = JSON.parse(response)['m1'];
           this.m2 = JSON.parse(response)['m2'];
           this.m3 = JSON.parse(response)['m3'];
