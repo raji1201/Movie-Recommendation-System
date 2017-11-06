@@ -17,34 +17,51 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpModule }    from '@angular/http';
 import { MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, MatIconModule, MatCardModule } from '@angular/material';
 import { APP_BASE_HREF } from '@angular/common';
+import { MovieReviewComponent } from './movie-review/movie-review.component';
+import { TrmComponent } from './trm/trm.component';
+import { ElasticsearchService } from './elasticsearch.service';
+import { SearchResultsComponent } from './search-results/search-results.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
-	{path: 'login', component: LoginComponent },
-	{path: 'signup', component: SignUpComponent},
-	{path: '', component: HomeComponent},
-  {path: 'profile', component: ProfileComponent}
-]
+  {path: 'login', component: LoginComponent },
+  {path: 'signup', component: SignUpComponent},
+  {path: '', component: HomeComponent},
+  {path: 'profile/:name', component: ProfileComponent},
+  {path: 'reviews/:name', component: MovieReviewComponent},
+  {path: 'trm', component: TrmComponent},
+  {path: 'results', component: SearchResultsComponent}
+];
+
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,
-	    NavComponent,
-	    LoginComponent,
-	    SignUpComponent,
-	    HomeComponent,
-	    ProfileComponent
+  	    NavComponent,
+  	    LoginComponent,
+  	    SignUpComponent,
+  	    HomeComponent,
+  	    ProfileComponent,
+        MovieReviewComponent,
+        TrmComponent,
+        SearchResultsComponent
       ],
-      imports: [HttpModule,
-  		HttpClientModule,
-  		FormsModule,
-  		RouterModule.forRoot(
-      		appRoutes,
-      		{ enableTracing: true }
-    	),
-    	BrowserAnimationsModule, BrowserModule, MatButtonModule, MatCheckboxModule,MatMenuModule, MatToolbarModule, MatIconModule, MatCardModule],
-	  providers: [UserService,{provide: APP_BASE_HREF, useValue: '/'}]
+      imports: [
+        HttpModule,
+        HttpClientModule,
+        FormsModule,
+        BrowserModule,
+        ReactiveFormsModule,
+        RouterModule,
+        RouterModule.forRoot(
+          appRoutes,
+          { enableTracing: true } // <-- debugging purposes only
+        ),
+        BrowserAnimationsModule, BrowserModule, MatButtonModule, MatCheckboxModule,MatMenuModule, MatToolbarModule, MatIconModule, MatCardModule
+      ],
+	    providers: [UserService,{provide: APP_BASE_HREF, useValue: '/'}, ElasticsearchService]
     }).compileComponents();
   }));
   it('should create the app', async(() => {

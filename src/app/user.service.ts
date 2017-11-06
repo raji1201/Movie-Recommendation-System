@@ -5,7 +5,8 @@ export class UserService {
 
   private isUserLoggedIn;
   public username;
-
+  public movies = [];
+  
   constructor() { 
   	this.isUserLoggedIn = false;
   }
