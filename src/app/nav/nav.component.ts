@@ -46,7 +46,7 @@ export class NavComponent implements OnInit {
 
   onSubmit(searchTerm:string) {
    this.queryText = searchTerm;
-   console.log(searchTerm);
+   // console.log(searchTerm);
 
    this.es.fullTextSearch(
      this.INDEX,
@@ -54,7 +54,10 @@ export class NavComponent implements OnInit {
      this.queryText).then(
        response => {
          this.movieResults = response.hits.hits;
-         console.log('response');
+         for (let i = 0; i < this.movieResults.length; i++) {
+           this.movieResults[i] = this.movieResults[i]._source;
+           console.log(this.movieResults[i]);
+         }
        }, err => {
          console.error(err);
      }).then(() => {
