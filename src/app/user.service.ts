@@ -15,8 +15,17 @@ export class UserService {
     this.username = username;
   }
 
+  getCurrUser()
+  {
+    return this.username;
+  }
+
   getUserLoggedIn() {
   	return this.isUserLoggedIn;
   }
 
+  logoutUser()
+  {
+    this.isUserLoggedIn = false;    
+  }
 }
