@@ -9,8 +9,8 @@
 <div class="navbar navbar-default" id="secondary-nav" style="z-index:30;">
   <div class="container-fluid">
     <ul class="nav">
-        <li><input class="form-control" type="text" placeholder="Search"></li>
-        <li><button class="btn btn-primary" color="primary" type="submit">GO!</button></li>
+        <li><input #searchTerm class="form-control" type="text" placeholder="Search"></li>
+        <li><button class="btn btn-primary" (click)="onSubmit(searchTerm.value)" color="primary" type="submit">GO!</button></li>
         <li><button mat-icon-button [matMenuTriggerFor]="menu" id="menuBtn">
             <mat-icon>more_vert</mat-icon>
         </button>

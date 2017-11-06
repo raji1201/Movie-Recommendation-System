@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule }    from '@angular/http';
 import { MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, MatIconModule, MatCardModule } from '@angular/material';
@@ -15,7 +16,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { UserService } from './user.service';
 import { MovieReviewComponent } from './movie-review/movie-review.component';
 import { TrmComponent } from './trm/trm.component';
-
+import { ElasticsearchService } from './elasticsearch.service';
+import { SearchResultsComponent } from './search-results/search-results.component';
 
 const appRoutes: Routes = [
 	{path: 'login', component: LoginComponent },
@@ -23,7 +25,8 @@ const appRoutes: Routes = [
 	{path: '', component: HomeComponent},
   {path: 'profile/:name', component: ProfileComponent},
   {path: 'reviews/:name', component: MovieReviewComponent},
-  {path: 'trm', component: TrmComponent}
+  {path: 'trm', component: TrmComponent},
+  {path: 'results', component: SearchResultsComponent}
 ];
 
 
@@ -36,12 +39,15 @@ const appRoutes: Routes = [
     HomeComponent,
     ProfileComponent,
     MovieReviewComponent,
-    TrmComponent
+    TrmComponent,
+    SearchResultsComponent
   ],
   imports: [
   HttpModule,
   HttpClientModule,
   FormsModule,
+  BrowserModule,
+  ReactiveFormsModule,
   
   RouterModule.forRoot(
       appRoutes,
@@ -49,7 +55,7 @@ const appRoutes: Routes = [
     ),
     BrowserAnimationsModule, BrowserModule, MatButtonModule, MatCheckboxModule,MatMenuModule, MatToolbarModule, MatIconModule, MatCardModule
   ],
-  providers: [UserService],
+  providers: [UserService, ElasticsearchService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
