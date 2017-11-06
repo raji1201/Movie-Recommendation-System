@@ -124,8 +124,6 @@ app.get("/seemore",function(req,res){
 });
 
 app.post("/moviereview",function(req,res){
-	console.log("Entered moviereview");
-	console.log(req.body.movie);
 	var movie_name=req.body.movie;
 
 	var sql="select * from movie where name='"+movie_name+"'";
@@ -133,8 +131,7 @@ app.post("/moviereview",function(req,res){
 	connection.query(sql,function(err,result,fields){
 
 		if(err) throw err;
-
-		
+	
 		var obj={name:result[0].name,rating:result[0].rating,users:result[0].users,length:result[0].length,rel:result[0].rel,des:result[0].des};
 		
 		res.json(obj);
@@ -142,6 +139,96 @@ app.post("/moviereview",function(req,res){
 	});
 	
 });
+
+app.post("/checkWatched",function(req,res){
+
+	var uname=req.body.username;
+	var mname=req.body.movie;
+
+	var sql="select * from watched where user='"+uname+"' and mname='"+mname+"';";
+	
+	connection.query(sql,function(err,result,fields){
+
+		if(err) throw err;
+
+		
+		if(result.length>0)
+			res.json({watch:true});
+		else
+			res.json({watch:false});
+
+
+	});
+});
+
+app.post("/watched",function(req,res){
+
+	var uname=req.body.username;
+	var mname=req.body.movie;
+
+	var sql_pre="select * from watched where user='"+uname+"' and mname='"+mname+"';";
+
+	connection.query(sql_pre,function(err,result,fields){
+
+		console.log(result);
+		if(result.length>0)
+			res.json({dummy:"dummy"});
+		else {
+
+			var sql="insert into watched values('"+uname+"','"+mname+"');";
+
+			connection.query(sql,function(err,result,fields){
+
+				if(err) throw err;	
+
+				res.json({dummy:"dummy"});
+			});
+
+			}
+
+	});
+
+	
+});
+
+app.post("/updateRating",function(req,res){
+
+	var mname=req.body.movie;
+	var rating=req.body.rating;
+
+	rating=rating*2;
+	
+
+	var sql="select rating,users from movie where name='"+mname+"';";
+
+	connection.query(sql,function(err,result,fields){
+
+		if(err) throw err;
+
+		
+		var old_u=result[0].users;
+		var old_r=result[0].rating;
+		var old_sum=old_u * old_r;
+		
+		var new_sum=old_sum + rating;
+		var new_a=new_sum/(old_u+1);
+		
+		new_a=Math.round(new_a*10)/10;
+		old_u=old_u+1;
+		
+
+		var sql2="update movie set users="+old_u+", rating="+new_a+" where name='"+mname+"';"
+		
+		connection.query(sql2,function(err,result,fields){
+
+			if(err) throw err;
+
+			res.json({rating:new_a,users:old_u});
+
+		});
+	});
+});
+
 
 
 
