@@ -1,6 +1,17 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { Router, RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home.component';
+import { LoginComponent } from '../login/login.component';
+import { SignUpComponent } from '../sign-up/sign-up.component';
+import { ProfileComponent } from '../profile/profile.component';
+import { UserService } from '../user.service';
+
+const appRoutes: Routes = [
+	{path: 'login', component: LoginComponent },
+	{path: 'signup', component: SignUpComponent},
+	{path: '', component: HomeComponent},
+  {path: 'profile', component: ProfileComponent}
+]
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -8,7 +19,11 @@ describe('HomeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HomeComponent ]
+      declarations: [ HomeComponent ],
+      imports: [RouterModule.forRoot(
+      		appRoutes,
+      		{ enableTracing: true }
+    	)]
     })
     .compileComponents();
   }));

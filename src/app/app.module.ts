@@ -8,7 +8,7 @@ import { MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, Ma
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RouterModule, Routes} from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { HomeComponent } from './home/home.component';
@@ -43,16 +43,16 @@ const appRoutes: Routes = [
     SearchResultsComponent
   ],
   imports: [
-  HttpModule,
-  HttpClientModule,
-  FormsModule,
-  BrowserModule,
-  ReactiveFormsModule,
-  
-  RouterModule.forRoot(
-      appRoutes,
-      { enableTracing: true } // <-- debugging purposes only
-    ),
+    HttpModule,
+    HttpClientModule,
+    FormsModule,
+    BrowserModule,
+    ReactiveFormsModule,
+    RouterModule,
+    RouterModule.forRoot(
+        appRoutes,
+        { enableTracing: true } // <-- debugging purposes only
+      ),
     BrowserAnimationsModule, BrowserModule, MatButtonModule, MatCheckboxModule,MatMenuModule, MatToolbarModule, MatIconModule, MatCardModule
   ],
   providers: [UserService, ElasticsearchService],
