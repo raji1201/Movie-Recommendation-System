@@ -47,7 +47,7 @@ export class ElasticsearchService {
           }
         }
       },
-      '_source': ['name', 'year']
+      '_source': ['name', 'rating', 'users', 'length', 'rel', 'des']
     });
   }
 

@@ -19,12 +19,11 @@ fs.readFile('movies.json', 'utf8', function(err, data){
     
     movie = {
       name: obj.name,
-      year: obj.year,
-      posterurl: obj.posterurl,
-      imdbRating: obj.imdbRating,
-      releaseDate: obj.releaseDate,
-      storyline: obj.storyline,
-      duration: obj.duration
+      rating: obj.rating,
+      users: obj.users,
+      length: obj.length,
+      rel: obj.rel,
+      des: obj.des
     }
     bulk_request.push(movie);
 
