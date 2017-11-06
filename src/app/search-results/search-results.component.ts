@@ -15,9 +15,14 @@ export class SearchResultsComponent implements OnInit {
 
   ngOnInit() {
   	
-  	for (let i = 0; i < this.userService.movies.length; i++) {
-           this.movies[i] = this.userService.movies[i]; }
-           console.log(this.movies);
+  	if(this.userService.movies.length != 0)
+  	{
+  		for (let i = 0; i < this.userService.movies.length; i++)
+  		{
+           this.movies[i] = this.userService.movies[i];
+       	}
+    }
+    else
+    	this.movies = ['No results!'];
   }
-
 }
