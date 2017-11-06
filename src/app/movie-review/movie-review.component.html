@@ -3,63 +3,26 @@
     <h2 id = "head" class="text-center">
       Movie Review for {{name}}
     </h2>
-    <br>
-    <div class="row">
-      <div class="col-sm-3">
-        <!-- <img src="./assets/snowman.jpeg" alt="Snowman" class="img-responsive" style="padding-top: 5px" align="left" > -->
-      </div>
-      <div class="col-sm-9">
-      <div class="row">
-        <div class="col-sm-12">
-            <p class="text-left" name="rating" >
-            {{movie_review}}
-              <!-- When an elite crime squad's lead detective (Michael Fassbender) investigates the disappearance of a victim on the first snow of winter, he fears an elusive serial killer may be active again. With the help of a brilliant recruit (Rebecca Ferguson), the cop must connect decades-old cold cases to the brutal new one if he hopes to outwit this unthinkable evil before the next snowfall. -->
-            </p>
-            <div class="float-left">
-                <label for="rating">What's your rating?</label>
-               <fieldset class="rating">
-    <input type="radio" id="star5" (click)="update_rating(5)" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
-    <!-- <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label> -->
-    <input type="radio" id="star4"(click)="update_rating(4)" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
-    <!-- <input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label> -->
-    <input type="radio" id="star3" (click)="update_rating(3)" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
-    <!-- <input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label> -->
-    <input type="radio" id="star2" (click)="update_rating(2)" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
-    <!-- <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label> -->
-    <input type="radio" id="star1"(click)="update_rating(1)" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
-    <!-- <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label> -->
-</fieldset>
-
-<button mat-raised-button color="primary" (click)=watchStatus()>{{watched?'Watched': 'Add to watch list'}}</button>
-
-            </div>
-            
-        </div>
-        
-        
-          <div class="col-sm-12 float-left" >
-              <!-- <textarea  rows="10" cols="100" placeholder= "Please enter your review here" class ="submissionfield"  name="review"></textarea> -->
-             <p>
-                    <mat-form-field class="example-full-width">
-                            <textarea matInput placeholder="Please enter your review here" rows="7" cols="100"></textarea>
-                          </mat-form-field>
-             </p>
-                    
-                          
-          </div>
-          
-            
-        
-          
-              
-              
-
-            
-      <br />
-      <div class="col-sm-12 text-left">
-            <button mat-raised-button color="primary">Submit</button>
-          <!-- <input type="submit" name="review-submit" value="Submit"> -->
-      </div>
-    </div>
   </div>
+  <div>
+    
+    Rated {{rating}} by {{users}} users!<br>
+    Running time : {{length}}<br>
+    Release year : {{rel}}<br>
+    </div>
+    
+    <p class="text-left" name="rating">Movie description : {{des}} </p><br>
+    <label *ngIf="isUserLoggedIn()" for="rating">What's your rating?</label>
+    <div>      
+      <fieldset *ngIf="isUserLoggedIn()" class="rating">
+        <input type="radio" id="star5" (click)="updateRating(5)" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+        <input type="radio" id="star4" (click)="updateRating(4)" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+        <input type="radio" id="star3" (click)="updateRating(3)" name="rating" value="3" /><label class = "full" for="star3" title="Decent - 3 stars"></label>
+        <input type="radio" id="star2" (click)="updateRating(2)" name="rating" value="2" /><label class = "full" for="star2" title="Bad - 2 stars"></label>
+        <input type="radio" id="star1" (click)="updateRating(1)" name="rating" value="1" /><label class = "full" for="star1" title="Really bad - 1 star"></label>
+      </fieldset>
+      <br>
+      <br>
+      <button *ngIf="isUserLoggedIn()" class="btn btn-primary" color="primary" (click)="watched()">{{watchStatus}}</button>
+    </div>
 </div>

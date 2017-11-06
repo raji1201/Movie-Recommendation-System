@@ -28,5 +28,4 @@ export class UserService {
   {
     this.isUserLoggedIn = false;    
   }
-
 }

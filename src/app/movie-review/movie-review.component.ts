@@ -5,8 +5,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
-import {MatButtonModule} from '@angular/material';
-import {HttpClientModule} from '@angular/common/http';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-movie-review',
@@ -19,29 +18,15 @@ export class MovieReviewComponent implements OnInit {
   rating=0.0;
   movie_review='';
 
-  constructor(private http: Http,
-    private router: Router,
-     private activatedRoute: ActivatedRoute) { }
-     ngOnInit() {
-       
-           this.activatedRoute.params.subscribe((params: Params) => {
-             
-             console.log(params['name']);
-             this.name=params['name'];
-             const req = this.http.get('/moviereview', params['name']);
-           req.subscribe(
-             res => {
-               this.movie_review=params['movie_review'];
-               this.watched=params['watched'];
-              this.name=params['name'];
-                 var response = res["_body"];
-                 //console.log(JSON.parse(response)['name']);
-                 console.log(JSON.parse(response));
-             });
-           });
-         }
-  getWatchStatus(){
-     
+  currUser = '';
+	name  = '';
+  rating = '';
+  users = '';
+  length = '';
+  rel = '';
+  des = '';
+  watchStatus = 'Add to watched list'
+  constructor(private http: Http, private router: Router, private activatedRoute: ActivatedRoute, private userService: UserService) { }
 
    
     
@@ -73,8 +58,66 @@ update_rating(star:number){
   //  const headers = new Headers({'Content-Type': 'application/json'});
   // const req = this.http.post('/moviereview',JSON.stringify(movie_details_obj) );
 
-  // console.log(this.watched);
-  // req.subscribe(); 
+  	this.activatedRoute.params.subscribe((params: Params) => {
+        	
+        	this.name = params['name'];
+          const req = this.http.post('/moviereview', {movie:this.name});
+    		req.subscribe(
+    			res => {
+          		var response = res["_body"];
+          		this.name = JSON.parse(response)['name'];
+              this.rating = JSON.parse(response)['rating'];
+              this.users = JSON.parse(response)['users'];
+              this.length = JSON.parse(response)['length'];
+              this.rel = JSON.parse(response)['rel'];
+              this.des = JSON.parse(response)['des'];
+        	});
+      	});
 
-  // }
+    console.log(this.userService.getUserLoggedIn());
+    if(this.userService.getUserLoggedIn())
+    {
+      const req = this.http.post('/checkWatched', {movie:this.name, username:this.userService.getCurrUser});
+      req.subscribe(
+      res => {
+          var response = res["_body"];
+          if(JSON.parse(response)['watch'])
+            this.watchStatus = 'Watched';
+          else
+            this.watchStatus = 'Add to watched list'
+        });
+    }
+
+  }
+
+  isUserLoggedIn()
+  {
+    if(this.userService.getUserLoggedIn())
+    {
+      this.currUser = this.userService.getCurrUser();
+      return true;
+    }
+    else
+      return false;
+  } 
+
+  watched()
+  {
+    const req = this.http.post('/watched', {movie:this.name, username:this.userService.getCurrUser});
+    req.subscribe(
+      res => {
+        this.watchStatus = 'Watched';
+        });
+  } 
+
+  updateRating(n)
+  {
+    const req = this.http.post('/updateRating', {movie:this.name, username:this.userService.getCurrUser, rating:n});
+    req.subscribe(
+      res => {
+        var response = res["_body"];
+        this.rating = JSON.parse(response)['rating'];
+        this.users = JSON.parse(response)['users'];
+        });
+  }
 }
