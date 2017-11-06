@@ -1,4 +1,8 @@
+import { Movie_Watch_Details } from './Movie_Watch_Details';
 import { Component, OnInit } from '@angular/core';
+// import {OnClickEvent, OnRatingChangeEven, OnHoverRatingChangeEvent} from 'angular-star-rating/src/star-rating-struct';
+// import {StarRatingModule} from 'angular-star-rating/src/star-rating-module';
+
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { UserService } from '../user.service';
@@ -9,6 +13,10 @@ import { UserService } from '../user.service';
   styleUrls: ['./movie-review.component.css']
 })
 export class MovieReviewComponent implements OnInit {
+  watched=false;
+  name  = '';
+  rating=0.0;
+  movie_review='';
 
   currUser = '';
 	name  = '';
@@ -20,7 +28,35 @@ export class MovieReviewComponent implements OnInit {
   watchStatus = 'Add to watched list'
   constructor(private http: Http, private router: Router, private activatedRoute: ActivatedRoute, private userService: UserService) { }
 
-  ngOnInit() {
+   
+    
+  }
+  
+  
+//  watched_status='false';
+update_rating(star:number){
+  this.rating=star;
+  const req = this.http.post('/rating',JSON.stringify(this.rating) );
+  
+    console.log(this.watched);
+    req.subscribe(); 
+  
+  console.log(this.rating);
+}
+   watchStatus(){
+    this.watched=!this.watched;
+    const req = this.http.post('/watched',JSON.stringify(this.watched) );
+    
+      console.log(this.watched);
+      req.subscribe(); 
+   }
+  
+  // send_updates(movie_details_obj:Movie_Watch_Details){
+    
+   
+   
+  //  const headers = new Headers({'Content-Type': 'application/json'});
+  // const req = this.http.post('/moviereview',JSON.stringify(movie_details_obj) );
 
   	this.activatedRoute.params.subscribe((params: Params) => {
         	
