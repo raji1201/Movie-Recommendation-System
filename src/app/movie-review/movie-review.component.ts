@@ -71,11 +71,6 @@ export class MovieReviewComponent implements OnInit {
     req.subscribe(
       res => {
         this.watchStatus = 'Watched';
-          //var response = res["_body"];
-          //if(JSON.parse(response)['watch'])
-          //  this.watchStatus = 'Watched';
-          //else
-          //  this.watchStatus = 'Add to watched list'
         });
   } 
 
@@ -86,6 +81,7 @@ export class MovieReviewComponent implements OnInit {
       res => {
         var response = res["_body"];
         this.rating = JSON.parse(response)['rating'];
+        this.users = JSON.parse(response)['users'];
         });
   }
 }
