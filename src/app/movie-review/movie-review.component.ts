@@ -69,7 +69,7 @@ export class MovieReviewComponent implements OnInit {
 
   watched()
   {
-    const req = this.http.post('/watched', {movie:this.name, username:this.userService.getCurrUser});
+    const req = this.http.post('/watched', {movie:this.name, username:this.userService.getCurrUser()});
     req.subscribe(
       res => {
         this.watchStatus = 'Watched';
@@ -78,7 +78,7 @@ export class MovieReviewComponent implements OnInit {
 
   updateRating(n)
   {
-    const req = this.http.post('/updateRating', {movie:this.name, username:this.userService.getCurrUser, rating:n});
+    const req = this.http.post('/updateRating', {movie:this.name, username:this.userService.getCurrUser(), rating:n});
     req.subscribe(
       res => {
         var response = res["_body"];
