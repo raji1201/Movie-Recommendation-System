@@ -30,10 +30,4 @@ export class HomeComponent implements OnInit {
           console.log("ERROR");
         });
   }
-
-  getMovieReview(m)
-  {
-    this.router.navigate(['/reviews', m]);
-  }
-
 }
