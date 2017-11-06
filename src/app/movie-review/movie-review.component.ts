@@ -77,7 +77,9 @@ update_rating(star:number){
     console.log(this.userService.getUserLoggedIn());
     if(this.userService.getUserLoggedIn())
     {
-      const req = this.http.post('/checkWatched', {movie:this.name, username:this.userService.getCurrUser});
+    	console.log(this.name);
+    	console.log(this.userService.getCurrUser());
+      const req = this.http.post('/checkWatched', {movie:this.name, username:this.userService.getCurrUser()});
       req.subscribe(
       res => {
           var response = res["_body"];
