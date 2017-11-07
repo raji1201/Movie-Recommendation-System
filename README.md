@@ -27,5 +27,10 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 ## Running end-to-end tests
 
-Run node server.js & elasticsearch.bat
+Run node server.js & elasticsearch.bat.
+
 Run `ng e2e --no-serve -port 3000` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+
+## Running backend tests
+
+Run 'npm test' to execute the backend tests via Mocha.
