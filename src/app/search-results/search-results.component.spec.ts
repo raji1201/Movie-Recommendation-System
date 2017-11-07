@@ -77,4 +77,31 @@ describe('SearchResultsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have no movies when initialised', async(() => {
+    const fixture = TestBed.createComponent(HomeComponent);
+    fixture.detectChanges();
+    component.movies=[];
+    const compiled = fixture.debugElement.nativeElement;
+    //expect(compiled.querySelector('a').textContent).toContain('Batman');
+    expect(component.movies.length===0).toBe(true);
+  }));
+
+  it('when movie exists, should assert correctly ', async(() => {
+    const fixture = TestBed.createComponent(HomeComponent);
+    fixture.detectChanges();
+    component.movies=['Batman'];
+    const compiled = fixture.debugElement.nativeElement;
+    //expect(compiled.querySelector('a').textContent).toContain('Batman');
+    expect(component.movies.length===0).toBe(false);
+  }));
+  it('when no movie exists,should have No results! stored in it ', async(() => {
+    const fixture = TestBed.createComponent(HomeComponent);
+    fixture.detectChanges();
+    //component.movies=['Batman'];
+    const compiled = fixture.debugElement.nativeElement;
+    //expect(compiled.querySelector('a').textContent).toContain('Batman');
+    expect(component.movies[0]).toBe('No results!');
+  }));
 });
+

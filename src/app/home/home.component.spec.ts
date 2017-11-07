@@ -85,12 +85,29 @@ describe('HomeComponent', () => {
     expect(compiled.querySelector('h4').textContent).toContain('TOP RATED MOVIES');
   }));
 
-  it('should render movie1 in <a> tag', async(() => {
+  it('negative test to check if movie name is rendered', async(() => {
     const fixture = TestBed.createComponent(HomeComponent);
     fixture.detectChanges();
-    let m1="Batman";
+    component.m1='Batman';
+    const compiled = fixture.debugElement.nativeElement;
+    //expect(compiled.querySelector('a').textContent).toContain('Batman');
+    expect(component.m1.length>0).toBe(true);
+  }));
+
+  it('should render movie2 in <a> tag', async(() => {
+    const fixture = TestBed.createComponent(HomeComponent);
+    fixture.detectChanges();
+//    this.m2='Batman';
     const compiled = fixture.debugElement.nativeElement;
     //expect(compiled.querySelector('a').textContent).toContain('Batman');
     expect(component.m1.length===0).toBe(true);
+  }));
+  it('should render movie3 in <a> tag', async(() => {
+    const fixture = TestBed.createComponent(HomeComponent);
+    fixture.detectChanges();
+   // this.m2='Batman';
+    const compiled = fixture.debugElement.nativeElement;
+    //expect(compiled.querySelector('a').textContent).toContain('Batman');
+    expect(component.m3.length===0).toBe(true);
   }));
 });

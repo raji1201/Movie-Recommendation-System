@@ -79,4 +79,39 @@ describe('TrmComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render a <h2> heading tag', async(() => {
+    const fixture = TestBed.createComponent(TrmComponent);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('h2').textContent).toContain('TOP RATED MOVIES');
+  }));
+
+  it('should return true if movie 1 is empty', async(() => {
+    const fixture = TestBed.createComponent(TrmComponent);
+    fixture.detectChanges();
+   // this.m2='Batman';
+    const compiled = fixture.debugElement.nativeElement;
+    //expect(compiled.querySelector('a').textContent).toContain('Batman');
+    expect(component.m1.length===0).toBe(true);
+  }));
+
+  it('should return true if movie 2 is not empty', async(() => {
+    const fixture = TestBed.createComponent(TrmComponent);
+    fixture.detectChanges();
+   component.m2='Batman';
+    const compiled = fixture.debugElement.nativeElement;
+    //expect(compiled.querySelector('a').textContent).toContain('Batman');
+    expect(component.m2.length>0).toBe(true);
+  }));
+
+  it('should return true if movie 5 is not empty', async(() => {
+    const fixture = TestBed.createComponent(TrmComponent);
+    fixture.detectChanges();
+   component.m5='Batman';
+    const compiled = fixture.debugElement.nativeElement;
+    //expect(compiled.querySelector('a').textContent).toContain('Batman');
+    expect(component.m5.length>0).toBe(true);
+  }));
+  
 });

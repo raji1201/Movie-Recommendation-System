@@ -92,4 +92,6 @@ describe('NavComponent', () => {
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('a').textContent).toContain('MOVIE RECOMMENDATION SYSTEM');
   }));
+
+  
 });
