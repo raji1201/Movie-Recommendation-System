@@ -38,7 +38,7 @@ connection.connect(function(err){
 
 
 
-app.post("/loginuser",function(req,res){
+app.post('/loginuser',function(req,res){
 	
 	ip_email=req.body.email;
 	ip_password=req.body.password;
@@ -65,7 +65,7 @@ app.post("/loginuser",function(req,res){
 });
 
 
-app.post("/signupuser",function(req,res){
+app.post('/signupuser',function(req,res){
 
 	var name=req.body.name;
 	var email=req.body.email;
@@ -94,7 +94,7 @@ app.post("/signupuser",function(req,res){
 	}	
 });
 
-app.get("/home", function(req,res){
+app.get('/home', function(req,res){
 
 	var sql="select name from movie where users >= 5 order by rating desc,users desc limit 3;";
 	
@@ -108,7 +108,7 @@ app.get("/home", function(req,res){
 	})
 });
 
-app.get("/seemore",function(req,res){
+app.get('/seemore',function(req,res){
 
 	var sql="select name from movie where users >= 5 order by rating desc,users desc limit 5;";
 
@@ -123,7 +123,7 @@ app.get("/seemore",function(req,res){
 
 });
 
-app.post("/moviereview",function(req,res){
+app.post('/moviereview',function(req,res){
 	var movie_name=req.body.movie;
 
 	var sql="select * from movie where name='"+movie_name+"'";
@@ -140,7 +140,7 @@ app.post("/moviereview",function(req,res){
 	
 });
 
-app.post("/checkWatched",function(req,res){
+app.post('/checkWatched',function(req,res){
 
 	var uname=req.body.username;
 	var mname=req.body.movie;
@@ -161,8 +161,8 @@ app.post("/checkWatched",function(req,res){
 	});
 });
 
-app.post("/watched",function(req,res){
-
+app.post('/watched',function(req,res){
+	
 	var uname=req.body.username;
 	var mname=req.body.movie;
 
@@ -170,7 +170,7 @@ app.post("/watched",function(req,res){
 
 	connection.query(sql_pre,function(err,result,fields){
 
-		console.log(result);
+		
 		if(result.length>0)
 			res.json({dummy:"dummy"});
 		else {
@@ -191,7 +191,7 @@ app.post("/watched",function(req,res){
 	
 });
 
-app.post("/updateRating",function(req,res){
+app.post('/updateRating',function(req,res){
 
 	var mname=req.body.movie;
 	var rating=req.body.rating;
@@ -232,8 +232,11 @@ app.post("/updateRating",function(req,res){
 
 
 
+
 app.listen(port,function(){
 
 	console.log("Listening on port "+port);
 
 });
+
+module.exports=app;
