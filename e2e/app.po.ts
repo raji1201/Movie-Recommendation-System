@@ -3,8 +3,19 @@ import { browser, by, element } from 'protractor';
 export class AppPage {
   	navigateTo(path = '/') {
   		browser.pause();
+        browser.ignoreSynchronization = true;
     	return browser.get(path);
   	}
+
+    getMovieReviewHead()
+    {
+        return element(by.id('head'));
+    }
+
+    pause()
+    {
+        browser.driver.sleep(3000);
+    }
 
 	getParagraphText() {
 	  return element(by.css('app-root h1')).getText();
@@ -54,12 +65,84 @@ export class AppPage {
     {
         return element(by.id('reco'));
     }
-    getReview() {
+
+    getReview()
+    {
         return element(by.id('movie1'));
     }
     
-    getReviewPage() {
+    getReviewPage()
+    {
         return element(by.id('head'));
     }
+
+    getProfileTitle()
+    {
+        return element(by.id('heading'));
+    }
     
+    getSeeMoreBtn2()
+    {
+        return element(by.id('seemoreBtn2'));
+    }
+
+    getTopRatedMovies()
+    {
+        return element(by.id('movie1'));
+    }
+
+    getWatchedBtn()
+    {
+        return element(by.id('watchedBtn'));
+    }
+
+    getMenuBtn()
+    {
+        return element(by.id('menuBtn'));
+    }
+
+    getRatingBtn()
+    {
+        return element(by.id('star5label'));
+    }
+
+    getProfileBtn()
+    {
+        return element(by.id('profileBtn'));
+    }
+
+    getLogoutBtn()
+    {
+        return element(by.id('logoutBtn'));
+    }
+
+    getSignUpBtn()
+    {
+        return element(by.id('signupBtn'));
+    }
+
+    getLoginBtn()
+    {
+        return element(by.id('loginBtn'));
+    }
+
+    getLoginBtn2()
+    {
+        return element(by.id('loginBtn2'));
+    }
+
+    getSearchBar()
+    {
+        return element(by.id('search'));
+    }
+
+    getSearchBtn()
+    {
+        return element(by.id('searchBtn'));
+    }
+
+    getSearchMovie()
+    {
+        return element(by.id('smovie'));
+    }
 }

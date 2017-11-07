@@ -15,7 +15,7 @@
     <label *ngIf="isUserLoggedIn()" for="rating">What's your rating?</label>
     <div>      
       <fieldset *ngIf="isUserLoggedIn()" class="rating">
-        <input type="radio" id="star5" (click)="updateRating(5)" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+        <input type="radio" id="star5" (click)="updateRating(5)" name="rating" value="5" /><label id="star5label" class = "full" for="star5" title="Awesome - 5 stars"></label>
         <input type="radio" id="star4" (click)="updateRating(4)" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
         <input type="radio" id="star3" (click)="updateRating(3)" name="rating" value="3" /><label class = "full" for="star3" title="Decent - 3 stars"></label>
         <input type="radio" id="star2" (click)="updateRating(2)" name="rating" value="2" /><label class = "full" for="star2" title="Bad - 2 stars"></label>
@@ -23,6 +23,6 @@
       </fieldset>
       <br>
       <br>
-      <button *ngIf="isUserLoggedIn()" class="btn btn-primary" color="primary" (click)="watched()">{{watchStatus}}</button>
+      <button *ngIf="isUserLoggedIn()" class="btn btn-primary" id="watchedBtn" color="primary" (click)="watched()">{{watchStatus}}</button>
     </div>
 </div>

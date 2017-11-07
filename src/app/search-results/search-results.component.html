@@ -5,7 +5,7 @@
 			    <h4 class="card-title">SEARCH RESULTS</h4>
 			    <div *ngFor="let movieResult of movies" style="margin-top:20px">
         			<p class="card-text">
-        				<a routerLink="/reviews/{{ movieResult }}" routerLinkActive="active">{{ movieResult }}</a><br>
+        				<a id = "smovie" routerLink="/reviews/{{ movieResult }}" routerLinkActive="active">{{ movieResult }}</a><br>
         			</p>
       			</div>
 			</div>
