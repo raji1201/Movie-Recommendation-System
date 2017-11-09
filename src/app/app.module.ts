@@ -18,6 +18,7 @@ import { MovieReviewComponent } from './movie-review/movie-review.component';
 import { TrmComponent } from './trm/trm.component';
 import { ElasticsearchService } from './elasticsearch.service';
 import { SearchResultsComponent } from './search-results/search-results.component';
+import { MovieswatchedComponent } from './movieswatched/movieswatched.component';
 
 const appRoutes: Routes = [
 	{path: 'login', component: LoginComponent },
@@ -26,7 +27,8 @@ const appRoutes: Routes = [
   {path: 'profile/:name', component: ProfileComponent},
   {path: 'reviews/:name', component: MovieReviewComponent},
   {path: 'trm', component: TrmComponent},
-  {path: 'results', component: SearchResultsComponent}
+  {path: 'results', component: SearchResultsComponent},
+  {path: 'movieswatched', component: MovieswatchedComponent},
 ];
 
 
@@ -40,7 +42,8 @@ const appRoutes: Routes = [
     ProfileComponent,
     MovieReviewComponent,
     TrmComponent,
-    SearchResultsComponent
+    SearchResultsComponent,
+    MovieswatchedComponent
   ],
   imports: [
     HttpModule,

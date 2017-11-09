@@ -1,44 +1,40 @@
 <div class="container">
-		<div class="starter-template">
-			<h2 id="heading">
- 				Welcome {{name}}!
-			</h2>
-			<br>
-			<div class="row">
-			  <div class="col-sm-6">
-			    <div class="card">
-			      <div class="card-block">
-			        <h4 id="reco" class="card-title">RECOMMENDED MOVIES FOR {{name}}</h4>
-			        <p class="card-text">
-			        	<a id = "movie1" routerLink="/reviews" routerLinkActive="active">The Snowman</a><br>
-			        	<a routerLink="/reviews" routerLinkActive="active">Movie</a><br>
-			        	<a routerLink="/reviews" routerLinkActive="active">Movie</a>
-			        </p>
-			        <a class="btn btn-primary" id="seemoreBtn1">See More</a>
-			      </div>
-			    </div>
-			  </div>
-			  <div class="col-sm-6">
-			    <div class="card">
-			      <div class="card-block">
-			        <h4 class="card-title">TOP RATED MOVIES</h4>
-			        <p class="card-text">
-			        	<a routerLink="/reviews/{{m1}}" routerLinkActive="active">{{m1}}</a><br>
-			        	<a routerLink="/reviews/{{m2}}" routerLinkActive="active">{{m2}}</a><br>
-			        	<a routerLink="/reviews/{{m3}}" routerLinkActive="active">{{m3}}</a>
-			        </p>
-			        <a class="btn btn-primary" id="seemoreBtn2" routerLink="/trm" routerLinkActive="active">See More</a>
-			      </div>
-			    </div>
-			  </div>
-			</div>
+	<div class="starter-template">
+		<h2 id="heading">
+ 			Welcome {{name}}!
+		</h2>
+		<br>
+		<div class="row">
+		  <div class="col-sm-6">
+		    <div class="card">
+		      <div class="card-block">
+		        <h4 id="reco" class="card-title">RECOMMENDED MOVIES FOR {{name}}</h4>
+		        <p class="card-text">
+		        	<a id = "movie1" routerLink="/reviews" routerLinkActive="active">The Snowman</a><br>
+		        	<a routerLink="/reviews" routerLinkActive="active">Movie</a><br>
+		        	<a routerLink="/reviews" routerLinkActive="active">Movie</a>
+		        </p>
+		        <a class="btn btn-primary" id="seemoreBtn1">See More</a>
+		      </div>
+		    </div>
+		  </div>
+		  <div class="col-sm-6">
+		    <div class="card">
+		      <div class="card-block">
+		        <h4 class="card-title">TOP RATED MOVIES</h4>
+		        <p class="card-text">
+		        	<a routerLink="/reviews/{{m1}}" routerLinkActive="active">{{m1}}</a><br>
+		        	<a routerLink="/reviews/{{m2}}" routerLinkActive="active">{{m2}}</a><br>
+		        	<a routerLink="/reviews/{{m3}}" routerLinkActive="active">{{m3}}</a>
+		        </p>
+		        <a class="btn btn-primary" id="seemoreBtn2" routerLink="/trm" routerLinkActive="active">See More</a>
+		      </div>
+		    </div>
+		  </div>
 		</div>
-
-		<!--<div class = "card">
-			  	<a style="text-align: center;" class="btn btn-primary"><h5>MOVIES WATCHED</h5></a>
-			  </div>
-			  <br>
-			  <div class = "card">
-			  	<a style="text-align: center;" class="btn btn-primary"><h5>MOVIES REVIEWED</h5></a>
-			  </div> -->
 	</div>
+
+	<div class = "card">
+	 	<a style="text-align: center;" class="btn btn-primary" routerLink="/movieswatched" routerLinkActive="active"><h5>MOVIES WATCHED</h5></a>
+	</div>
+</div>
