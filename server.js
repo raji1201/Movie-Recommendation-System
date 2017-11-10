@@ -229,6 +229,28 @@ app.post('/updateRating',function(req,res){
 	});
 });
 
+app.post('/watchedmovies',function(req,res){
+
+	var username=req.body.username;
+	var sql="select mname from watched where user='"+username+"';";
+	var movies=[];
+	
+
+	connection.query(sql,function(err,result,fields){
+
+		if(err) throw err;
+
+		
+		for(var i=0;i<result.length;i++) {
+			var temp=result[i].mname;
+			movies.push(temp);
+
+		}
+		var obj={movies:movies};
+		res.json(obj);
+	});
+});
+
 
 
 
