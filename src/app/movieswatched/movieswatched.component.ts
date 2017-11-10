@@ -24,7 +24,7 @@ export class MovieswatchedComponent implements OnInit {
         	var response = res["_body"];
           	this.movies = JSON.parse(response)['movies'];
           
-          	if(this.movies.length != 0)
+          	if(this.movies.length == 0)
   			{
   			   	this.movies = ['No results!'];
   			}
