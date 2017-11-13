@@ -1,4 +1,4 @@
-# Movie Recommendation System
+# Movie Recommendation Engine
 
 Instructions to run project
 1. Open terminal and run npm install
@@ -11,7 +11,7 @@ Instructions to run project
 		  allow-origin: /http?:\/\/localhost(:[0-9]+)?/
 6. Run node load_movies.js from the Movie-Recommendation-System folder
 7. Goto the bin folder in elasticsearch and double click the elasticsearch.bat file
-8. On your browser open localhost:3000
+8. On your browser, open localhost:3000
 
 ## Code scaffolding
 
@@ -33,3 +33,10 @@ Run `ng e2e --no-serve -port 3000` to execute the end-to-end tests via [Protract
 ## Running backend tests
 
 Run 'npm test' to execute the backend tests via [Mocha](https://mochajs.org/).
+
+## To see Compodoc Documentation
+
+Run npm i -g @compodoc/compodoc
+Run compodoc -p tsconfig.json
+Run compodoc -s
+On the browser, open http://localhost:8080

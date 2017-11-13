@@ -1,0 +1,1184 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Movie Recommendation Engine documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	    <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">Movie Recommendation Engine documentation</a>
+            <button type="button" class="btn btn-default btn-menu fa fa-bars" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+            <div id="book-search-input" role="search">
+                <input type="text" placeholder="Type to search">
+            </div>
+            <nav>
+            
+                <ul class="list">
+            
+                    <li class="title">
+                        <a href="../index.html">Movie Recommendation Engine documentation</a>
+                    </li>
+            
+                    <li class="divider"></li>
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="../index.html"><span class="fa fa-home"></span>Getting started</a>
+                        <ul class="links">
+                                <li class="link">
+                                    <a 
+                                        
+                                         href="../overview.html" 
+                                         href="../overview.html" 
+                                        >
+                                        <span class="fa fa-th"></span>Overview
+                                    </a>
+                                </li>
+                                <li class="link">
+                                  <a href="../index.html" ><span class="fa fa-file-text-o"></span>README</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="../modules.html" >
+                            <div class="menu-toggler linked" data-toggle="collapse"
+                                    data-target="#xs-modules-links"
+                            >
+                                <span class="fa fa-archive"></span>
+                                <span class="link-name">Modules</span>
+                                <span class="fa fa-angle-down"></span>
+                            </div>
+                        </a>
+                        <ul class="links collapse "
+                                id="xs-modules-links"
+                            >
+                                <li class="link">
+                                    <a href="../modules/AppModule.html" >AppModule</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-components-links"
+                            >
+                            <span class="fa fa-cogs"></span>
+                            <span>Components</span>
+                            <span class="fa fa-angle-down"></span>
+                        </div>
+                        <ul class="links collapse "
+                                id="xs-components-links"
+                            >
+                                <li class="link">
+                                    <a href="../components/AppComponent.html" >AppComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/HomeComponent.html" >HomeComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/LoginComponent.html" >LoginComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/MovieReviewComponent.html" >MovieReviewComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/MovieswatchedComponent.html" >MovieswatchedComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/NavComponent.html"  data-type="entity-link" class="active" >NavComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/ProfileComponent.html" >ProfileComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/SearchResultsComponent.html" >SearchResultsComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/SignUpComponent.html" >SignUpComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/TrmComponent.html" >TrmComponent</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-classes-links"
+                            >
+                            <span class="fa fa-file-code-o"></span>
+                            <span>Classes</span>
+                            <span class="fa fa-angle-down"></span>
+                        </div>
+                        <ul class="links collapse "
+                                id="xs-classes-links"
+                            >
+                                <li class="link">
+                                    <a href="../classes/AppPage.html" >AppPage</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/User.html" >User</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/User.html" >User</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-injectables-links"
+                            >
+                            <span class="fa fa-long-arrow-down"></span>
+                            <span>Injectables</span>
+                            <span class="fa fa-angle-down"></span>
+                        </div>
+                        <ul class="links collapse "
+                                id="xs-injectables-links"
+                            >
+                                <li class="link">
+                                    <a href="../injectables/ElasticsearchService.html" >ElasticsearchService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/UserService.html" >UserService</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+            
+            
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-miscellaneous-links"
+                            >
+                            <span class="fa fa-cubes"></span>
+                            <span>Miscellaneous</span>
+                            <span class="fa fa-angle-down"></span>
+                        </div>
+                        <ul class="links collapse "
+                                id="xs-miscellaneous-links"
+                            >
+                                <li class="link">
+                                  <a href="../miscellaneous/variables.html" data-type="entity-link" >Variables</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="../routes.html" ><span class="fa fa-code-fork"></span>Routes</a>
+                    </li>
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="../coverage.html" ><span class="fa fa-tasks"></span>Documentation coverage</a>
+                    </li>
+            
+                    <li class="divider"></li>
+                    <li class="copyright">
+                            Documentation generated using <a href="https://compodoc.github.io/website/" target="_blank">
+                                        <img src="..//images/compodoc-vectorise.svg" class="img-responsive">
+                            </a>
+                    </li>
+            
+                </ul>
+            
+            </nav>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <nav>
+                   
+                       <ul class="list">
+                   
+                           <li class="title">
+                               <a href="../index.html">Movie Recommendation Engine documentation</a>
+                           </li>
+                   
+                           <li class="divider"></li>
+                   
+                               <div id="book-search-input" role="search">
+                                   <input type="text" placeholder="Type to search">
+                               </div>
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="../index.html"><span class="fa fa-home"></span>Getting started</a>
+                               <ul class="links">
+                                       <li class="link">
+                                           <a 
+                                               
+                                                href="../overview.html" 
+                                                href="../overview.html" 
+                                               >
+                                               <span class="fa fa-th"></span>Overview
+                                           </a>
+                                       </li>
+                                       <li class="link">
+                                         <a href="../index.html" ><span class="fa fa-file-text-o"></span>README</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="../modules.html" >
+                                   <div class="menu-toggler linked" data-toggle="collapse"
+                                           data-target="#modules-links"
+                                   >
+                                       <span class="fa fa-archive"></span>
+                                       <span class="link-name">Modules</span>
+                                       <span class="fa fa-angle-down"></span>
+                                   </div>
+                               </a>
+                               <ul class="links collapse "
+                                       id="modules-links"
+                   >
+                                       <li class="link">
+                                           <a href="../modules/AppModule.html" >AppModule</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#components-links"
+                   >
+                                   <span class="fa fa-cogs"></span>
+                                   <span>Components</span>
+                                   <span class="fa fa-angle-down"></span>
+                               </div>
+                               <ul class="links collapse "
+                                       id="components-links"
+                   >
+                                       <li class="link">
+                                           <a href="../components/AppComponent.html" >AppComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/HomeComponent.html" >HomeComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/LoginComponent.html" >LoginComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/MovieReviewComponent.html" >MovieReviewComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/MovieswatchedComponent.html" >MovieswatchedComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/NavComponent.html"  data-type="entity-link" class="active" >NavComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/ProfileComponent.html" >ProfileComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/SearchResultsComponent.html" >SearchResultsComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/SignUpComponent.html" >SignUpComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/TrmComponent.html" >TrmComponent</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#classes-links"
+                   >
+                                   <span class="fa fa-file-code-o"></span>
+                                   <span>Classes</span>
+                                   <span class="fa fa-angle-down"></span>
+                               </div>
+                               <ul class="links collapse "
+                                       id="classes-links"
+                   >
+                                       <li class="link">
+                                           <a href="../classes/AppPage.html" >AppPage</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/User.html" >User</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/User.html" >User</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#injectables-links"
+                   >
+                                   <span class="fa fa-long-arrow-down"></span>
+                                   <span>Injectables</span>
+                                   <span class="fa fa-angle-down"></span>
+                               </div>
+                               <ul class="links collapse "
+                                       id="injectables-links"
+                   >
+                                       <li class="link">
+                                           <a href="../injectables/ElasticsearchService.html" >ElasticsearchService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/UserService.html" >UserService</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                   
+                   
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#miscellaneous-links"
+                   >
+                                   <span class="fa fa-cubes"></span>
+                                   <span>Miscellaneous</span>
+                                   <span class="fa fa-angle-down"></span>
+                               </div>
+                               <ul class="links collapse "
+                                       id="miscellaneous-links"
+                   >
+                                       <li class="link">
+                                         <a href="../miscellaneous/variables.html" data-type="entity-link" >Variables</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="../routes.html" ><span class="fa fa-code-fork"></span>Routes</a>
+                           </li>
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="../coverage.html" ><span class="fa fa-tasks"></span>Documentation coverage</a>
+                           </li>
+                   
+                           <li class="divider"></li>
+                           <li class="copyright">
+                                   Documentation generated using <a href="https://compodoc.github.io/website/" target="_blank">
+                                               <img src="..//images/compodoc-vectorise.svg" class="img-responsive">
+                                   </a>
+                           </li>
+                   
+                       </ul>
+                   
+                   </nav>
+               </div>
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>NavComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+    <li class="active">
+        <a href="#info" id="info-tab" role="tab" data-toggle="tab" data-link="info">Info</a>
+    </li>
+
+    <li>
+        <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+    </li>
+
+    <li>
+        <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+    </li>
+    <li>
+        <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+    </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/nav/nav.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code><a href="https://angular.io/docs/ts/latest/api/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-nav</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>nav.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./nav.component.html</code></td>
+            </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+        <h3 id="index">Index</h3>
+        <table class="table table-sm table-bordered index-table">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                 <a href="#currUser">currUser</a>
+                            </li>
+                            <li>
+                                 <a href="#form">form</a>
+                            </li>
+                            <li>
+                                <span class="modifier">Private</span> <a href="#INDEX">INDEX</a>
+                            </li>
+                            <li>
+                                 <a href="#isConnected">isConnected</a>
+                            </li>
+                            <li>
+                                 <a href="#movieResults">movieResults</a>
+                            </li>
+                            <li>
+                                <span class="modifier">Private</span> <a href="#queryText">queryText</a>
+                            </li>
+                            <li>
+                                 <a href="#status">status</a>
+                            </li>
+                            <li>
+                                <span class="modifier">Private</span> <a href="#TYPE">TYPE</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                 <a href="#isUserLoggedIn">isUserLoggedIn</a>
+                            </li>
+                            <li>
+                                 <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                 <a href="#onSubmit">onSubmit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <h3 id="constructor">Constructor</h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>constructor(route: <a href="https://angular.io/docs/ts/latest/api/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>, router: <a href="https://angular.io/docs/ts/latest/api/api/router/Router" target="_blank">Router</a>, userService: <a href="../injectables/UserService.html">UserService</a>, fbuilder: <a href="https://angular.io/docs/ts/latest/api/api/forms/FormBuilder" target="_blank">FormBuilder</a>, es: <a href="../injectables/ElasticsearchService.html">ElasticsearchService</a>, cd: <a href="https://angular.io/docs/ts/latest/api/api/core/ChangeDetectorRef" target="_blank">ChangeDetectorRef</a>)</code>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/nav/nav.component.ts:24</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div>
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                    <td>Type</td>
+                                                    <td>Optional</td>
+                                                    <td>Description</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                      <td>route</td>
+                                                      <td>
+                                                                <code><a href="https://angular.io/docs/ts/latest/api/api/router/ActivatedRoute" target="_blank" >ActivatedRoute</a></code>
+                                                      </td>
+                                                      <td>
+                                                      </td>
+                                                      <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td>router</td>
+                                                      <td>
+                                                                <code><a href="https://angular.io/docs/ts/latest/api/api/router/Router" target="_blank" >Router</a></code>
+                                                      </td>
+                                                      <td>
+                                                      </td>
+                                                      <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td>userService</td>
+                                                      <td>
+                                                                <code><a href="../injectables/UserService.html" target="_self" >UserService</a></code>
+                                                      </td>
+                                                      <td>
+                                                      </td>
+                                                      <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td>fbuilder</td>
+                                                      <td>
+                                                                <code><a href="https://angular.io/docs/ts/latest/api/api/forms/FormBuilder" target="_blank" >FormBuilder</a></code>
+                                                      </td>
+                                                      <td>
+                                                      </td>
+                                                      <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td>es</td>
+                                                      <td>
+                                                                <code><a href="../injectables/ElasticsearchService.html" target="_self" >ElasticsearchService</a></code>
+                                                      </td>
+                                                      <td>
+                                                      </td>
+                                                      <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td>cd</td>
+                                                      <td>
+                                                                <code><a href="https://angular.io/docs/ts/latest/api/api/core/ChangeDetectorRef" target="_blank" >ChangeDetectorRef</a></code>
+                                                      </td>
+                                                      <td>
+                                                      </td>
+                                                      <td></td>
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    </section>
+
+
+
+
+
+    <section>
+        
+            <h3 id="methods">
+                Methods
+            </h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="isUserLoggedIn"></a>
+                            <span class="name"><b> isUserLoggedIn</b><a href="#isUserLoggedIn"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>isUserLoggedIn()</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/nav/nav.component.ts:44</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="ngOnInit"></a>
+                            <span class="name"><b> ngOnInit</b><a href="#ngOnInit"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>ngOnInit()</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/nav/nav.component.ts:30</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="onSubmit"></a>
+                            <span class="name"><b> onSubmit</b><a href="#onSubmit"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>onSubmit(searchTerm: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/nav/nav.component.ts:55</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                    <td>Type</td>
+                                                    <td>Optional</td>
+                                                    <td>Description</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                      <td>searchTerm</td>
+                                                      <td>
+                                                              <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                      </td>
+                                                      <td>
+                                                      </td>
+                                                      <td></td>
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+    
+                                </div>
+                                    <div class="io-description">
+                                        
+                                    </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    </section>
+
+    <section>
+        
+            <h3 id="inputs">
+                Properties
+            </h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="currUser"></a>
+                            <span class="name"><b> currUser</b><a href="#currUser"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>currUser:     <code></code>
+    </code>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/nav/nav.component.ts:14</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="form"></a>
+                            <span class="name"><b> form</b><a href="#form"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>form:     <code><a href="https://angular.io/docs/ts/latest/api/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+    </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Type : </i>    <code><a href="https://angular.io/docs/ts/latest/api/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+    
+                            </td>
+                        </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/nav/nav.component.ts:17</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="INDEX"></a>
+                            <span class="name"><b><span class="modifier">Private</span> INDEX</b><a href="#INDEX"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-lock"></span><code>INDEX:     <code></code>
+    </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Default value : </i><code>testmovies</code>
+                            </td>
+                        </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/nav/nav.component.ts:20</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="isConnected"></a>
+                            <span class="name"><b> isConnected</b><a href="#isConnected"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>isConnected:     <code></code>
+    </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Default value : </i><code>false</code>
+                            </td>
+                        </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/nav/nav.component.ts:15</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="movieResults"></a>
+                            <span class="name"><b> movieResults</b><a href="#movieResults"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>movieResults:     <code></code>
+    </code>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/nav/nav.component.ts:23</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="queryText"></a>
+                            <span class="name"><b><span class="modifier">Private</span> queryText</b><a href="#queryText"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-lock"></span><code>queryText:     <code></code>
+    </code>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/nav/nav.component.ts:24</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="status"></a>
+                            <span class="name"><b> status</b><a href="#status"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>status:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+    </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+    
+                            </td>
+                        </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/nav/nav.component.ts:18</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="TYPE"></a>
+                            <span class="name"><b><span class="modifier">Private</span> TYPE</b><a href="#TYPE"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-lock"></span><code>TYPE:     <code></code>
+    </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Default value : </i><code>movie</code>
+                            </td>
+                        </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/nav/nav.component.ts:21</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+    </section>
+
+</div>
+
+
+    <div class="tab-pane fade tab-source-code" id="source">
+        <pre class="line-numbers"><code class="language-typescript">import { Component, OnInit, ChangeDetectorRef } from &#x27;@angular/core&#x27;;
+import { Router, ActivatedRoute, Params, RoutesRecognized } from &#x27;@angular/router&#x27;;
+import { UserService } from &#x27;../user.service&#x27;;
+import { FormBuilder, FormGroup } from &#x27;@angular/forms&#x27;;
+import { ElasticsearchService } from &#x27;../elasticsearch.service&#x27;;
+
+@Component({
+  selector: &#x27;app-nav&#x27;,
+  templateUrl: &#x27;./nav.component.html&#x27;,
+  styleUrls: [&#x27;./nav.component.css&#x27;]
+})
+export class NavComponent implements OnInit {
+
+  currUser &#x3D; &#x27;&#x27;;
+  isConnected &#x3D; false;
+
+  form: FormGroup;
+  status: string;
+
+  private readonly INDEX &#x3D; &#x27;testmovies&#x27;;
+  private readonly TYPE &#x3D; &#x27;movie&#x27;;
+
+  movieResults &#x3D; [];
+  private queryText &#x3D; &#x27;&#x27;;
+
+  constructor(private route: ActivatedRoute, private router: Router, private userService: UserService, private fbuilder: FormBuilder, private es: ElasticsearchService, private cd: ChangeDetectorRef) {
+
+  }
+
+  ngOnInit() {
+    this.isUserLoggedIn();
+    this.es.isAvailable().then(() &#x3D;&gt; {
+      this.status &#x3D; &#x27;OK&#x27;;
+      this.isConnected &#x3D; true;
+    }, error &#x3D;&gt; {
+      this.status &#x3D; &#x27;ERROR&#x27;;
+      this.isConnected &#x3D; false;
+      console.error(&#x27;Server is down&#x27;, error);
+    }).then(() &#x3D;&gt; {
+      this.cd.detectChanges();
+    });
+  }
+
+  isUserLoggedIn()
+  {
+    if(this.userService.getUserLoggedIn())
+    {
+      this.currUser &#x3D; this.userService.getCurrUser();
+      return true;
+    }
+    else
+      return false;
+  }
+
+  onSubmit(searchTerm:string) {
+   this.queryText &#x3D; searchTerm;
+   this.es.fullTextSearch(
+     this.INDEX,
+     this.TYPE,
+     this.queryText).then(
+       response &#x3D;&gt; {
+         this.movieResults &#x3D; response.hits.hits;
+
+         this.userService.movies &#x3D; this.movieResults;
+         for (let i &#x3D; 0; i &lt; this.movieResults.length; i++) {
+           this.movieResults[i] &#x3D; this.movieResults[i]._source.name;
+         }
+
+         this.queryText &#x3D; &#x27;&#x27;;
+         this.router.navigate([&#x27;/results&#x27;]);
+       }, err &#x3D;&gt; {
+         console.error(err);
+     }).then(() &#x3D;&gt; {
+     console.log(&#x27;Search completed!&#x27;);
+
+     }
+   );
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade" id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;nav class&#x3D;&quot;navbar navbar-light toggleable-mat navbar-inverse fixed-top clearfix&quot; style&#x3D;&quot;background-color: darkblue;z-index:50;&quot;&gt;
+&lt;div class&#x3D;&quot;navbar navbar-default&quot; id&#x3D;&quot;primary-nav&quot;&gt;
+  &lt;div class&#x3D;&quot;container-fluid&quot;&gt;
+    &lt;div class&#x3D;&quot;navbar-header&quot;&gt;
+        &lt;a class&#x3D;&quot;navbar-brand&quot; href&#x3D;&quot;#&quot; id&#x3D;&quot;titleBtn&quot;&gt;&lt;i class&#x3D;&quot;fa fa-film&quot; aria-hidden&#x3D;&quot;true&quot;&gt; &lt;/i&gt; MOVIE RECOMMENDATION ENGINE &lt;i class&#x3D;&quot;fa fa-film&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class&#x3D;&quot;navbar navbar-default&quot; id&#x3D;&quot;secondary-nav&quot; style&#x3D;&quot;z-index:30;&quot;&gt;
+  &lt;div class&#x3D;&quot;container-fluid&quot;&gt;
+    &lt;ul class&#x3D;&quot;nav&quot;&gt;
+        &lt;li&gt;&lt;input #searchTerm class&#x3D;&quot;form-control&quot; id&#x3D;&quot;search&quot; type&#x3D;&quot;text&quot; placeholder&#x3D;&quot;Search&quot;&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;button class&#x3D;&quot;btn btn-primary&quot; (click)&#x3D;&quot;onSubmit(searchTerm.value)&quot; color&#x3D;&quot;primary&quot; type&#x3D;&quot;submit&quot; id&#x3D;&quot;searchBtn&quot;&gt;GO!&lt;/button&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;button mat-icon-button [matMenuTriggerFor]&#x3D;&quot;menu&quot; id&#x3D;&quot;menuBtn&quot;&gt;
+            &lt;mat-icon&gt;more_vert&lt;/mat-icon&gt;
+        &lt;/button&gt;
+        &lt;mat-menu #menu&#x3D;&quot;matMenu&quot;&gt;
+            &lt;a style&#x3D;&quot;font-size: 100%; text-decoration: none;&quot; routerLink&#x3D;&quot;/signup&quot; routerLinkActive&#x3D;&quot;active&quot; id&#x3D;&quot;signupBtn&quot;&gt;&lt;button *ngIf&#x3D;&quot;!isUserLoggedIn()&quot; mat-menu-item&gt;
+                &lt;mat-icon&gt;account_box&lt;/mat-icon&gt;
+                &lt;span&gt;Sign Up&lt;/span&gt;
+            &lt;/button&gt; &lt;/a&gt;
+            &lt;a style&#x3D;&quot;font-size: 100%; text-decoration: none;&quot; routerLink&#x3D;&quot;/login&quot; routerLinkActive&#x3D;&quot;active&quot; id&#x3D;&quot;loginBtn&quot;&gt; &lt;button *ngIf&#x3D;&quot;!isUserLoggedIn()&quot; mat-menu-item&gt;
+                &lt;mat-icon&gt;account_circle&lt;/mat-icon&gt;
+                &lt;span&gt;Log In&lt;/span&gt;
+            &lt;/button&gt;
+            &lt;/a&gt;
+            &lt;a style&#x3D;&quot;font-size: 100%; text-decoration: none;&quot; routerLink&#x3D;&quot;/&quot; routerLinkActive&#x3D;&quot;active&quot;&gt; &lt;button *ngIf&#x3D;&quot;isUserLoggedIn()&quot; mat-menu-item id&#x3D;&quot;logoutBtn&quot;&gt;
+                &lt;mat-icon&gt;account_circle&lt;/mat-icon&gt;
+                &lt;span&gt;Logout&lt;/span&gt;
+            &lt;/button&gt;
+            &lt;/a&gt;
+            &lt;a style&#x3D;&quot;font-size: 100%; text-decoration: none;&quot; routerLink&#x3D;&quot;/profile/{{currUser}}&quot; routerLinkActive&#x3D;&quot;active&quot;&gt; &lt;button *ngIf&#x3D;&quot;isUserLoggedIn()&quot; mat-menu-item id&#x3D;&quot;profileBtn&quot;&gt;
+                &lt;mat-icon&gt;account_circle&lt;/mat-icon&gt;
+                &lt;span&gt;Profile&lt;/span&gt;
+            &lt;/button&gt;
+            &lt;/a&gt;                
+        &lt;/mat-menu&gt;
+        
+        &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;/nav&gt;
+
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade" id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><nav class="navbar navbar-light toggleable-mat navbar-inverse fixed-top clearfix" style="background-color: darkblue;z-index:50;"><div class="navbar navbar-default" id="primary-nav">  <div class="container-fluid">    <div class="navbar-header">        <a class="navbar-brand" href="#" id="titleBtn"><i class="fa fa-film" aria-hidden="true"> </i> MOVIE RECOMMENDATION ENGINE <i class="fa fa-film" aria-hidden="true"></i></a>    </div>  </div></div><div class="navbar navbar-default" id="secondary-nav" style="z-index:30;">  <div class="container-fluid">    <ul class="nav">        <li><input #searchTerm class="form-control" id="search" type="text" placeholder="Search"></li>        <li><button class="btn btn-primary" (click)="onSubmit(searchTerm.value)" color="primary" type="submit" id="searchBtn">GO!</button></li>        <li><button mat-icon-button [matMenuTriggerFor]="menu" id="menuBtn">            <mat-icon>more_vert</mat-icon>        </button>        <mat-menu #menu="matMenu">            <a style="font-size: 100%; text-decoration: none;" routerLink="/signup" routerLinkActive="active" id="signupBtn"><button *ngIf="!isUserLoggedIn()" mat-menu-item>                <mat-icon>account_box</mat-icon>                <span>Sign Up</span>            </button> </a>            <a style="font-size: 100%; text-decoration: none;" routerLink="/login" routerLinkActive="active" id="loginBtn"> <button *ngIf="!isUserLoggedIn()" mat-menu-item>                <mat-icon>account_circle</mat-icon>                <span>Log In</span>            </button>            </a>            <a style="font-size: 100%; text-decoration: none;" routerLink="/" routerLinkActive="active"> <button *ngIf="isUserLoggedIn()" mat-menu-item id="logoutBtn">                <mat-icon>account_circle</mat-icon>                <span>Logout</span>            </button>            </a>            <a style="font-size: 100%; text-decoration: none;" routerLink="/profile/{{currUser}}" routerLinkActive="active"> <button *ngIf="isUserLoggedIn()" mat-menu-item id="profileBtn">                <mat-icon>account_circle</mat-icon>                <span>Profile</span>            </button>            </a>                        </mat-menu>                </li>    </ul>  </div></div></nav></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MovieReviewComponent', 'selector': 'app-movie-review'},{'name': 'MovieswatchedComponent', 'selector': 'app-movieswatched'},{'name': 'NavComponent', 'selector': 'app-nav'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'SearchResultsComponent', 'selector': 'app-search-results'},{'name': 'SignUpComponent', 'selector': 'app-sign-up'},{'name': 'TrmComponent', 'selector': 'app-trm'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'NavComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+           </div>
+       </div>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script>var COMPODOC_CURRENT_PAGE_DEPTH = 1;</script>
+
+       <script src="../js/search/search.js"></script>
+       <script src="../js/search/lunr.min.js"></script>
+       <script src="../js/search/search-lunr.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+       <script src="../js/search/search_index.js"></script>
+
+    </body>
+</html>
