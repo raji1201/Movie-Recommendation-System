@@ -36,7 +36,7 @@ Run 'npm test' to execute the backend tests via [Mocha](https://mochajs.org/).
 
 ## To see Compodoc Documentation
 
-Run npm i -g @compodoc/compodoc
-Run compodoc -p tsconfig.json
-Run compodoc -s
+Run npm i -g @compodoc/compodoc.
+Run compodoc -p tsconfig.json.
+Run compodoc -s.
 On the browser, open http://localhost:8080
