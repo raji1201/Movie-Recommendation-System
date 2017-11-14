@@ -9,10 +9,10 @@ export class UserService {
   /** Maintains the login state of a user. */
   private isUserLoggedIn;
 
-  /** Stores the username of the logged in user. */
+  /** Holds the username of the logged in user. */
   public username;
 
-  /** Stores the movies watched by the current user. */
+  /** Holds the movies watched by the current user. */
   public movies = [];
   
   /**
