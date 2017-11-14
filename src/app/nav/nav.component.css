@@ -1,17 +1,30 @@
+/**
+ * CSS for <a>
+ */
 a {
 	text-align: center;
 	font-size: 300%;
 }
 
+/**
+ * CSS for menu
+ */
 .menu {
 	float: right;
 }
 
+/**
+ * CSS for form
+ */
 form {
 	display: inline-block;
 	text-align: center;
+	margin: 0 auto;
 }
 
+/**
+ * CSS for <button>
+ */
 button {
 	color: white;
 	outline-color: white;
@@ -21,14 +34,16 @@ i {
 	color: white;
 }
 
-form {
-	margin: 0 auto;
-}
-
+/**
+ * CSS for container
+ */
 container-fluid {
     overflow:visible;
 }
 
+/**
+ * CSS for <span>
+ */
 span {
 	color: darkblue;
 }

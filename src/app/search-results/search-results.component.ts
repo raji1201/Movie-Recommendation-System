@@ -19,8 +19,8 @@ export class SearchResultsComponent implements OnInit {
   	{
   		for (let i = 0; i < this.userService.movies.length; i++)
   		{
-           this.movies[i] = this.userService.movies[i];
-       	}
+        this.movies[i] = this.userService.movies[i];
+      }
     }
     else
     	this.movies = ['No results!'];
