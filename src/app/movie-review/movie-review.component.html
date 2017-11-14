@@ -1,29 +1,28 @@
 <div class="container">
-    <div class="starter-template">
-        <h2 id = "head" class="text-center">
-            Movie Review for {{name}}
-        </h2>
-    </div>
-    <div>
-        Rated {{rating}} by {{users}} users!<br>
-        Running time : {{length}}<br>
-        Release year : {{rel}}<br>
+  <div class="starter-template">
+    <h2 id = "head" class="text-center">
+      Movie Review for {{name}}
+    </h2>
+  </div>
+  <div>
+    
+    Rated {{rating}} by {{users}} users!<br>
+    Running time : {{length}}<br>
+    Release year : {{rel}}<br>
     </div>
     
     <p class="text-left" name="rating">Movie description : {{des}} </p><br>
-    
     <label *ngIf="isUserLoggedIn()" for="rating">What's your rating?</label>
-    
     <div>      
-        <fieldset *ngIf="isUserLoggedIn()" class="rating">
-            <input type="radio" id="star5" (click)="updateRating(5)" name="rating" value="5" /><label id="star5label" class = "full" for="star5" title="Awesome - 5 stars"></label>
-            <input type="radio" id="star4" (click)="updateRating(4)" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
-            <input type="radio" id="star3" (click)="updateRating(3)" name="rating" value="3" /><label class = "full" for="star3" title="Decent - 3 stars"></label>
-            <input type="radio" id="star2" (click)="updateRating(2)" name="rating" value="2" /><label class = "full" for="star2" title="Bad - 2 stars"></label>
-            <input type="radio" id="star1" (click)="updateRating(1)" name="rating" value="1" /><label class = "full" for="star1" title="Really bad - 1 star"></label>
-        </fieldset>
-        <br>
-        <br>
-        <button *ngIf="isUserLoggedIn()" class="btn btn-primary" id="watchedBtn" color="primary" (click)="watched()">{{watchStatus}}</button>
+      <fieldset *ngIf="isUserLoggedIn()" class="rating">
+        <input type="radio" id="star5" (click)="updateRating(5)" name="rating" value="5" /><label id="star5label" class = "full" for="star5" title="Awesome - 5 stars"></label>
+        <input type="radio" id="star4" (click)="updateRating(4)" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+        <input type="radio" id="star3" (click)="updateRating(3)" name="rating" value="3" /><label class = "full" for="star3" title="Decent - 3 stars"></label>
+        <input type="radio" id="star2" (click)="updateRating(2)" name="rating" value="2" /><label class = "full" for="star2" title="Bad - 2 stars"></label>
+        <input type="radio" id="star1" (click)="updateRating(1)" name="rating" value="1" /><label class = "full" for="star1" title="Really bad - 1 star"></label>
+      </fieldset>
+      <br>
+      <br>
+      <button *ngIf="isUserLoggedIn()" class="btn btn-primary" id="watchedBtn" color="primary" (click)="watched()">{{watchStatus}}</button>
     </div>
 </div>
