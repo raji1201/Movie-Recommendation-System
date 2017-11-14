@@ -18,7 +18,7 @@ export class MovieswatchedComponent implements OnInit {
 	ngOnInit() {
 		this.name = this.userService.getCurrUser();
 		const req = this.http.post('/watchedmovies', {username:this.name});
-    	req.subscribe(
+    req.subscribe(
     	res => {
 
         	var response = res["_body"];
@@ -30,6 +30,7 @@ export class MovieswatchedComponent implements OnInit {
   			}
   			else
   				this.movies = JSON.parse(response)['movies'];
-        }); 	
-  	}
+      }
+    ); 	
+  }
 }

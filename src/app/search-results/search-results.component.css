@@ -1,7 +1,13 @@
-h2 {
+/**
+ * CSS for <h2>
+ */
+ h2 {
 	text-align: center;
 }
 
+/**
+ * CSS for <a>
+ */
 a {
 	text-decoration: none;
 }
