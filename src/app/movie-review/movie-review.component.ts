@@ -126,6 +126,7 @@ export class MovieReviewComponent implements OnInit {
 
   /**
    * Function to update the movie rating.
+   * @param {integer} n
    */
   updateRating(n)
   {

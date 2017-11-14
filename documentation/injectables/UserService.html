@@ -413,6 +413,13 @@
             <code>src/app/user.service.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>UserService helps in keeping track of the user&#39;s login and logout.</p>
+
+            </p>
 
 
             <section>
@@ -477,10 +484,16 @@
                             </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/user.service.ts:8</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/user.service.ts:16</a></div>
                                         </td>
                                     </tr>
             
+                            <tr>
+                                <td class="col-md-4">
+                                        <div class="io-description"><p>Sets user logged in to false on intialization</p>
+            </div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
             </section>
@@ -507,7 +520,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/user.service.ts:28</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/user.service.ts:39</a></div>
                                         </td>
                                     </tr>
             
@@ -541,7 +554,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/user.service.ts:36</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/user.service.ts:48</a></div>
                                         </td>
                                     </tr>
             
@@ -575,7 +588,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/user.service.ts:43</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/user.service.ts:55</a></div>
                                         </td>
                                     </tr>
             
@@ -609,7 +622,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/user.service.ts:20</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/user.service.ts:30</a></div>
                                         </td>
                                     </tr>
             
@@ -677,10 +690,16 @@
                             </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/app/user.service.ts:6</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/user.service.ts:10</a></div>
                                         </td>
                                     </tr>
             
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Maintains the login state of a user. </p>
+            </div>
+                                </td>
+                            </tr>
             
                         </tbody>
                     </table>
@@ -700,10 +719,16 @@
                             </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/user.service.ts:8</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/user.service.ts:16</a></div>
                                         </td>
                                     </tr>
             
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Holds the movies watched by the current user. </p>
+            </div>
+                                </td>
+                            </tr>
             
                         </tbody>
                     </table>
@@ -723,10 +748,16 @@
                             </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/app/user.service.ts:7</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/user.service.ts:13</a></div>
                                         </td>
                                     </tr>
             
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Holds the username of the logged in user. </p>
+            </div>
+                                </td>
+                            </tr>
             
                         </tbody>
                     </table>
@@ -738,15 +769,24 @@
     <div class="tab-pane fade tab-source-code" id="source">
         <pre class="line-numbers"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
 
+/**
+ * UserService helps in keeping track of the user&#x27;s login and logout.
+ */
 @Injectable()
 export class UserService {
 
+  /** Maintains the login state of a user. */
   private isUserLoggedIn;
+
+  /** Holds the username of the logged in user. */
   public username;
+
+  /** Holds the movies watched by the current user. */
   public movies &#x3D; [];
   
   /**
    * Sets user logged in to false on intialization
+   * @constructor
    */
   constructor() { 
   	this.isUserLoggedIn &#x3D; false;
@@ -754,6 +794,7 @@ export class UserService {
 
   /**
    * Sets user logged in to true and stores the name of the user logged in
+   * @param {string} username
    */
   setUserLoggedIn(username) {
   	this.isUserLoggedIn &#x3D; true;
@@ -762,6 +803,7 @@ export class UserService {
 
   /**
    * Gets the username of the user currently logged in
+   * @return {string} username
    */
   getCurrUser()
   {
@@ -770,6 +812,7 @@ export class UserService {
 
   /**
    * Returns true if the user is logged in currently, else false
+   * @return {boolean} isUserLoggedIn
    */
   getUserLoggedIn() {
   	return this.isUserLoggedIn;

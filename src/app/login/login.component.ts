@@ -27,6 +27,10 @@ export class LoginComponent{
   submitted = false;
   model = new User ('', '');
 
+  /**
+   * This function is called to submit login data.
+   * @param {NgForm} form
+   */
   onSubmit(form: NgForm) {
     /** formData holds the data submitted by the user */
     let formData = form.value;

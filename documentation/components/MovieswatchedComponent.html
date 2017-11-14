@@ -679,7 +679,7 @@ export class MovieswatchedComponent implements OnInit {
 	ngOnInit() {
 		this.name &#x3D; this.userService.getCurrUser();
 		const req &#x3D; this.http.post(&#x27;/watchedmovies&#x27;, {username:this.name});
-    	req.subscribe(
+    req.subscribe(
     	res &#x3D;&gt; {
 
         	var response &#x3D; res[&quot;_body&quot;];
@@ -691,8 +691,9 @@ export class MovieswatchedComponent implements OnInit {
   			}
   			else
   				this.movies &#x3D; JSON.parse(response)[&#x27;movies&#x27;];
-        }); 	
-  	}
+      }
+    ); 	
+  }
 }
 </code></pre>
     </div>
