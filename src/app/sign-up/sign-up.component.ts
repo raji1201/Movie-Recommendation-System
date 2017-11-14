@@ -21,16 +21,19 @@ export class SignUpComponent {
     const req = this.http.post('/signupuser', formData);
     req.subscribe(
     	res => {
-          var response = res["_body"];
-          var name = JSON.parse(response)['name'];
-          if(name == "DUPLICATE")
-            this.router.navigate(['/']);
-          else
-            this.router.navigate(['/profile', name]);
-            this.userService.setUserLoggedIn(name);
-        },
-        err => {
-          console.log("ERROR");
-        });  
+        var response = res["_body"];
+        var name = JSON.parse(response)['name'];
+        if(name == "DUPLICATE")
+          this.router.navigate(['/']);
+        else
+        {
+          this.router.navigate(['/profile', name]);
+          this.userService.setUserLoggedIn(name);
+        }
+      },
+      err => {
+        console.log("ERROR");
+      }
+    );  
   }
 }
