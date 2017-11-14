@@ -1,5 +1,8 @@
 import { AppPage } from './app.po';
 
+/**
+ * E2E tests for testing the application using Selenium-Protractor.
+ */
 describe('Movie Recommendation App', () => {
   	let page: AppPage;
 
@@ -7,6 +10,9 @@ describe('Movie Recommendation App', () => {
     	page = new AppPage();
   	});
 
+    /**
+     * Testing the home page title.
+     */
 	it('should display home page', () => {
     	page.navigateTo('/');    
     	expect(page.getTitle()).toEqual('Movie Recommendation Engine');
@@ -15,12 +21,17 @@ describe('Movie Recommendation App', () => {
         movieBtn.click();
   	});
 
-    
-    it('should display movie review page', () => {
+    /**
+     * Testing the 'Top Rated Movies' feature.
+     */
+    it('should display top rated movie page', () => {
         //expect(page.getMovieReviewHead()).toBe(true);
         page.pause();
     });
 
+    /**
+     * Navigating to the Sign up page.
+     */
     it('should display signup page', () => {
         let menuBtn = page.getMenuBtn();
         menuBtn.click();
@@ -30,6 +41,9 @@ describe('Movie Recommendation App', () => {
         page.pause();
     });
 
+    /**
+     * Testing the Sign up feature.
+     */
     it('should fill in the signup form', () => {
         let name = page.getSignupFormName();
         let email = page.getSignupFormEmail();
@@ -48,7 +62,9 @@ describe('Movie Recommendation App', () => {
         page.pause();
     });
 
-
+    /**
+     * Testing navigation to profile page on sign up.
+     */
     it('should display profile page', () => {
         //expect(page.getProfileTitle()).toEqual('Welcome ABC!');
         let btn = page.getSeeMoreBtn2();
@@ -56,6 +72,9 @@ describe('Movie Recommendation App', () => {
         page.pause();
     });
 
+    /**
+     * Testing navigation to 'Top Rated Movies' page.
+     */
     it('should display top rated movies page', () => {
         //expect(page.getTopRatedMovies()).toBe(true);
         let movieBtn = page.getTopRatedMovies();
@@ -63,6 +82,10 @@ describe('Movie Recommendation App', () => {
         page.pause();
     });
 
+    /**
+     * Testing the movie review page.
+     * Should show rating and watched button if logged in.
+     */
     it('should display movie review page', () => {
         //expect(page.getWatchedBtn()).toBe(true);
         let watchedBtn = page.getWatchedBtn();
@@ -79,6 +102,10 @@ describe('Movie Recommendation App', () => {
         page.pause();
     });
 
+    /**
+     * Testing navigation to profile page and back to movie review page.
+     * Watched button should now display 'Watched'.
+     */
     it('should display profile page and then movie review page again', () => {
 
         let btn = page.getSeeMoreBtn2();
@@ -89,6 +116,9 @@ describe('Movie Recommendation App', () => {
         page.pause();
     });
 
+    /**
+     * Testing the logout feature.
+     */
     it('should logout', () => {
         //expect(page.getProfileTitle()).toEqual('Welcome ABC!');
         let menuBtn = page.getMenuBtn();
@@ -99,6 +129,9 @@ describe('Movie Recommendation App', () => {
         page.pause();
     });
 
+    /**
+     * Testing the navigation to the login page.
+     */
     it('should display login page', () => {
         let menuBtn = page.getMenuBtn();
         menuBtn.click();
@@ -108,6 +141,9 @@ describe('Movie Recommendation App', () => {
         page.pause();
     });
 
+    /**
+     * Testign the login feature.
+     */
     it('should fill in the login form', () => {
         let email = page.getLoginFormEmail();
         let password = page.getLoginFormPassword();
@@ -119,11 +155,17 @@ describe('Movie Recommendation App', () => {
         btn.click();
     });
 
+    /**
+     * Testing navigation to profile page on login.
+     */
     it('should display profile page', () => {
         //expect(page.getProfileTitle()).toEqual('Welcome ABC!');
         page.pause();
     });
 
+    /**
+     * Testing the search feature.
+     */
     it('should search for a movie page', () => {
         //expect(page.getProfileTitle()).toEqual('Welcome ABC!');
         let searchBar = page.getSearchBar();
@@ -134,6 +176,9 @@ describe('Movie Recommendation App', () => {
 
     });
 
+    /**
+     * Testing the navigation to the search results page.
+     */
     it('should show movie search results page', () => {
         //expect(page.getProfileTitle()).toEqual('Welcome ABC!');
         let searchedMovie = page.getSearchMovie();
@@ -141,11 +186,17 @@ describe('Movie Recommendation App', () => {
 
     });
 
+    /**
+     * Testing the navigation to movie review page on clicking on the searched movie results.
+     */
     it('should display movie review page', () => {
         //expect(page.getWatchedBtn()).toBe(true);
         page.pause();
     });
 
+    /**
+     * Testing the logout feature.
+     */
     it('should logout', () => {
         let menuBtn = page.getMenuBtn();
         menuBtn.click();
