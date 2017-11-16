@@ -5,12 +5,21 @@
     </h2>
   </div>
   <div>
-    Rated {{rating}} by {{users}} users!<br>
-    Running time : {{length}}<br>
-    Release year : {{rel}}<br>
+    <div class="card">
+      <div class="card-block">
+        <p class="card-text">
+          <p>Rated {{rating}} by {{users}} users!</p>
+          <p>Movie Description : {{des}}</p>
+          <p>Tagline : {{tag}}</p>
+          <p>Release Year : {{rel}}</p>
+          <p>Website : <a href={{website}} target="_blank">{{website}}</a></p>
+          <p>Length : {{run}}</p>
+          <p>Production house : {{production}}</p>
+          <p>Budget : {{budget}}$</p>
+      </div>
+    </div>
   </div>
   
-  <p class="text-left" name="rating">Movie description : {{des}} </p><br>
   <label *ngIf="isUserLoggedIn()" for="rating">What's your rating?</label>
   <div>      
     <fieldset *ngIf="isUserLoggedIn()" class="rating">
