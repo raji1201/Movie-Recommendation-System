@@ -204,22 +204,28 @@ The format of the object is
 app.post('/moviereview',function(req,res){
 	var movie_name=req.body.movie;
 
-	var sql="select budget,homepage,overview,production_companies,release_date,revenue,runtime,tagline,title,rating,users from movie where title='"+movie_name+"'";
+	var sql="select budget,homepage,genres,overview,production_companies,release_date,revenue,runtime,tagline,title,rating,users from movie where title='"+movie_name+"'";
 	
 	connection.query(sql,function(err,result,fields){
 
 		if(err) throw err;
 		
 		var prod=result[0].production_companies;
+		var gen=result[0].genres;
 		prod=JSON.parse(prod);
+		gen=JSON.parse(gen);
 		var prod_c=[];
+		var genre=[];
 
 		for(var i=0;i<prod.length;i++) {
 			prod_c.push(prod[i].name);
 
 		}
+		for(var i=0;i<gen.length;i++) {
+			genre.push(gen[i].name);
+		}
 		console.log(prod_c);
-		var obj={budget:result[0].budget,site:result[0].homepage,des:result[0].overview,rel:result[0].release_date,run:result[0].runtime,tag:result[0].tagline,production:prod_c,title:result[0].title,rating:result[0].rating,user:result[0].users};
+		var obj={budget:result[0].budget,site:result[0].homepage,genres:genre,des:result[0].overview,rel:result[0].release_date,run:result[0].runtime,tag:result[0].tagline,production:prod_c,title:result[0].title,rating:result[0].rating,user:result[0].users};
 		console.log(obj);
 
 		res.json(obj);
