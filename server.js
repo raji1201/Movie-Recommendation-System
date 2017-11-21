@@ -168,13 +168,16 @@ The JSON object sent back is in the following format.
 
 app.get('/seemore',function(req,res){
 
-	var sql="select title from movie where users >= 20 order by rating desc,users desc limit 5;";
+	var sql="select title from movie where users >= 20 order by rating desc,users desc limit 10;";
 
 	connection.query(sql,function(err,result,fields){
 
 		if(err) throw err;
-
-		var obj={m1:result[0].title, m2:result[1].title, m3:result[2].title, m4:result[3].title, m5:result[4].title};
+		var movies=[]
+		for(var 0;i<10;i++) {
+			movies.push(result[i].title);
+		}
+		var obj={movie:movies};
 		res.json(obj);
 
 	});
@@ -198,6 +201,7 @@ The format of the object is
 	title: 		--
 	rating: 	--
 	user: 		--
+	genres: 	--  
 }
 
 */
