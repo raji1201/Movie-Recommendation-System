@@ -17,7 +17,9 @@ export class ElasticsearchService {
     this.client = new Client({
       host: 'localhost:9200',
       log: 'trace',
-      maxRetries: 10
+      maxRetries: 10,
+      keepAlive: true,
+      maxSockets: 10
     });
   }
 
@@ -36,18 +38,22 @@ export class ElasticsearchService {
     });
   }
 
+  // importance for keywords or name can be increased by either keywords^{factor} or name^{factor}
   fullTextSearch(_index, _type, _queryText): any {
     return this.client.search({
       index: _index,
       type: _type,
       body: {
         'query': {
-          'match': {
-            _all: _queryText
+          'multi_match': {
+            'query': _queryText,
+            'fields': ['name', 'keywords'],
+            'fuzziness': 'AUTO'
           }
-        }
+        },
+        'size': 5
       },
-      '_source': ['name', 'rating', 'users', 'length', 'rel', 'des']
+      '_source': ['name']
     });
   }
 
