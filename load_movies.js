@@ -6,7 +6,7 @@ var client = new es.Client({
   host : 'localhost:9200'
 });
 
-fs.readFile('movies.json', 'utf8', function(err, data){
+fs.readFile('movie_dataset_0.json', 'utf8', function(err, data){
   if(err) {
     throw err;
   }
