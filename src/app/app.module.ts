@@ -19,6 +19,7 @@ import { TrmComponent } from './trm/trm.component';
 import { ElasticsearchService } from './elasticsearch.service';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { MovieswatchedComponent } from './movieswatched/movieswatched.component';
+import { RecommendedComponent } from './recommended/recommended.component';
 
 const appRoutes: Routes = [
 	{path: 'login', component: LoginComponent },
@@ -29,6 +30,7 @@ const appRoutes: Routes = [
   {path: 'trm', component: TrmComponent},
   {path: 'results', component: SearchResultsComponent},
   {path: 'movieswatched', component: MovieswatchedComponent},
+  {path: 'recommended', component: RecommendedComponent}
 ];
 
 
@@ -43,7 +45,8 @@ const appRoutes: Routes = [
     MovieReviewComponent,
     TrmComponent,
     SearchResultsComponent,
-    MovieswatchedComponent
+    MovieswatchedComponent,
+    RecommendedComponent
   ],
   imports: [
     HttpModule,

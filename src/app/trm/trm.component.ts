@@ -13,7 +13,7 @@ import { Http, Response, RequestOptions, Headers } from '@angular/http';
  */
 export class TrmComponent implements OnInit {
 
-  /** Stores the 10 top rated movie. */
+  /** Stores the 10 top rated movies. */
   public movies = [];
 
   /**

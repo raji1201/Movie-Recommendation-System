@@ -20,16 +20,13 @@ export class MovieswatchedComponent implements OnInit {
 		const req = this.http.post('/watchedmovies', {username:this.name});
     req.subscribe(
     	res => {
-
-        	var response = res["_body"];
-          	this.movies = JSON.parse(response)['movies'];
+        var response = res["_body"];
+        this.movies = JSON.parse(response)['movies'];
           
-          	if(this.movies.length == 0)
+        if(this.movies.length == 0)
   			{
-  			   	this.movies = ['No results!'];
+  			  this.movies = ['No results!'];
   			}
-  			else
-  				this.movies = JSON.parse(response)['movies'];
       }
     ); 	
   }

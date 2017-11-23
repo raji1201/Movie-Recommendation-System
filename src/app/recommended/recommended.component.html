@@ -1,0 +1,15 @@
+<div class="container">
+	<div class="starter-template">
+		<h2>
+			TOP RECOMMENDED MOVIES FOR {{name}}
+		</h2>
+		<br>
+		<div class="card">
+			<div *ngFor="let movieResult of movies" style="margin-top:20px">
+        		<p class="card-text">
+        			<a id = "movie1" routerLink="/reviews/{{movieResult}}" routerLinkActive="active">{{movieResult}}</a>
+        		</p>
+      		</div>
+		</div>
+	</div>
+</div>
