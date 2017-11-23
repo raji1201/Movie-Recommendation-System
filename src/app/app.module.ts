@@ -19,7 +19,7 @@ import { TrmComponent } from './trm/trm.component';
 import { ElasticsearchService } from './elasticsearch.service';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { MovieswatchedComponent } from './movieswatched/movieswatched.component';
-
+/** This provides the route for the individual components */
 const appRoutes: Routes = [
 	{path: 'login', component: LoginComponent },
 	{path: 'signup', component: SignUpComponent},
@@ -31,7 +31,10 @@ const appRoutes: Routes = [
   {path: 'movieswatched', component: MovieswatchedComponent},
 ];
 
-
+/** The NgModule directive has the individual components imported into the application
+ * along with their declarations. It also has the component whch bootstraps the application
+ * and individual services the application uses.
+ */
 @NgModule({
   declarations: [
     AppComponent,
