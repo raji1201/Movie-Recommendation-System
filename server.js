@@ -155,7 +155,7 @@ app.get('/home', function(req,res){
 });
 
 /*
-Similar to home page, if user wants to see more top rated movies,top 5 movies are sent back with the same criteria.
+Similar to home page, if user wants to see more top rated movies,top 10 movies are sent back with the same criteria.
 The JSON object sent back is in the following format.
 {
 	m1: --
@@ -163,20 +163,23 @@ The JSON object sent back is in the following format.
 	m3: --
 	m4: --
 	m5: --
+	etc.
 }
 */
 
 app.get('/seemore',function(req,res){
 
-	var sql="select title from movie where users >= 20 order by rating desc,users desc limit 5;";
+	var sql="select title from movie where users >= 20 order by rating desc,users desc limit 10;";
 
 	connection.query(sql,function(err,result,fields){
 
 		if(err) throw err;
-
-		var obj={m1:result[0].title, m2:result[1].title, m3:result[2].title, m4:result[3].title, m5:result[4].title};
+		var movies=[]
+		for(var i=0;i<10;i++) {
+			movies.push(result[i].title);
+		}
+		var obj={movie:movies};
 		res.json(obj);
-
 	});
 
 });
@@ -198,29 +201,36 @@ The format of the object is
 	title: 		--
 	rating: 	--
 	user: 		--
+	genres: 	--  
 }
 
 */
 app.post('/moviereview',function(req,res){
 	var movie_name=req.body.movie;
-
-	var sql="select budget,homepage,overview,production_companies,release_date,revenue,runtime,tagline,title,rating,users from movie where title='"+movie_name+"'";
+	var movie_name=movie_name.replace(/'/g, "\\'");
+	var sql="select budget,homepage,genres,overview,production_companies,release_date,revenue,runtime,tagline,title,rating,users from movie where title='"+movie_name+"'";
 	
 	connection.query(sql,function(err,result,fields){
 
 		if(err) throw err;
 		
 		var prod=result[0].production_companies;
+		var gen=result[0].genres;
 		prod=JSON.parse(prod);
+		gen=JSON.parse(gen);
 		var prod_c=[];
+		var genre=[];
 
 		for(var i=0;i<prod.length;i++) {
 			prod_c.push(prod[i].name);
 
 		}
-		console.log(prod_c);
-		var obj={budget:result[0].budget,site:result[0].homepage,des:result[0].overview,rel:result[0].release_date,run:result[0].runtime,tag:result[0].tagline,production:prod_c,title:result[0].title,rating:result[0].rating,user:result[0].users};
-		console.log(obj);
+		for(var i=0;i<gen.length;i++) {
+			genre.push(gen[i].name);
+		}
+		
+		var obj={budget:result[0].budget,site:result[0].homepage,genres:genre,des:result[0].overview,rel:result[0].release_date,run:result[0].runtime,tag:result[0].tagline,production:prod_c,title:result[0].title,rating:result[0].rating,user:result[0].users};
+		
 
 		res.json(obj);
 
@@ -239,6 +249,7 @@ app.post('/checkWatched',function(req,res){
 
 	var uname=req.body.username;
 	var mname=req.body.movie;
+	var mname=mname.replace(/'/g, "\\'");
 
 	var sql="select * from watched where user='"+uname+"' and mname='"+mname+"';";
 	
@@ -268,7 +279,8 @@ app.post('/watched',function(req,res){
 	
 	var uname=req.body.username;
 	var mname=req.body.movie;
-
+	var mname=mname.replace(/'/g, "\\'");
+	
 	var sql_pre="select * from watched where user='"+uname+"' and mname='"+mname+"';";
 
 	connection.query(sql_pre,function(err,result,fields){
@@ -283,6 +295,60 @@ app.post('/watched',function(req,res){
 			connection.query(sql,function(err,result,fields){
 
 				if(err) throw err;	
+
+				var sql2="select genres from movie where title='"+mname+"';"
+
+				connection.query(sql2,function(err,result,fields){
+
+					
+					var gen=result[0].genres;
+					gen=JSON.parse(gen);
+					console.log(gen);
+
+					for(var i=0;i<gen.length;i++) {
+						if(gen[i].name == 'Action') {
+							console.log("Entered action")
+						}
+						else if(gen[i].name == 'Adventure') {
+							console.log("Entered adeventure")
+						}
+						else if(gen[i].name == 'Drama') {
+							console.log("Entered drama")
+						}
+						else if(gen[i].name == 'Romance') {
+							console.log("Entered romance")
+						}
+						else if(gen[i].name == 'Comedy') {
+							console.log("Entered comedy")
+						}
+						else if(gen[i].name == 'Horror') {
+							console.log("Entered horror")
+						}
+						else if(gen[i].name == 'Thriller') {
+							console.log("Entered thriller")
+						}
+						else if(gen[i].name == 'Science Fiction') {
+							console.log("Entered  sci fi")
+						}
+						else if(gen[i].name == 'Fantasy') {
+							console.log("Entered fantasy")
+						}
+						else if(gen[i].name == 'Animation') {
+							console.log("Entered animation")
+						}
+						else if(gen[i].name == 'Mystery') {
+							console.log("Entered mystery")
+						}
+						else
+						{
+							console.log("Different genre");
+							console.log(gen[i].name);
+						}
+
+
+					}
+
+				});
 
 				res.json({dummy:"dummy"});
 			});
@@ -305,7 +371,7 @@ app.post('/updateRating',function(req,res){
 
 	var mname=req.body.movie;
 	var rating=req.body.rating;
-
+	var mname=mname.replace(/'/g, "\\'");
 	rating=rating*2;
 	
 

@@ -17,6 +17,8 @@ export class MovieReviewComponent implements OnInit {
 
   /** Stores the username of the logged in user. */
   currUser = '';
+  /** Stores the genres of the movie. */
+  genres = '';
   /** Stores the name of the movie production house. */
   production = [];
   /** Stores the budget of the movie. */
@@ -66,8 +68,10 @@ export class MovieReviewComponent implements OnInit {
     	req.subscribe(
   			res => {
         	var response = res["_body"];
+          
           /** Bind the movie details from the http response to local variables. */
         	this.name = JSON.parse(response)['title'];
+          this.genres = JSON.parse(response)['genres'];
           this.budget = JSON.parse(response)['budget'];
           this.website = JSON.parse(response)['site'];
           this.run = JSON.parse(response)['run'];

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
-import {Router, ActivatedRoute, Params} from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 
 @Component({
@@ -32,17 +32,14 @@ export class MovieswatchedComponent implements OnInit {
 		/** Gets the http response with the movie list as an array. */
     req.subscribe(
     	res => {
-
-					var response = res["_body"];
-			    /** Bind the movie details from the http response to local variables. */
-          	this.movies = JSON.parse(response)['movies'];
+				var response = res["_body"];
+		    /** Bind the movie details from the http response to local variables. */
+        this.movies = JSON.parse(response)['movies'];
           
-          	if(this.movies.length == 0)
+        if(this.movies.length == 0)
   			{
-  			   	this.movies = ['No results!'];
+  			  this.movies = ['No results!'];
   			}
-  			else
-  				this.movies = JSON.parse(response)['movies'];
       }
     ); 	
   }

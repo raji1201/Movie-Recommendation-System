@@ -13,16 +13,8 @@ import { Http, Response, RequestOptions, Headers } from '@angular/http';
  */
 export class TrmComponent implements OnInit {
 
-  /** Stores the 1st top rated movie. */
-  m1 = '';
-  /** Stores the 2nd top rated movie. */
-  m2 = '';
-  /** Stores the 3rd top rated movie. */
-  m3 = '';
-  /** Stores the 4th top rated movie. */
-  m4 = '';
-  /** Stores the 5th top rated movie. */
-  m5 = '';
+  /** Stores the 10 top rated movies. */
+  public movies = [];
 
   /**
    * Constructor provides Http on object instantiation.
@@ -41,14 +33,10 @@ export class TrmComponent implements OnInit {
     /** Gets the http response with the movie details. */
     req.subscribe(
       res => {
+
+        /** Bind the movie details from the http response to local variable. */
         var response = res["_body"];
-        
-        /** Bind the movie details from the http response to local variables. */
-        this.m1 = JSON.parse(response)['m1'];
-        this.m2 = JSON.parse(response)['m2'];
-        this.m3 = JSON.parse(response)['m3'];
-        this.m4 = JSON.parse(response)['m4'];
-        this.m5 = JSON.parse(response)['m5'];
+        this.movies = JSON.parse(response)['movie'];
       },
       err => {
         console.log("ERROR");
