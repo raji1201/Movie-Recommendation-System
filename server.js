@@ -155,7 +155,7 @@ app.get('/home', function(req,res){
 });
 
 /*
-Similar to home page, if user wants to see more top rated movies,top 5 movies are sent back with the same criteria.
+Similar to home page, if user wants to see more top rated movies,top 10 movies are sent back with the same criteria.
 The JSON object sent back is in the following format.
 {
 	m1: --
@@ -163,6 +163,7 @@ The JSON object sent back is in the following format.
 	m3: --
 	m4: --
 	m5: --
+	etc.
 }
 */
 
@@ -179,7 +180,6 @@ app.get('/seemore',function(req,res){
 		}
 		var obj={movie:movies};
 		res.json(obj);
-
 	});
 
 });
