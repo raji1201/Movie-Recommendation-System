@@ -1,3 +1,5 @@
+import { RecommendedComponent } from './../recommended/recommended.component';
+import { MovieswatchedComponent } from './../movieswatched/movieswatched.component';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from '../login/login.component';
@@ -32,7 +34,9 @@ const appRoutes: Routes = [
   {path: 'profile/:name', component: ProfileComponent},
   {path: 'reviews/:name', component: MovieReviewComponent},
   {path: 'trm', component: TrmComponent},
-  {path: 'results', component: SearchResultsComponent}
+  {path: 'results', component: SearchResultsComponent},
+  {path: 'movieswatched', component: MovieswatchedComponent},
+  {path: 'recommended', component: RecommendedComponent}
 ];
 describe('SignUpComponent', () => {
   let component: SignUpComponent;
@@ -48,7 +52,9 @@ describe('SignUpComponent', () => {
         ProfileComponent,
         MovieReviewComponent,
         TrmComponent,
-        SearchResultsComponent  ], 
+        SearchResultsComponent ,
+        MovieswatchedComponent ,
+        RecommendedComponent  ], 
         imports : [ HttpModule,
           HttpClientModule,
           FormsModule,

@@ -1,3 +1,5 @@
+import { RecommendedComponent } from './../recommended/recommended.component';
+import { MovieswatchedComponent } from './../movieswatched/movieswatched.component';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { Router, RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home.component';
@@ -30,7 +32,9 @@ const appRoutes: Routes = [
   {path: 'profile/:name', component: ProfileComponent},
   {path: 'reviews/:name', component: MovieReviewComponent},
   {path: 'trm', component: TrmComponent},
-  {path: 'results', component: SearchResultsComponent}
+  {path: 'results', component: SearchResultsComponent},
+  {path: 'movieswatched', component: MovieswatchedComponent},
+  {path: 'recommended', component: RecommendedComponent}
 ];
 
 describe('HomeComponent', () => {
@@ -47,7 +51,9 @@ describe('HomeComponent', () => {
   	    ProfileComponent,
         MovieReviewComponent,
         TrmComponent,
-        SearchResultsComponent ],
+        SearchResultsComponent ,
+        MovieswatchedComponent ,
+        RecommendedComponent ],
       imports: [
         HttpModule,
         HttpClientModule,
@@ -90,24 +96,19 @@ describe('HomeComponent', () => {
     fixture.detectChanges();
     component.m1='Batman';
     const compiled = fixture.debugElement.nativeElement;
-    //expect(compiled.querySelector('a').textContent).toContain('Batman');
     expect(component.m1.length>0).toBe(true);
   }));
 
   it('should render movie2 in <a> tag', async(() => {
     const fixture = TestBed.createComponent(HomeComponent);
     fixture.detectChanges();
-//    this.m2='Batman';
     const compiled = fixture.debugElement.nativeElement;
-    //expect(compiled.querySelector('a').textContent).toContain('Batman');
     expect(component.m1.length===0).toBe(true);
   }));
   it('should render movie3 in <a> tag', async(() => {
     const fixture = TestBed.createComponent(HomeComponent);
     fixture.detectChanges();
-   // this.m2='Batman';
     const compiled = fixture.debugElement.nativeElement;
-    //expect(compiled.querySelector('a').textContent).toContain('Batman');
     expect(component.m3.length===0).toBe(true);
   }));
 });

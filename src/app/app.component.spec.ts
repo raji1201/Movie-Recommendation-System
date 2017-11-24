@@ -1,3 +1,5 @@
+import { MovieswatchedComponent } from './movieswatched/movieswatched.component';
+import { RecommendedComponent } from './recommended/recommended.component';
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { enableProdMode } from '@angular/core';
@@ -30,7 +32,9 @@ const appRoutes: Routes = [
   {path: 'profile/:name', component: ProfileComponent},
   {path: 'reviews/:name', component: MovieReviewComponent},
   {path: 'trm', component: TrmComponent},
-  {path: 'results', component: SearchResultsComponent}
+  {path: 'results', component: SearchResultsComponent},
+  {path: 'movieswatched', component: MovieswatchedComponent},
+  {path: 'recommended', component: RecommendedComponent}
 ];
 
 
@@ -46,7 +50,9 @@ describe('AppComponent', () => {
   	    ProfileComponent,
         MovieReviewComponent,
         TrmComponent,
-        SearchResultsComponent
+        SearchResultsComponent,
+        MovieswatchedComponent ,
+        RecommendedComponent 
       ],
       imports: [
         HttpModule,
@@ -59,7 +65,8 @@ describe('AppComponent', () => {
           appRoutes,
           { enableTracing: true } // <-- debugging purposes only
         ),
-        BrowserAnimationsModule, BrowserModule, MatButtonModule, MatCheckboxModule,MatMenuModule, MatToolbarModule, MatIconModule, MatCardModule
+        BrowserAnimationsModule, BrowserModule, MatButtonModule, MatCheckboxModule,
+        MatMenuModule, MatToolbarModule, MatIconModule, MatCardModule
       ],
 	    providers: [UserService,{provide: APP_BASE_HREF, useValue: '/'}, ElasticsearchService]
     }).compileComponents();

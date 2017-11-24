@@ -1,3 +1,5 @@
+import { RecommendedComponent } from './../recommended/recommended.component';
+import { MovieswatchedComponent } from './../movieswatched/movieswatched.component';
 
 import { ProfileComponent } from './profile.component';
 import { UserService } from '../user.service';
@@ -34,7 +36,9 @@ const appRoutes: Routes = [
   {path: 'profile/:name', component: ProfileComponent},
   {path: 'reviews/:name', component: MovieReviewComponent},
   {path: 'trm', component: TrmComponent},
-  {path: 'results', component: SearchResultsComponent}
+  {path: 'results', component: SearchResultsComponent},
+  {path: 'movieswatched', component: MovieswatchedComponent},
+  {path: 'recommended', component: RecommendedComponent}
 ];
 describe('ProfileComponent', () => {
   let component: ProfileComponent;
@@ -50,7 +54,10 @@ describe('ProfileComponent', () => {
         ProfileComponent,
         MovieReviewComponent,
         TrmComponent,
-        SearchResultsComponent  ], 
+        SearchResultsComponent,
+        MovieswatchedComponent ,
+        RecommendedComponent
+       ], 
         imports : [ HttpModule,
           HttpClientModule,
           FormsModule,
@@ -85,21 +92,6 @@ describe('ProfileComponent', () => {
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('h4').textContent).toContain('RECOMMENDED MOVIES FOR ');
   }));
-
-  it('should render title in a a tag', async(() => {
-    const fixture = TestBed.createComponent(ProfileComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('a').textContent).toContain('The Snowman');
-  }));
-
-  // ('should display the user name if user is logged in', () => {
-  //   let fixture = TestBed.createComponent(ProfileComponent);
-  //   let app = fixture.debugElement.componentInstance;
-  //   fixture.detectChanges();
-  //   let compiled = fixture.debugElement.nativeElement;
-  //   expect(compiled.querySelector('h2').textContent).toContain(app.name);
-  // });
 
   it('should use the user name from the service', () => {
     let fixture = TestBed.createComponent(ProfileComponent);

@@ -1,3 +1,5 @@
+import { RecommendedComponent } from './../recommended/recommended.component';
+import { MovieswatchedComponent } from './../movieswatched/movieswatched.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { async, ComponentFixture, TestBed,inject, fakeAsync,tick } from '@angular/core/testing';
 import { Router, RouterModule, Routes } from '@angular/router';
@@ -34,7 +36,9 @@ const appRoutes: Routes = [
   {path: 'profile/:name', component: ProfileComponent},
   {path: 'reviews/:name', component: MovieReviewComponent},
   {path: 'trm', component: TrmComponent},
-  {path: 'results', component: SearchResultsComponent}
+  {path: 'results', component: SearchResultsComponent},
+  {path: 'movieswatched', component: MovieswatchedComponent},
+  {path: 'recommended', component: RecommendedComponent}
 ];
 //test
 describe('MovieReviewComponent', () => {
@@ -52,7 +56,9 @@ describe('MovieReviewComponent', () => {
         ProfileComponent,
         MovieReviewComponent,
         TrmComponent,
-        SearchResultsComponent  ], 
+        SearchResultsComponent ,
+        MovieswatchedComponent ,
+        RecommendedComponent ], 
         imports : [ HttpModule,
           HttpClientModule,
           FormsModule,
@@ -65,7 +71,7 @@ describe('MovieReviewComponent', () => {
         ),        BrowserAnimationsModule, BrowserModule, MatButtonModule, 
         MatCheckboxModule,MatMenuModule, MatToolbarModule, MatIconModule,
          MatCardModule],
-         providers: [MockBackend,UserService,{provide: APP_BASE_HREF, useValue: 'reviews/:'}, ElasticsearchService]
+         providers: [MovieReviewComponent,MockBackend,UserService,{provide: APP_BASE_HREF, useValue: 'reviews/:'}, ElasticsearchService]
          
     })
     .compileComponents();
@@ -82,64 +88,4 @@ describe('MovieReviewComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-//   it('error while server is down', fakeAsync(() => {
-//     const status= '';
-//     //let catchedError: any;
-//     this.lastConnection.mockRespond(new Response(new ResponseOptions({
-//       status: 404,
-//       statusText: 'URL not Found',
-//     })));
-//     tick();
-//    // expect(status).toBe(404);
-// //    expect(catchedError).toBeDefined();
-//   }));
-
-    
-
-  // it('should render a h2 tag', inject([UserService, MockBackend], (userService: UserService, mockBackend: MockBackend) => {
-  //   subject = userService;
-  //   backend = mockBackend;
-
-  //   it('#login should call endpoint and return it\'s result', (done) => {
-  //     backend.connections.subscribe((connection: MockConnection) => {
-  //       let options = new ResponseOptions({
-  //         body: JSON.stringify({ success: true })
-  //       });
-  //       connection.mockRespond(new Response(options));
-  //     });
-  
-  //     subject
-  //       .login({ username: 'admin', password: 'secret' })
-  //       .subscribe((response) => {
-  //         expect(response.json()).toEqual({ success: true });
-  //         done();
-  //       });
-  //   });
-  // }));
-
-
-  //   const fixture = TestBed.createComponent(MovieReviewComponent);
-  //   fixture.detectChanges();
-  //   const compiled = fixture.debugElement.nativeElement;
-  //   expect(compiled.querySelector('h2').textContent).toContain('Movie Review for ');
-  // }));
-
-
-
-//   it('should render a p tag in the description', async(() => {
-//     const fixture = TestBed.createComponent(MovieReviewComponent);
-//     fixture.detectChanges();
-//     const compiled = fixture.debugElement.nativeElement;
-//     //let result = fixture.nativeElement.querySelector('');
-//     expect(compiled.querySelector('p').textContent).toContain('Movie description : ');
-//   }));  
-
-//   it('should render a star', async(() => {
-//     const fixture = TestBed.createComponent(MovieReviewComponent);
-//     fixture.detectChanges();
-//     const compiled = fixture.debugElement.nativeElement;
-//     expect(compiled.querySelector('input'));
-//   }));  
-// });
 });

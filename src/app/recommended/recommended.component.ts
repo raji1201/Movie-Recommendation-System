@@ -43,7 +43,7 @@ export class RecommendedComponent implements OnInit {
   				{
   			   		this.movies = ['No results!'];
   				}
-  			else
+  			
 	     	},
 	      	err => {
 	        	console.log("ERROR");

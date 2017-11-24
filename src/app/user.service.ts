@@ -34,10 +34,9 @@ export class UserService {
 
   /**
    * Gets the username of the user currently logged in
-   * @return {string} username
+   * @returns {string} username
    */
-  getCurrUser()
-  {
+  getCurrUser(): string {
     return this.username;
   }
 
