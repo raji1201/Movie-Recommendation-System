@@ -1,3 +1,5 @@
+import { RecommendedComponent } from './../recommended/recommended.component';
+import { MovieswatchedComponent } from './../movieswatched/movieswatched.component';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 
@@ -33,7 +35,9 @@ const appRoutes: Routes = [
   {path: 'profile/:name', component: ProfileComponent},
   {path: 'reviews/:name', component: MovieReviewComponent},
   {path: 'trm', component: TrmComponent},
-  {path: 'results', component: SearchResultsComponent}
+  {path: 'results', component: SearchResultsComponent},
+  {path: 'movieswatched', component: MovieswatchedComponent},
+  {path: 'recommended', component: RecommendedComponent}
 ];
 describe('SearchResultsComponent', () => {
   let component: SearchResultsComponent;
@@ -49,7 +53,9 @@ describe('SearchResultsComponent', () => {
         ProfileComponent,
         MovieReviewComponent,
         TrmComponent,
-        SearchResultsComponent  ], 
+        SearchResultsComponent ,
+        MovieswatchedComponent ,
+        RecommendedComponent  ], 
         imports : [ HttpModule,
           HttpClientModule,
           FormsModule,
@@ -83,7 +89,6 @@ describe('SearchResultsComponent', () => {
     fixture.detectChanges();
     component.movies=[];
     const compiled = fixture.debugElement.nativeElement;
-    //expect(compiled.querySelector('a').textContent).toContain('Batman');
     expect(component.movies.length===0).toBe(true);
   }));
 
@@ -92,15 +97,12 @@ describe('SearchResultsComponent', () => {
     fixture.detectChanges();
     component.movies=['Batman'];
     const compiled = fixture.debugElement.nativeElement;
-    //expect(compiled.querySelector('a').textContent).toContain('Batman');
     expect(component.movies.length===0).toBe(false);
   }));
   it('when no movie exists,should have No results! stored in it ', async(() => {
     const fixture = TestBed.createComponent(HomeComponent);
     fixture.detectChanges();
-    //component.movies=['Batman'];
     const compiled = fixture.debugElement.nativeElement;
-    //expect(compiled.querySelector('a').textContent).toContain('Batman');
     expect(component.movies[0]).toBe('No results!');
   }));
 });

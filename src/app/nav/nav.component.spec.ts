@@ -1,3 +1,5 @@
+import { RecommendedComponent } from './../recommended/recommended.component';
+import { MovieswatchedComponent } from './../movieswatched/movieswatched.component';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { Router, RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from '../home/home.component';
@@ -30,7 +32,9 @@ const appRoutes: Routes = [
   {path: 'profile/:name', component: ProfileComponent},
   {path: 'reviews/:name', component: MovieReviewComponent},
   {path: 'trm', component: TrmComponent},
-  {path: 'results', component: SearchResultsComponent}
+  {path: 'results', component: SearchResultsComponent},
+  {path: 'movieswatched', component: MovieswatchedComponent},
+  {path: 'recommended', component: RecommendedComponent}
 ];
 describe('NavComponent', () => {
   let component: NavComponent;
@@ -46,7 +50,9 @@ describe('NavComponent', () => {
                         	    ProfileComponent,
                               MovieReviewComponent,
                               TrmComponent,
-                              SearchResultsComponent ],
+                              SearchResultsComponent ,
+                              MovieswatchedComponent ,
+                              RecommendedComponent ],
       
       
         imports: [
@@ -90,7 +96,7 @@ describe('NavComponent', () => {
     const fixture = TestBed.createComponent(NavComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('a').textContent).toContain('MOVIE RECOMMENDATION SYSTEM');
+    expect(compiled.querySelector('a').textContent).toContain('  MOVIE RECOMMENDATION ENGINE ');
   }));
 
   
