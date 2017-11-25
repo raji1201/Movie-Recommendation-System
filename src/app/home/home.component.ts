@@ -1,3 +1,8 @@
+/**
+ * File name : home.component.ts
+ * @author Raji Sundararajan
+ */
+
 import { Component, OnInit } from '@angular/core';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { Router, RouterModule } from '@angular/router';
@@ -8,18 +13,21 @@ import { UserService } from '../user.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
+
 /**
  * HomeComponent implements the homepage which displays the
  *  top recommmended movies.
  */
 export class HomeComponent implements OnInit {
-/** Stores the 1st top rated movie. */
+
+  /** Stores the 1st top rated movie. */
   m1 = '';
-/** Stores the 2nd top rated movie. */
+  /** Stores the 2nd top rated movie. */
   m2 = '';
-/** Stores the 3rd top rated movie. */
-  m3 = '';
-/**
+  /** Stores the 3rd top rated movie. */
+    m3 = '';
+
+  /**
    * Constructor provides Http, Router and UserService on object instantiation.
    * @constructor
    * @param {Http} http
@@ -35,14 +43,15 @@ export class HomeComponent implements OnInit {
   	const req = this.http.get('/home');
     	req.subscribe(
     	res => {
-          var response = res["_body"];
-          /** Bind the movie details from the http response to local variables. */
-          this.m1 = JSON.parse(response)['m1'];
-          this.m2 = JSON.parse(response)['m2'];
-          this.m3 = JSON.parse(response)['m3'];
-        },
-        err => {
-          console.log("ERROR");
-        });
+        var response = res["_body"];
+        /** Bind the movie details from the http response to local variables. */
+        this.m1 = JSON.parse(response)['m1'];
+        this.m2 = JSON.parse(response)['m2'];
+        this.m3 = JSON.parse(response)['m3'];
+      },
+      err => {
+        console.log("ERROR");
+      }
+    );
   }
 }

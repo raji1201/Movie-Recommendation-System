@@ -1,3 +1,8 @@
+/**
+ * File name : trm.component.ts
+ * @author Raji Sundararajan
+ */
+
 import { Component, OnInit } from '@angular/core';
 import {Router, ActivatedRoute, Params} from '@angular/router';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';

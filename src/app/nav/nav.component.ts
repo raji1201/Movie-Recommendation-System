@@ -1,3 +1,8 @@
+/**
+ * File name : nav.component.ts
+ * @author Raji Sundararajan
+ */
+
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Router, ActivatedRoute, Params, RoutesRecognized } from '@angular/router';
 import { UserService } from '../user.service';

@@ -20,6 +20,7 @@ import { ElasticsearchService } from './elasticsearch.service';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { MovieswatchedComponent } from './movieswatched/movieswatched.component';
 import { RecommendedComponent } from './recommended/recommended.component';
+
 /** This provides the route for the individual components */
 const appRoutes: Routes = [
 	{path: 'login', component: LoginComponent },

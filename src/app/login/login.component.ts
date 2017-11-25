@@ -1,3 +1,8 @@
+/**
+ * File name : login.component.ts
+ * @author Raji Sundararajan
+ */
+ 
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
@@ -32,33 +37,40 @@ export class LoginComponent{
    * @param {NgForm} form
    */
   onSubmit(form: NgForm) {
+
     /** formData holds the data submitted by the user */
     let formData = form.value;
 
-    /** Http post request for login */
-    const req = this.http.post('/loginuser', formData);
+    const regexForEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if(regexForEmail.test(formData.email))
+    {  
+      /** Http post request for login */
+      const req = this.http.post('/loginuser', formData);
 
-    /** Gets the Http response with the username of the logged in user. */
-    req.subscribe(
-    	res => {
-        var response = res["_body"];
-        var name = JSON.parse(response)['name'];
+      /** Gets the Http response with the username of the logged in user. */
+      req.subscribe(
+      	res => {
+          var response = res["_body"];
+          var name = JSON.parse(response)['name'];
 
-        /** Successful login returns username, else "ERROR". */
-        if(name == "ERROR")
-        {
-          this.router.navigate(['/']);
+          /** Successful login returns username, else "ERROR". */
+          if(name == "ERROR")
+          {
+            this.router.navigate(['/']);
+          }
+          else
+          {
+            /** Redirected to profile page on successful login, isUserLoggedIn set to true for that user. */
+            this.router.navigate(['/profile', name]);
+            this.userService.setUserLoggedIn(name);
+          }
+        },
+        err => {
+          console.log("ERROR");
         }
-        else
-        {
-          /** Redirected to profile page on successful login, isUserLoggedIn set to true for that user. */
-          this.router.navigate(['/profile', name]);
-          this.userService.setUserLoggedIn(name);
-        }
-      },
-      err => {
-        console.log("ERROR");
-      }
-    );  
+      );
+    }
+    else
+      alert('Email should have \'@\' symbol');  
   }
 }

@@ -1,3 +1,8 @@
+/**
+ * File name : app.component.ts
+ * @author Raji Sundararajan
+ */
+
 import { RouterModule, Routes } from '@angular/router';
 import { Component } from '@angular/core';
 
