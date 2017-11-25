@@ -19,7 +19,11 @@ import { UserService } from '../user.service';
  */
 export class SearchResultsComponent implements OnInit {
 
+  /** Holds the moviesearch results. */
 	public movies = [];
+
+  /** Holds the searched term. */
+  searchTerm = '';
 
   /**
    * Constructor provides ElasticsearchService and UserService on object instantiation.
@@ -31,6 +35,8 @@ export class SearchResultsComponent implements OnInit {
 
   ngOnInit() {
   	
+    this.searchTerm = this.userService.searchString;
+    
     /** Checks if there are any results for the search. */
   	if(this.userService.movies.length != 0)
   	{

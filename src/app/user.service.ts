@@ -20,6 +20,9 @@ export class UserService {
   /** Holds the movies watched by the current user. */
   public movies = [];
   
+  /** Holds the keyword searched for. */
+  searchString = '';
+
   /**
    * Sets user logged in to false on intialization
    * @constructor
