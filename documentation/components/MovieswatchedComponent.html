@@ -103,6 +103,9 @@
                                     <a href="../components/ProfileComponent.html" >ProfileComponent</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../components/RecommendedComponent.html" >RecommendedComponent</a>
+                                </li>
+                                <li class="link">
                                     <a href="../components/SearchResultsComponent.html" >SearchResultsComponent</a>
                                 </li>
                                 <li class="link">
@@ -284,6 +287,9 @@
                                        </li>
                                        <li class="link">
                                            <a href="../components/ProfileComponent.html" >ProfileComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/RecommendedComponent.html" >RecommendedComponent</a>
                                        </li>
                                        <li class="link">
                                            <a href="../components/SearchResultsComponent.html" >SearchResultsComponent</a>
@@ -514,12 +520,14 @@
                     </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/movieswatched/movieswatched.component.ts:14</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/movieswatched/movieswatched.component.ts:25</a></div>
                                 </td>
                             </tr>
     
                     <tr>
                         <td class="col-md-4">
+                                <div class="io-description"><p>Constructor provides Http and UserService on object instantiation.</p>
+    </div>
                                 <div>
                                         <b>Parameters :</b>
                                         <table class="params">
@@ -585,7 +593,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/movieswatched/movieswatched.component.ts:18</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/movieswatched/movieswatched.component.ts:35</a></div>
                                 </td>
                             </tr>
     
@@ -623,10 +631,16 @@
                     </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/movieswatched/movieswatched.component.ts:13</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/movieswatched/movieswatched.component.ts:23</a></div>
                                 </td>
                             </tr>
     
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-description"><p>Stores the movies watched by the user. </p>
+    </div>
+                        </td>
+                    </tr>
     
                 </tbody>
             </table>
@@ -646,10 +660,16 @@
                     </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/movieswatched/movieswatched.component.ts:14</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/movieswatched/movieswatched.component.ts:25</a></div>
                                 </td>
                             </tr>
     
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-description"><p>stores the current user logged in </p>
+    </div>
+                        </td>
+                    </tr>
     
                 </tbody>
             </table>
@@ -661,7 +681,7 @@
     <div class="tab-pane fade tab-source-code" id="source">
         <pre class="line-numbers"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
 import { UserService } from &#x27;../user.service&#x27;;
-import {Router, ActivatedRoute, Params} from &#x27;@angular/router&#x27;;
+import { Router, ActivatedRoute, Params } from &#x27;@angular/router&#x27;;
 import { Http, Response, RequestOptions, Headers } from &#x27;@angular/http&#x27;;
 
 @Component({
@@ -669,28 +689,40 @@ import { Http, Response, RequestOptions, Headers } from &#x27;@angular/http&#x27
   templateUrl: &#x27;./movieswatched.component.html&#x27;,
   styleUrls: [&#x27;./movieswatched.component.css&#x27;]
 })
+
+/**
+ * MoviesWatchedComponent gives back all the movies watched by a particular user.
+ */
 export class MovieswatchedComponent implements OnInit {
 
+  /** Stores the movies watched by the user. */
 	public movies &#x3D; [];
+	/** stores the current user logged in */
 	name &#x3D; &#x27;&#x27;;
 
+	/**
+   * Constructor provides Http and UserService on object instantiation.
+   * @constructor
+   * @param {Http} http
+   * @param {UserService} userService
+   */
 	constructor(private userService: UserService, private http: Http) { }
 
 	ngOnInit() {
 		this.name &#x3D; this.userService.getCurrUser();
+		/** Http post request for movies watched by the user. */
 		const req &#x3D; this.http.post(&#x27;/watchedmovies&#x27;, {username:this.name});
+		/** Gets the http response with the movie list as an array. */
     req.subscribe(
     	res &#x3D;&gt; {
-
-        	var response &#x3D; res[&quot;_body&quot;];
-          	this.movies &#x3D; JSON.parse(response)[&#x27;movies&#x27;];
+				var response &#x3D; res[&quot;_body&quot;];
+		    /** Bind the movie details from the http response to local variables. */
+        this.movies &#x3D; JSON.parse(response)[&#x27;movies&#x27;];
           
-          	if(this.movies.length &#x3D;&#x3D; 0)
+        if(this.movies.length &#x3D;&#x3D; 0)
   			{
-  			   	this.movies &#x3D; [&#x27;No results!&#x27;];
+  			  this.movies &#x3D; [&#x27;No results!&#x27;];
   			}
-  			else
-  				this.movies &#x3D; JSON.parse(response)[&#x27;movies&#x27;];
       }
     ); 	
   }
@@ -699,7 +731,12 @@ export class MovieswatchedComponent implements OnInit {
     </div>
 
     <div class="tab-pane fade" id="templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container&quot;&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;!--
+ File name : movieswatched.component.html
+ @author : Raji Sundararajan
+ --&gt;
+
+&lt;div class&#x3D;&quot;container&quot;&gt;
 	&lt;div class&#x3D;&quot;starter-template&quot;&gt;
 	    &lt;div class&#x3D;&quot;card&quot;&gt;
 			&lt;div class&#x3D;&quot;card-block&quot;&gt;
@@ -738,8 +775,8 @@ export class MovieswatchedComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="container">	<div class="starter-template">	    <div class="card">			<div class="card-block">			    <h4 class="card-title">MOVIES WATCHED</h4>			    <div *ngFor="let movieResult of movies" style="margin-top:20px">        			<p class="card-text">        				<a id = "smovie" routerLink="/reviews/{{ movieResult }}" routerLinkActive="active">{{ movieResult }}</a>        			</p>      			</div>			</div>		</div>	</div></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MovieReviewComponent', 'selector': 'app-movie-review'},{'name': 'MovieswatchedComponent', 'selector': 'app-movieswatched'},{'name': 'NavComponent', 'selector': 'app-nav'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'SearchResultsComponent', 'selector': 'app-search-results'},{'name': 'SignUpComponent', 'selector': 'app-sign-up'},{'name': 'TrmComponent', 'selector': 'app-trm'}];
+        var COMPONENT_TEMPLATE = '<div><!-- File name : movieswatched.component.html @author : Raji Sundararajan --><div class="container">	<div class="starter-template">	    <div class="card">			<div class="card-block">			    <h4 class="card-title">MOVIES WATCHED</h4>			    <div *ngFor="let movieResult of movies" style="margin-top:20px">        			<p class="card-text">        				<a id = "smovie" routerLink="/reviews/{{ movieResult }}" routerLinkActive="active">{{ movieResult }}</a>        			</p>      			</div>			</div>		</div>	</div></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MovieReviewComponent', 'selector': 'app-movie-review'},{'name': 'MovieswatchedComponent', 'selector': 'app-movieswatched'},{'name': 'NavComponent', 'selector': 'app-nav'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RecommendedComponent', 'selector': 'app-recommended'},{'name': 'SearchResultsComponent', 'selector': 'app-search-results'},{'name': 'SignUpComponent', 'selector': 'app-sign-up'},{'name': 'TrmComponent', 'selector': 'app-trm'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'MovieswatchedComponent'};
 </script>

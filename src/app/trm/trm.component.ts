@@ -24,7 +24,7 @@ export class TrmComponent implements OnInit {
   /**
    * Constructor provides Http on object instantiation.
    * @constructor
-   * @param {Http} http
+   * @param {Http} http : For sending the http requests.
    */
   constructor(private http: Http) { }
 

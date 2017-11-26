@@ -15,6 +15,7 @@ import { UserService } from '../user.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 /**
  * LoginComponent implements the login feature.
  */
@@ -23,18 +24,20 @@ export class LoginComponent{
   /**
    * Constructor provides Http, Router and UserService on object instantiation.
    * @constructor
-   * @param {Http} http
-   * @param {Router} router
-   * @param {UserService} userService
+   * @param {Http} http : For sending http requests.
+   * @param {Router} router : For routing/redirecting to other components.
+   * @param {UserService} userService : For maintaining the state of the user login.
    */
   constructor(private http: Http, private router: Router, private userService: UserService) {}
-  
+    
+  /** Sets the default value to be false, until the sign up form is submitted. */
   submitted = false;
+  /** Creates a new user on object initialisation with default blank strings of class User. */
   model = new User ('', '');
 
   /**
    * This function is called to submit login data.
-   * @param {NgForm} form
+   * @param {NgForm} form : Login In form data.
    */
   onSubmit(form: NgForm) {
 

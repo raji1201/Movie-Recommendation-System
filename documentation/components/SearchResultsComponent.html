@@ -103,6 +103,9 @@
                                     <a href="../components/ProfileComponent.html" >ProfileComponent</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../components/RecommendedComponent.html" >RecommendedComponent</a>
+                                </li>
+                                <li class="link">
                                     <a href="../components/SearchResultsComponent.html"  data-type="entity-link" class="active" >SearchResultsComponent</a>
                                 </li>
                                 <li class="link">
@@ -284,6 +287,9 @@
                                        </li>
                                        <li class="link">
                                            <a href="../components/ProfileComponent.html" >ProfileComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/RecommendedComponent.html" >RecommendedComponent</a>
                                        </li>
                                        <li class="link">
                                            <a href="../components/SearchResultsComponent.html"  data-type="entity-link" class="active" >SearchResultsComponent</a>
@@ -479,6 +485,9 @@
                             <li>
                                 <span class="modifier">Public</span> <a href="#movies">movies</a>
                             </li>
+                            <li>
+                                 <a href="#searchTerm">searchTerm</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -511,12 +520,14 @@
                     </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/search-results/search-results.component.ts:12</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/search-results/search-results.component.ts:26</a></div>
                                 </td>
                             </tr>
     
                     <tr>
                         <td class="col-md-4">
+                                <div class="io-description"><p>Constructor provides ElasticsearchService and UserService on object instantiation.</p>
+    </div>
                                 <div>
                                         <b>Parameters :</b>
                                         <table class="params">
@@ -582,7 +593,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/search-results/search-results.component.ts:16</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/search-results/search-results.component.ts:36</a></div>
                                 </td>
                             </tr>
     
@@ -620,10 +631,45 @@
                     </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/search-results/search-results.component.ts:12</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/search-results/search-results.component.ts:23</a></div>
                                 </td>
                             </tr>
     
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-description"><p>Holds the moviesearch results. </p>
+    </div>
+                        </td>
+                    </tr>
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="searchTerm"></a>
+                            <span class="name"><b> searchTerm</b><a href="#searchTerm"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>searchTerm:     <code></code>
+    </code>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/search-results/search-results.component.ts:26</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-description"><p>Holds the searched term. </p>
+    </div>
+                        </td>
+                    </tr>
     
                 </tbody>
             </table>
@@ -642,18 +688,37 @@ import { UserService } from &#x27;../user.service&#x27;;
   templateUrl: &#x27;./search-results.component.html&#x27;,
   styleUrls: [&#x27;./search-results.component.css&#x27;]
 })
+
+/**
+ * SearchResultsComponent implements the search of movies list in the user&#x27;s profile and returns 
+ * the movies matching the query.
+ */
 export class SearchResultsComponent implements OnInit {
 
+  /** Holds the moviesearch results. */
 	public movies &#x3D; [];
 
+  /** Holds the searched term. */
+  searchTerm &#x3D; &#x27;&#x27;;
+
+  /**
+   * Constructor provides ElasticsearchService and UserService on object instantiation.
+   * @constructor
+   * @param {ElasticsearchService} es
+   * @param {UserService} userService
+   */
   constructor(private userService: UserService, private es: ElasticsearchService) { }
 
   ngOnInit() {
   	
+    this.searchTerm &#x3D; this.userService.searchString;
+    
+    /** Checks if there are any results for the search. */
   	if(this.userService.movies.length !&#x3D; 0)
   	{
+      /** Iterates through the result array and assigns the array to a local variable. */
   		for (let i &#x3D; 0; i &lt; this.userService.movies.length; i++)
-  		{
+  		{  	
         this.movies[i] &#x3D; this.userService.movies[i];
       }
     }
@@ -665,11 +730,16 @@ export class SearchResultsComponent implements OnInit {
     </div>
 
     <div class="tab-pane fade" id="templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container&quot;&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;!--
+ File name : search-results.component.html
+ @author : Raji Sundararajan
+ --&gt;
+ 
+&lt;div class&#x3D;&quot;container&quot;&gt;
 	&lt;div class&#x3D;&quot;starter-template&quot;&gt;
 	    &lt;div class&#x3D;&quot;card&quot;&gt;
 			&lt;div class&#x3D;&quot;card-block&quot;&gt;
-			    &lt;h4 class&#x3D;&quot;card-title&quot;&gt;SEARCH RESULTS&lt;/h4&gt;
+			    &lt;h4 class&#x3D;&quot;card-title&quot;&gt;SEARCH RESULTS for {{searchTerm}}&lt;/h4&gt;
 			    &lt;div *ngFor&#x3D;&quot;let movieResult of movies&quot; style&#x3D;&quot;margin-top:20px&quot;&gt;
         			&lt;p class&#x3D;&quot;card-text&quot;&gt;
         				&lt;a id &#x3D; &quot;smovie&quot; routerLink&#x3D;&quot;/reviews/{{ movieResult }}&quot; routerLinkActive&#x3D;&quot;active&quot;&gt;{{ movieResult }}&lt;/a&gt;&lt;br&gt;
@@ -704,8 +774,8 @@ export class SearchResultsComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="container">	<div class="starter-template">	    <div class="card">			<div class="card-block">			    <h4 class="card-title">SEARCH RESULTS</h4>			    <div *ngFor="let movieResult of movies" style="margin-top:20px">        			<p class="card-text">        				<a id = "smovie" routerLink="/reviews/{{ movieResult }}" routerLinkActive="active">{{ movieResult }}</a><br>        			</p>      			</div>			</div>		</div>	</div></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MovieReviewComponent', 'selector': 'app-movie-review'},{'name': 'MovieswatchedComponent', 'selector': 'app-movieswatched'},{'name': 'NavComponent', 'selector': 'app-nav'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'SearchResultsComponent', 'selector': 'app-search-results'},{'name': 'SignUpComponent', 'selector': 'app-sign-up'},{'name': 'TrmComponent', 'selector': 'app-trm'}];
+        var COMPONENT_TEMPLATE = '<div><!-- File name : search-results.component.html @author : Raji Sundararajan --> <div class="container">	<div class="starter-template">	    <div class="card">			<div class="card-block">			    <h4 class="card-title">SEARCH RESULTS for {{searchTerm}}</h4>			    <div *ngFor="let movieResult of movies" style="margin-top:20px">        			<p class="card-text">        				<a id = "smovie" routerLink="/reviews/{{ movieResult }}" routerLinkActive="active">{{ movieResult }}</a><br>        			</p>      			</div>			</div>		</div>	</div></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MovieReviewComponent', 'selector': 'app-movie-review'},{'name': 'MovieswatchedComponent', 'selector': 'app-movieswatched'},{'name': 'NavComponent', 'selector': 'app-nav'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RecommendedComponent', 'selector': 'app-recommended'},{'name': 'SearchResultsComponent', 'selector': 'app-search-results'},{'name': 'SignUpComponent', 'selector': 'app-sign-up'},{'name': 'TrmComponent', 'selector': 'app-trm'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'SearchResultsComponent'};
 </script>

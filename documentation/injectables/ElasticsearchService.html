@@ -103,6 +103,9 @@
                                     <a href="../components/ProfileComponent.html" >ProfileComponent</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../components/RecommendedComponent.html" >RecommendedComponent</a>
+                                </li>
+                                <li class="link">
                                     <a href="../components/SearchResultsComponent.html" >SearchResultsComponent</a>
                                 </li>
                                 <li class="link">
@@ -284,6 +287,9 @@
                                        </li>
                                        <li class="link">
                                            <a href="../components/ProfileComponent.html" >ProfileComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/RecommendedComponent.html" >RecommendedComponent</a>
                                        </li>
                                        <li class="link">
                                            <a href="../components/SearchResultsComponent.html" >SearchResultsComponent</a>
@@ -474,7 +480,7 @@
                             </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/elasticsearch.service.ts:8</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/elasticsearch.service.ts:13</a></div>
                                         </td>
                                     </tr>
             
@@ -505,12 +511,14 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/elasticsearch.service.ts:16</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/elasticsearch.service.ts:25</a></div>
                                         </td>
                                     </tr>
             
                             <tr>
                                 <td class="col-md-4">
+                                        <div class="io-description"><p>Function to create a new &#39;Client&#39; instance of elasticsearch. </p>
+            </div>
             
                                         <div class="io-description">
                                             <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -537,12 +545,14 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/elasticsearch.service.ts:24</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/elasticsearch.service.ts:39</a></div>
                                         </td>
                                     </tr>
             
                             <tr>
                                 <td class="col-md-4">
+                                        <div class="io-description"><p>creates indices for search for that particular client.</p>
+            </div>
             
                                         <div class="io-description">
                                                 <b>Parameters :</b>
@@ -597,12 +607,14 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/elasticsearch.service.ts:39</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/app/elasticsearch.service.ts:61</a></div>
                                         </td>
                                     </tr>
             
                             <tr>
                                 <td class="col-md-4">
+                                        <div class="io-description"><p>Implements the search with the multimatch feature with name and keywords fields.</p>
+            </div>
             
                                         <div class="io-description">
                                                 <b>Parameters :</b>
@@ -673,12 +685,14 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/elasticsearch.service.ts:54</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">src/app/elasticsearch.service.ts:82</a></div>
                                         </td>
                                     </tr>
             
                             <tr>
                                 <td class="col-md-4">
+                                        <div class="io-description"><p>Send a request to HEAD and wait until reply is got.</p>
+            </div>
             
                                         <div class="io-description">
                                             <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
@@ -717,7 +731,7 @@
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/app/elasticsearch.service.ts:7</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/elasticsearch.service.ts:12</a></div>
                                         </td>
                                     </tr>
             
@@ -740,7 +754,7 @@
                             </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/elasticsearch.service.ts:8</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/elasticsearch.service.ts:13</a></div>
                                         </td>
                                     </tr>
             
@@ -757,25 +771,40 @@
 import { Client } from &#x27;elasticsearch&#x27;;
 
 @Injectable()
+
+/**
+ * ElasticsearchService provides the service of creating and connecting the 
+ * elastic search client to get the search query results.
+ */
 export class ElasticsearchService {
 
   private client: Client;
   public movies &#x3D; [];
 
+  /**
+   * On Instantiation, if client doesn&#x27;t have an search client, then create and connect the client.
+   */
   constructor() {
     if (!this.client) {
       this.connect();
     }
   }
 
+  /** Function to create a new &#x27;Client&#x27; instance of elasticsearch. */
   private connect() {
     this.client &#x3D; new Client({
       host: &#x27;localhost:9200&#x27;,
       log: &#x27;trace&#x27;,
-      maxRetries: 10
+      maxRetries: 10,
+      keepAlive: true,
+      maxSockets: 10
     });
   }
 
+  /**
+   * creates indices for search for that particular client.
+   * @param name 
+   */
   createIndex(name): any {
     return this.client.indices.putMapping({
       index: &#x27;testmovies&#x27;,
@@ -791,21 +820,34 @@ export class ElasticsearchService {
     });
   }
 
+  // importance for keywords or name can be increased by either keywords^{factor} or name^{factor}
+  /**
+   * Implements the search with the multimatch feature with name and keywords fields.
+   * @param _index 
+   * @param _type 
+   * @param _queryText 
+   */
   fullTextSearch(_index, _type, _queryText): any {
     return this.client.search({
       index: _index,
       type: _type,
       body: {
         &#x27;query&#x27;: {
-          &#x27;match&#x27;: {
-            _all: _queryText
+          &#x27;multi_match&#x27;: {
+            &#x27;query&#x27;: _queryText,
+            &#x27;fields&#x27;: [&#x27;name&#x27;, &#x27;keywords&#x27;],
+            &#x27;fuzziness&#x27;: &#x27;AUTO&#x27;
           }
-        }
+        },
+        &#x27;size&#x27;: 5
       },
-      &#x27;_source&#x27;: [&#x27;name&#x27;, &#x27;rating&#x27;, &#x27;users&#x27;, &#x27;length&#x27;, &#x27;rel&#x27;, &#x27;des&#x27;]
+      &#x27;_source&#x27;: [&#x27;name&#x27;]
     });
   }
 
+  /**
+   * Send a request to HEAD and wait until reply is got.
+   */
   isAvailable(): any {
     return this.client.ping({
       requestTimeout: Infinity,
