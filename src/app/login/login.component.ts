@@ -59,6 +59,7 @@ export class LoginComponent{
           /** Successful login returns username, else "ERROR". */
           if(name == "ERROR")
           {
+            alert('Login unsuccessful');
             this.router.navigate(['/']);
           }
           else
