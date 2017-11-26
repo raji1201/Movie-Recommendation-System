@@ -118,7 +118,7 @@ describe('TrmComponent', () => {
     backend.connections.subscribe((connection: MockConnection) => {
       let options = new ResponseOptions({
         /**The JSON is converted to string to send to the frontend as a response */
-        body: JSON.stringify({ 'movies': ['Spiderman', 'Batman' ]})
+        body: JSON.stringify({ 'movie': ['Spiderman', 'Batman' ]})
       });
       connection.mockRespond(new Response(options));
     });
