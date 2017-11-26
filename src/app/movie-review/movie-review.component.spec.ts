@@ -27,7 +27,9 @@ import { SearchResultsComponent } from '../search-results/search-results.compone
 import { ReactiveFormsModule } from '@angular/forms';
 import { Http, BaseRequestOptions, Response, ResponseOptions, RequestMethod } from '@angular/http';
 import { MockBackend, MockConnection } from '@angular/http/testing';
-
+/**
+ * declares all the routes in the application which the AppModule uses
+ */
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent },
@@ -42,11 +44,17 @@ const appRoutes: Routes = [
 ];
 //test
 describe('MovieReviewComponent', () => {
+  /** instance of MovieReviewComponen*/
   let component: MovieReviewComponent;
+  /** instance of ComponentFixture<MovieReviewComponent>*/
   let fixture: ComponentFixture<MovieReviewComponent>;
-  let subject: UserService = null;
+  /** instance of MockBackend*/
+  
   let backend: MockBackend = null;
-  beforeEach(async(() => {
+  /**
+   * provides,imports and declares the module for the testing framework for this component
+   */
+  beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [AppComponent,
         NavComponent,
@@ -59,7 +67,7 @@ describe('MovieReviewComponent', () => {
         SearchResultsComponent ,
         MovieswatchedComponent ,
         RecommendedComponent ], 
-        imports : [ HttpModule,
+        imports : [  HttpModule,
           HttpClientModule,
           FormsModule,
           BrowserModule,
@@ -71,21 +79,46 @@ describe('MovieReviewComponent', () => {
         ),        BrowserAnimationsModule, BrowserModule, MatButtonModule, 
         MatCheckboxModule,MatMenuModule, MatToolbarModule, MatIconModule,
          MatCardModule],
-         providers: [MovieReviewComponent,MockBackend,UserService,{provide: APP_BASE_HREF, useValue: 'reviews/:'}, ElasticsearchService]
-         
+         providers: [MovieReviewComponent,MockBackend,UserService,BaseRequestOptions,
+          {provide: APP_BASE_HREF, useValue: 'reviews/:name'}, ElasticsearchService,
+          {provide: Http, useFactory: (backendInstance: MockBackend, defaultOptions: BaseRequestOptions) => {
+            return new Http(backendInstance, defaultOptions);
+          }, deps: [MockBackend, BaseRequestOptions]}
+        ]
     })
     .compileComponents();
-  }));
-
+  });
+/**
+ * create a new instance of component before each assertion 
+ * test and injects Userservice and MockBackend into it.
+ */
   beforeEach(inject([UserService, MockBackend], (userService: UserService, mockBackend: MockBackend) => {
-    subject = userService;
-    backend = mockBackend;
-    fixture = TestBed.createComponent(MovieReviewComponent);
+//    subject = userService;
+fixture = TestBed.createComponent(MovieReviewComponent);
+   backend = mockBackend;
+    
     component = fixture.componentInstance;
+    /**Trigger a change detection cycle for the component.*/
     fixture.detectChanges();
   }));
-
+ /**
+ * assert that component should be created successfully
+ */
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+/**Mock response of the movies review details to be displayed to the user */
+  it('Mock response of the movies review details to be displayed to the user', () => {
+    backend.connections.subscribe((connection: MockConnection) => {
+      let options = new ResponseOptions({
+        // JSON converted to string and sent as a response to frontend
+        body: JSON.stringify({ 'genres': 'Action'})
+      });
+      connection.mockRespond(new Response(options));
+    });
+
+    component.ngOnInit();
+    expect(component.genres).toEqual('Action');
+       });
+
 });

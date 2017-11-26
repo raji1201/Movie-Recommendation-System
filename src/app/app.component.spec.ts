@@ -24,7 +24,9 @@ import { TrmComponent } from './trm/trm.component';
 import { ElasticsearchService } from './elasticsearch.service';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { ReactiveFormsModule } from '@angular/forms';
-
+/**
+ * declares all the routes in the application which the AppModule uses
+ */
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent },
   {path: 'signup', component: SignUpComponent},
@@ -37,8 +39,10 @@ const appRoutes: Routes = [
   {path: 'recommended', component: RecommendedComponent}
 ];
 
-
 describe('AppComponent', () => {
+  /**
+   * provides,imports and declares the module for the testing framework for this component
+   */
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
@@ -71,11 +75,14 @@ describe('AppComponent', () => {
 	    providers: [UserService,{provide: APP_BASE_HREF, useValue: '/'}, ElasticsearchService]
     }).compileComponents();
   }));
+/**test to check if component gets created  */
   it('should create the app', async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   }));
+
+  /** test to check the title*/
   it(`should have as title 'Movie Recommendation Engine'`, async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;

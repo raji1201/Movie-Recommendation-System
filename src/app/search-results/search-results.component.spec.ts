@@ -27,7 +27,9 @@ import { TrmComponent } from '../trm/trm.component';
 import { ElasticsearchService } from '../elasticsearch.service';
 import { SearchResultsComponent } from '../search-results/search-results.component';
 import { ReactiveFormsModule } from '@angular/forms';
-
+/**
+ * declares all the routes in the application which the AppModule uses
+ */
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent },
   {path: 'signup', component: SignUpComponent},
@@ -40,9 +42,13 @@ const appRoutes: Routes = [
   {path: 'recommended', component: RecommendedComponent}
 ];
 describe('SearchResultsComponent', () => {
+  /** instance of SearchResultsComponent*/
   let component: SearchResultsComponent;
+  /** instance of ComponentFixture*/
   let fixture: ComponentFixture<SearchResultsComponent>;
-
+/**
+   * provides,imports and declares the module for the testing framework for this component
+   */
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [AppComponent,
@@ -73,17 +79,23 @@ describe('SearchResultsComponent', () => {
     })
     .compileComponents();
   }));
-
+/**
+ * create a new instance of component before each assertion test
+ * 
+ */
   beforeEach(() => {
     fixture = TestBed.createComponent(SearchResultsComponent);
     component = fixture.componentInstance;
+    /** Trigger a change detection cycle for the component.*/
     fixture.detectChanges();
   });
-
+/**
+ * assert that component should be created successfully
+ */
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
+/** should have no movies when initialised*/
   it('should have no movies when initialised', async(() => {
     const fixture = TestBed.createComponent(HomeComponent);
     fixture.detectChanges();
@@ -91,14 +103,15 @@ describe('SearchResultsComponent', () => {
     const compiled = fixture.debugElement.nativeElement;
     expect(component.movies.length===0).toBe(true);
   }));
-
+/**when movie exists, should assert correctly */
   it('when movie exists, should assert correctly ', async(() => {
     const fixture = TestBed.createComponent(HomeComponent);
     fixture.detectChanges();
     component.movies=['Batman'];
     const compiled = fixture.debugElement.nativeElement;
-    expect(component.movies.length===0).toBe(false);
+    expect(component.movies.length === 0).toBe(false);
   }));
+  /**when no movie exists,should have No results! stored in it */
   it('when no movie exists,should have No results! stored in it ', async(() => {
     const fixture = TestBed.createComponent(HomeComponent);
     fixture.detectChanges();

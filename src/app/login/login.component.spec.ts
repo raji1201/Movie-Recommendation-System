@@ -25,6 +25,9 @@ import { TrmComponent } from '../trm/trm.component';
 import { ElasticsearchService } from '../elasticsearch.service';
 import { SearchResultsComponent } from '../search-results/search-results.component';
 import { ReactiveFormsModule } from '@angular/forms';
+/**
+ * declares all the routes in the application which the AppModule uses
+ */
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent },
   {path: 'signup', component: SignUpComponent},
@@ -40,7 +43,9 @@ const appRoutes: Routes = [
 describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
-
+/**
+   * provides,imports and declares the module for the testing framework for this component
+   */
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [AppComponent,
@@ -72,24 +77,32 @@ describe('LoginComponent', () => {
     })
     .compileComponents();
   }));
-
+/**
+ * create a new instance of component before each assertion test.
+ */
   beforeEach(() => {
     fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
+    /**Trigger a change detection cycle for the component.*/
     fixture.detectChanges();
   });
 
+  /**
+ * assert that component should be created successfully
+ */
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
+/** should render a form tag*/
   it('should render a form tag', async(() => {
     const fixture = TestBed.createComponent(LoginComponent);
+    /**Trigger a change detection cycle for the component.*/
     fixture.detectChanges();
+    /** The DebugElement associated with the root element of this component.*/
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('form').textContent).length==3;
   }));
-
+  /** should render a Login button tag*/
   it('should render a Login button tag', async(() => {
     const fixture = TestBed.createComponent(LoginComponent);
     fixture.detectChanges();

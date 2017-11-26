@@ -24,7 +24,9 @@ import { TrmComponent } from '../trm/trm.component';
 import { ElasticsearchService } from '../elasticsearch.service';
 import { SearchResultsComponent } from '../search-results/search-results.component';
 import { ReactiveFormsModule } from '@angular/forms';
-
+/**
+ * declares all the routes in the application which the AppModule uses
+ */
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent },
   {path: 'signup', component: SignUpComponent},
@@ -37,9 +39,13 @@ const appRoutes: Routes = [
   {path: 'recommended', component: RecommendedComponent}
 ];
 describe('NavComponent', () => {
+  /** instance of NavComponent*/
   let component: NavComponent;
+  /** instance of ComponentFixture<NavComponent>*/
   let fixture: ComponentFixture<NavComponent>;
-
+/**
+   * provides,imports and declares the module for the testing framework for this component
+   */
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ AppComponent,
@@ -74,24 +80,30 @@ describe('NavComponent', () => {
       })
     .compileComponents();
   }));
-
+/**
+ * create a new instance of component before each assertion 
+ * test.
+ */
   beforeEach(() => {
     fixture = TestBed.createComponent(NavComponent);
     component = fixture.componentInstance;
+    /** Trigger a change detection cycle for the component.*/
     fixture.detectChanges();
   });
-
+/**
+ * assert that component should be created successfully
+ */
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
+/** should render a mat-menu tag*/
   it('should render a mat-menu tag', async(() => {
     const fixture = TestBed.createComponent(NavComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('mat-menu').textContent).length==2;
   }));
-
+/** should render a <a> heading tag to contain MOVIE RECOMMENDATION ENGINE*/
   it('should render a <a> heading tag', async(() => {
     const fixture = TestBed.createComponent(NavComponent);
     fixture.detectChanges();
@@ -99,5 +111,5 @@ describe('NavComponent', () => {
     expect(compiled.querySelector('a').textContent).toContain('  MOVIE RECOMMENDATION ENGINE ');
   }));
 
-  
+
 });
