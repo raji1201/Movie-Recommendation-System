@@ -1,3 +1,8 @@
+/**
+ * File name : trm.component.ts
+ * @author Raji Sundararajan
+ */
+
 import { Component, OnInit } from '@angular/core';
 import {Router, ActivatedRoute, Params} from '@angular/router';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
@@ -19,7 +24,7 @@ export class TrmComponent implements OnInit {
   /**
    * Constructor provides Http on object instantiation.
    * @constructor
-   * @param {Http} http
+   * @param {Http} http : For sending the http requests.
    */
   constructor(private http: Http) { }
 

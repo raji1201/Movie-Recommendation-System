@@ -1,3 +1,8 @@
+/**
+ * File name : profile.component.ts
+ * @author Raji Sundararajan
+ */
+
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';

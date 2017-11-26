@@ -103,6 +103,9 @@
                                     <a href="../components/ProfileComponent.html" >ProfileComponent</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../components/RecommendedComponent.html" >RecommendedComponent</a>
+                                </li>
+                                <li class="link">
                                     <a href="../components/SearchResultsComponent.html" >SearchResultsComponent</a>
                                 </li>
                                 <li class="link">
@@ -284,6 +287,9 @@
                                        </li>
                                        <li class="link">
                                            <a href="../components/ProfileComponent.html" >ProfileComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/RecommendedComponent.html" >RecommendedComponent</a>
                                        </li>
                                        <li class="link">
                                            <a href="../components/SearchResultsComponent.html" >SearchResultsComponent</a>
@@ -517,12 +523,14 @@
                     </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/home/home.component.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/home/home.component.ts:28</a></div>
                                 </td>
                             </tr>
     
                     <tr>
                         <td class="col-md-4">
+                                <div class="io-description"><p>Constructor provides Http, Router and UserService on object instantiation.</p>
+    </div>
                                 <div>
                                         <b>Parameters :</b>
                                         <table class="params">
@@ -597,7 +605,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/home/home.component.ts:19</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/home/home.component.ts:39</a></div>
                                 </td>
                             </tr>
     
@@ -635,10 +643,16 @@
                     </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/home/home.component.ts:13</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/home/home.component.ts:24</a></div>
                                 </td>
                             </tr>
     
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-description"><p>Stores the 1st top rated movie. </p>
+    </div>
+                        </td>
+                    </tr>
     
                 </tbody>
             </table>
@@ -658,10 +672,16 @@
                     </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/home/home.component.ts:14</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/home/home.component.ts:26</a></div>
                                 </td>
                             </tr>
     
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-description"><p>Stores the 2nd top rated movie. </p>
+    </div>
+                        </td>
+                    </tr>
     
                 </tbody>
             </table>
@@ -681,10 +701,16 @@
                     </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/home/home.component.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/home/home.component.ts:28</a></div>
                                 </td>
                             </tr>
     
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-description"><p>Stores the 3rd top rated movie. </p>
+    </div>
+                        </td>
+                    </tr>
     
                 </tbody>
             </table>
@@ -704,34 +730,58 @@ import { UserService } from &#x27;../user.service&#x27;;
   templateUrl: &#x27;./home.component.html&#x27;,
   styleUrls: [&#x27;./home.component.css&#x27;]
 })
+
+/**
+ * HomeComponent implements the homepage which displays the
+ *  top recommmended movies.
+ */
 export class HomeComponent implements OnInit {
 
+  /** Stores the 1st top rated movie. */
   m1 &#x3D; &#x27;&#x27;;
+  /** Stores the 2nd top rated movie. */
   m2 &#x3D; &#x27;&#x27;;
-  m3 &#x3D; &#x27;&#x27;;
+  /** Stores the 3rd top rated movie. */
+    m3 &#x3D; &#x27;&#x27;;
 
+  /**
+   * Constructor provides Http, Router and UserService on object instantiation.
+   * @constructor
+   * @param {Http} http
+   * @param {Router} router
+   * @param {UserService} userService
+   */
   constructor(private http: Http, private router: Router, private userService: UserService) { }
 
   ngOnInit() {
+    /** logs out the user */
     this.userService.logoutUser();
+    /** Http post request for homepage to get the top movies on initialisation */
   	const req &#x3D; this.http.get(&#x27;/home&#x27;);
     	req.subscribe(
     	res &#x3D;&gt; {
-          var response &#x3D; res[&quot;_body&quot;];
-          this.m1 &#x3D; JSON.parse(response)[&#x27;m1&#x27;];
-          this.m2 &#x3D; JSON.parse(response)[&#x27;m2&#x27;];
-          this.m3 &#x3D; JSON.parse(response)[&#x27;m3&#x27;];
-        },
-        err &#x3D;&gt; {
-          console.log(&quot;ERROR&quot;);
-        });
+        var response &#x3D; res[&quot;_body&quot;];
+        /** Bind the movie details from the http response to local variables. */
+        this.m1 &#x3D; JSON.parse(response)[&#x27;m1&#x27;];
+        this.m2 &#x3D; JSON.parse(response)[&#x27;m2&#x27;];
+        this.m3 &#x3D; JSON.parse(response)[&#x27;m3&#x27;];
+      },
+      err &#x3D;&gt; {
+        console.log(&quot;ERROR&quot;);
+      }
+    );
   }
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade" id="templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container&quot;&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;!--
+ File name : home.component.html
+ @author : Raji Sundararajan
+ --&gt;
+
+&lt;div class&#x3D;&quot;container&quot;&gt;
 	&lt;div class&#x3D;&quot;starter-template&quot;&gt;
 	    &lt;div class&#x3D;&quot;card&quot;&gt;
 			&lt;div class&#x3D;&quot;card-block&quot;&gt;
@@ -771,8 +821,8 @@ export class HomeComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="container">	<div class="starter-template">	    <div class="card">			<div class="card-block">			    <h4 class="card-title">TOP RATED MOVIES</h4>			    <p class="card-text">			     	<a id = "movie1" routerLink="/reviews/{{m1}}" routerLinkActive="active">{{m1}}</a><br>			      	<a routerLink="/reviews/{{m2}}" routerLinkActive="active">{{m2}}</a><br>			       	<a routerLink="/reviews/{{m3}}" routerLinkActive="active">{{m3}}</a>			    </p>			    <a class="btn btn-primary" routerLink="/trm" routerLinkActive="active">See More</a>			</div>		</div>	</div></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MovieReviewComponent', 'selector': 'app-movie-review'},{'name': 'MovieswatchedComponent', 'selector': 'app-movieswatched'},{'name': 'NavComponent', 'selector': 'app-nav'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'SearchResultsComponent', 'selector': 'app-search-results'},{'name': 'SignUpComponent', 'selector': 'app-sign-up'},{'name': 'TrmComponent', 'selector': 'app-trm'}];
+        var COMPONENT_TEMPLATE = '<div><!-- File name : home.component.html @author : Raji Sundararajan --><div class="container">	<div class="starter-template">	    <div class="card">			<div class="card-block">			    <h4 class="card-title">TOP RATED MOVIES</h4>			    <p class="card-text">			     	<a id = "movie1" routerLink="/reviews/{{m1}}" routerLinkActive="active">{{m1}}</a><br>			      	<a routerLink="/reviews/{{m2}}" routerLinkActive="active">{{m2}}</a><br>			       	<a routerLink="/reviews/{{m3}}" routerLinkActive="active">{{m3}}</a>			    </p>			    <a class="btn btn-primary" routerLink="/trm" routerLinkActive="active">See More</a>			</div>		</div>	</div></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MovieReviewComponent', 'selector': 'app-movie-review'},{'name': 'MovieswatchedComponent', 'selector': 'app-movieswatched'},{'name': 'NavComponent', 'selector': 'app-nav'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RecommendedComponent', 'selector': 'app-recommended'},{'name': 'SearchResultsComponent', 'selector': 'app-search-results'},{'name': 'SignUpComponent', 'selector': 'app-sign-up'},{'name': 'TrmComponent', 'selector': 'app-trm'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'HomeComponent'};
 </script>

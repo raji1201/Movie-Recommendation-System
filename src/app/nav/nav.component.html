@@ -1,3 +1,8 @@
+<!--
+ File name : nav.component.html
+ @author : Raji Sundararajan
+ -->
+ 
 <nav class="navbar navbar-light toggleable-mat navbar-inverse fixed-top clearfix" style="background-color: darkblue;z-index:50;">
     <div class="navbar navbar-default" id="primary-nav">
       <div class="container-fluid">
@@ -9,8 +14,8 @@
     <div class="navbar navbar-default" id="secondary-nav" style="z-index:30;">
       <div class="container-fluid">
         <ul class="nav">
-            <li><input #searchTerm class="form-control" id="search" type="text" placeholder="Search"></li>
-            <li><button class="btn btn-primary" (click)="onSubmit(searchTerm.value)" color="primary" type="submit" id="searchBtn">GO!</button></li>
+            <li><input [(ngModel)]="searchTerm" class="form-control" id="search" type="text" placeholder="Search"></li>
+            <li><button class="btn btn-primary" (click)="onSubmit(searchTerm)" color="primary" type="submit" id="searchBtn">GO!</button></li>
             <li><button mat-icon-button [matMenuTriggerFor]="menu" id="menuBtn">
                 <mat-icon>more_vert</mat-icon>
             </button>

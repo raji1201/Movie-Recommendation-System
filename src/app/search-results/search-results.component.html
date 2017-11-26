@@ -1,8 +1,13 @@
+<!--
+ File name : search-results.component.html
+ @author : Raji Sundararajan
+ -->
+ 
 <div class="container">
 	<div class="starter-template">
 	    <div class="card">
 			<div class="card-block">
-			    <h4 class="card-title">SEARCH RESULTS</h4>
+			    <h4 class="card-title">SEARCH RESULTS for {{searchTerm}}</h4>
 			    <div *ngFor="let movieResult of movies" style="margin-top:20px">
         			<p class="card-text">
         				<a id = "smovie" routerLink="/reviews/{{ movieResult }}" routerLinkActive="active">{{ movieResult }}</a><br>

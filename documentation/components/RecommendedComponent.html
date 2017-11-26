@@ -100,10 +100,10 @@
                                     <a href="../components/NavComponent.html" >NavComponent</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../components/ProfileComponent.html"  data-type="entity-link" class="active" >ProfileComponent</a>
+                                    <a href="../components/ProfileComponent.html" >ProfileComponent</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../components/RecommendedComponent.html" >RecommendedComponent</a>
+                                    <a href="../components/RecommendedComponent.html"  data-type="entity-link" class="active" >RecommendedComponent</a>
                                 </li>
                                 <li class="link">
                                     <a href="../components/SearchResultsComponent.html" >SearchResultsComponent</a>
@@ -286,10 +286,10 @@
                                            <a href="../components/NavComponent.html" >NavComponent</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../components/ProfileComponent.html"  data-type="entity-link" class="active" >ProfileComponent</a>
+                                           <a href="../components/ProfileComponent.html" >ProfileComponent</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../components/RecommendedComponent.html" >RecommendedComponent</a>
+                                           <a href="../components/RecommendedComponent.html"  data-type="entity-link" class="active" >RecommendedComponent</a>
                                        </li>
                                        <li class="link">
                                            <a href="../components/SearchResultsComponent.html" >SearchResultsComponent</a>
@@ -394,7 +394,7 @@
 
 <ol class="breadcrumb">
   <li>Components</li>
-  <li>ProfileComponent</li>
+  <li>RecommendedComponent</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -419,7 +419,7 @@
     <h3>File</h3>
 </p>
 <p class="comment">
-    <code>src/app/profile/profile.component.ts</code>
+    <code>src/app/recommended/recommended.component.ts</code>
 </p>
 
 
@@ -450,19 +450,19 @@
 
             <tr>
                 <td class="col-md-3">selector</td>
-                <td class="col-md-9"><code>app-profile</code></td>
+                <td class="col-md-9"><code>app-recommended</code></td>
             </tr>
 
             <tr>
                 <td class="col-md-3">styleUrls</td>
-                <td class="col-md-9"><code>profile.component.css</code></td>
+                <td class="col-md-9"><code>recommended.component.css</code></td>
             </tr>
 
 
 
             <tr>
                 <td class="col-md-3">templateUrl</td>
-                <td class="col-md-9"><code>./profile.component.html</code></td>
+                <td class="col-md-9"><code>./recommended.component.html</code></td>
             </tr>
 
 
@@ -483,25 +483,10 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                 <a href="#m1">m1</a>
-                            </li>
-                            <li>
-                                 <a href="#m2">m2</a>
-                            </li>
-                            <li>
-                                 <a href="#m3">m3</a>
+                                <span class="modifier">Public</span> <a href="#movies">movies</a>
                             </li>
                             <li>
                                  <a href="#name">name</a>
-                            </li>
-                            <li>
-                                 <a href="#r1">r1</a>
-                            </li>
-                            <li>
-                                 <a href="#r2">r2</a>
-                            </li>
-                            <li>
-                                 <a href="#r3">r3</a>
                             </li>
                         </ul>
                     </td>
@@ -530,18 +515,18 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
-                            <code>constructor(http: <a href="https://angular.io/docs/ts/latest/api/api/http/Http" target="_blank">Http</a>, activatedRoute: <a href="https://angular.io/docs/ts/latest/api/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>, userService: <a href="../injectables/UserService.html">UserService</a>)</code>
+                            <code>constructor(userService: <a href="../injectables/UserService.html">UserService</a>, http: <a href="https://angular.io/docs/ts/latest/api/api/http/Http" target="_blank">Http</a>)</code>
                         </td>
                     </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/profile/profile.component.ts:36</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/recommended/recommended.component.ts:24</a></div>
                                 </td>
                             </tr>
     
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-description"><p>Constructor provides Http and ActivatedRoute on object instantiation.</p>
+                                <div class="io-description"><p>Constructor provides Http on object instantiation.</p>
     </div>
                                 <div>
                                         <b>Parameters :</b>
@@ -556,27 +541,18 @@
                                             </thead>
                                             <tbody>
                                                     <tr>
-                                                      <td>http</td>
-                                                      <td>
-                                                                <code><a href="https://angular.io/docs/ts/latest/api/api/http/Http" target="_blank" >Http</a></code>
-                                                      </td>
-                                                      <td>
-                                                      </td>
-                                                      <td></td>
-                                                    </tr>
-                                                    <tr>
-                                                      <td>activatedRoute</td>
-                                                      <td>
-                                                                <code><a href="https://angular.io/docs/ts/latest/api/api/router/ActivatedRoute" target="_blank" >ActivatedRoute</a></code>
-                                                      </td>
-                                                      <td>
-                                                      </td>
-                                                      <td></td>
-                                                    </tr>
-                                                    <tr>
                                                       <td>userService</td>
                                                       <td>
                                                                 <code><a href="../injectables/UserService.html" target="_self" >UserService</a></code>
+                                                      </td>
+                                                      <td>
+                                                      </td>
+                                                      <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td>http</td>
+                                                      <td>
+                                                                <code><a href="https://angular.io/docs/ts/latest/api/api/http/Http" target="_blank" >Http</a></code>
                                                       </td>
                                                       <td>
                                                       </td>
@@ -617,7 +593,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/profile/profile.component.ts:46</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/recommended/recommended.component.ts:34</a></div>
                                 </td>
                             </tr>
     
@@ -643,83 +619,25 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
-                            <a name="m1"></a>
-                            <span class="name"><b> m1</b><a href="#m1"><span class="fa fa-link"></span></a></span>
+                            <a name="movies"></a>
+                            <span class="name"><b><span class="modifier">Public</span> movies</b><a href="#movies"><span class="fa fa-link"></span></a></span>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <code>m1:     <code></code>
+                            <span class="modifier-icon fa fa-reset"></span><code>movies:     <code></code>
     </code>
                         </td>
                     </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/profile/profile.component.ts:25</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/recommended/recommended.component.ts:22</a></div>
                                 </td>
                             </tr>
     
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-description"><p>Stores the name of the 1st top rated movie. </p>
-    </div>
-                        </td>
-                    </tr>
-    
-                </tbody>
-            </table>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
-                            <a name="m2"></a>
-                            <span class="name"><b> m2</b><a href="#m2"><span class="fa fa-link"></span></a></span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <code>m2:     <code></code>
-    </code>
-                        </td>
-                    </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/profile/profile.component.ts:27</a></div>
-                                </td>
-                            </tr>
-    
-                    <tr>
-                        <td class="col-md-4">
-                            <div class="io-description"><p>Stores the name of the 2nd top rated movie. </p>
-    </div>
-                        </td>
-                    </tr>
-    
-                </tbody>
-            </table>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
-                            <a name="m3"></a>
-                            <span class="name"><b> m3</b><a href="#m3"><span class="fa fa-link"></span></a></span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <code>m3:     <code></code>
-    </code>
-                        </td>
-                    </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/profile/profile.component.ts:29</a></div>
-                                </td>
-                            </tr>
-    
-                    <tr>
-                        <td class="col-md-4">
-                            <div class="io-description"><p>Stores the name of the 3rd top rated movie. </p>
+                            <div class="io-description"><p>Stores the 10 top recommended movies for the currently logged in user. </p>
     </div>
                         </td>
                     </tr>
@@ -742,100 +660,13 @@
                     </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/profile/profile.component.ts:23</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/recommended/recommended.component.ts:24</a></div>
                                 </td>
                             </tr>
     
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-description"><p>Stores the username of the logged in user. </p>
-    </div>
-                        </td>
-                    </tr>
-    
-                </tbody>
-            </table>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
-                            <a name="r1"></a>
-                            <span class="name"><b> r1</b><a href="#r1"><span class="fa fa-link"></span></a></span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <code>r1:     <code></code>
-    </code>
-                        </td>
-                    </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/profile/profile.component.ts:32</a></div>
-                                </td>
-                            </tr>
-    
-                    <tr>
-                        <td class="col-md-4">
-                            <div class="io-description"><p>Stores the name of the 1st recommeded movie. </p>
-    </div>
-                        </td>
-                    </tr>
-    
-                </tbody>
-            </table>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
-                            <a name="r2"></a>
-                            <span class="name"><b> r2</b><a href="#r2"><span class="fa fa-link"></span></a></span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <code>r2:     <code></code>
-    </code>
-                        </td>
-                    </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/profile/profile.component.ts:34</a></div>
-                                </td>
-                            </tr>
-    
-                    <tr>
-                        <td class="col-md-4">
-                            <div class="io-description"><p>Stores the name of the 2nd recommeded movie. </p>
-    </div>
-                        </td>
-                    </tr>
-    
-                </tbody>
-            </table>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
-                            <a name="r3"></a>
-                            <span class="name"><b> r3</b><a href="#r3"><span class="fa fa-link"></span></a></span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <code>r3:     <code></code>
-    </code>
-                        </td>
-                    </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/profile/profile.component.ts:36</a></div>
-                                </td>
-                            </tr>
-    
-                    <tr>
-                        <td class="col-md-4">
-                            <div class="io-description"><p>Stores the name of the 3rd recommeded movie. </p>
+                            <div class="io-description"><p>Stores the name of the currently logged in user. </p>
     </div>
                         </td>
                     </tr>
@@ -850,137 +681,83 @@
     <div class="tab-pane fade tab-source-code" id="source">
         <pre class="line-numbers"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
 import { UserService } from &#x27;../user.service&#x27;;
-import { Router, ActivatedRoute, Params } from &#x27;@angular/router&#x27;;
-import { Http, Response, RequestOptions, Headers } from &#x27;@angular/http&#x27;;
+import { Http } from &#x27;@angular/http&#x27;;
 
 @Component({
-  selector: &#x27;app-profile&#x27;,
-  templateUrl: &#x27;./profile.component.html&#x27;,
-  styleUrls: [&#x27;./profile.component.css&#x27;]
+  selector: &#x27;app-recommended&#x27;,
+  templateUrl: &#x27;./recommended.component.html&#x27;,
+  styleUrls: [&#x27;./recommended.component.css&#x27;]
 })
 
 /**
- * ProfileComponent implements the user profile feature.
+ * RecommendedComponent implements the recommended movies feature.
  */
-export class ProfileComponent implements OnInit {
+export class RecommendedComponent implements OnInit {
 
-  /** Stores the username of the logged in user. */
-  name &#x3D; &#x27;&#x27;;
-  /** Stores the name of the 1st top rated movie. */
-  m1 &#x3D; &#x27;&#x27;;
-  /** Stores the name of the 2nd top rated movie. */
-  m2 &#x3D; &#x27;&#x27;;
-  /** Stores the name of the 3rd top rated movie. */
-  m3 &#x3D; &#x27;&#x27;;
+	/** Stores the 10 top recommended movies for the currently logged in user. */
+	public movies &#x3D; [];
+	/** Stores the name of the currently logged in user. */
+	name &#x3D; &#x27;&#x27;;
 
-  /** Stores the name of the 1st recommeded movie. */
-  r1 &#x3D; &#x27;&#x27;;
-  /** Stores the name of the 2nd recommeded movie. */
-  r2 &#x3D; &#x27;&#x27;;
-  /** Stores the name of the 3rd recommeded movie. */
-  r3 &#x3D; &#x27;&#x27;;
+	/**
+	 * Constructor provides Http on object instantiation.
+	 * @constructor
+	 * @param {Http} http
+	 * @param {UserService} userService
+	 */
+	constructor(private userService: UserService, private http: Http) { }
 
-  /**
-   * Constructor provides Http and ActivatedRoute on object instantiation.
-   * @constructor
-   * @param {Http} http
-   * @param {ActivatedRoute} activatedRoute
-   */
-  constructor(private http: Http, private activatedRoute: ActivatedRoute, private userService: UserService) {}
+  	ngOnInit() {
+	  	/**
+	     * On page intialization, an http get request is sent which gets the top 3 recommended movies.
+	     */
+	    this.name &#x3D; this.userService.getCurrUser();
 
-   ngOnInit() {
+	    /** Http POST request to get top 10 recommended movies for the current user. */
+	    const req &#x3D; this.http.post(&#x27;/recommended&#x27;, {username:this.name});
 
-    /**
-    * On page intialization, an http get request is sent which gets the top 3 rated movies.
-    */
-    const req &#x3D; this.http.get(&#x27;/home&#x27;);
+	    /** Gets the http response with the movie details. */
+	    req.subscribe(
+	    	res &#x3D;&gt; {
 
-    /** Gets the http response with the top 3 movie names. */  
-    req.subscribe(
-      res &#x3D;&gt; {
-      var response &#x3D; res[&quot;_body&quot;];
-        /** Bind the movie names from the http response to local variables. */
-        this.m1 &#x3D; JSON.parse(response)[&#x27;m1&#x27;];
-        this.m2 &#x3D; JSON.parse(response)[&#x27;m2&#x27;];
-        this.m3 &#x3D; JSON.parse(response)[&#x27;m3&#x27;];
-      },
-      err &#x3D;&gt; {
-        console.log(&quot;ERROR&quot;);
-      }
-    );
-
-    /**
-    * On page intialization, an http get request is sent which gets the top 3 recommeded movies.
-    */
-    this.name &#x3D; this.userService.getCurrUser();
-    const req1 &#x3D; this.http.post(&#x27;/reco&#x27;, {username:this.name});
-
-    /** Gets the http response with the top 3 recommended names. */  
-    req1.subscribe(
-      res &#x3D;&gt; {
-      var response &#x3D; res[&quot;_body&quot;];
-        /** Bind the movie names from the http response to local variables. */
-        this.r1 &#x3D; JSON.parse(response)[&#x27;r1&#x27;];
-        this.r2 &#x3D; JSON.parse(response)[&#x27;r2&#x27;];
-        this.r3 &#x3D; JSON.parse(response)[&#x27;r3&#x27;];
-      },
-      err &#x3D;&gt; {
-        console.log(&quot;ERROR&quot;);
-      }
-    );
-
-    /** Gets the username of the user currently logged in to display on profile page. */
-    this.activatedRoute.params.subscribe((params: Params) &#x3D;&gt; {
-      this.name &#x3D; params[&#x27;name&#x27;];
-    });
-  };
+	    	    /** Bind the movie details from the http response to local variable. */
+	        	var response &#x3D; res[&quot;_body&quot;];
+	        	this.movies &#x3D; JSON.parse(response)[&#x27;movies&#x27;];
+	        	
+	        	/** If there are no recommendations, displays &#x27;No results&#x27;. */
+	        	if(this.movies.length &#x3D;&#x3D; 0)
+  				{
+  			   		this.movies &#x3D; [&#x27;No results!&#x27;];
+  				}
+  			
+	     	},
+	      	err &#x3D;&gt; {
+	        	console.log(&quot;ERROR&quot;);
+	      	}
+	    );
+	}
 }</code></pre>
     </div>
 
     <div class="tab-pane fade" id="templateData">
         <pre class="line-numbers"><code class="language-html">&lt;!--
- File name : profile.component.html
+ File name : recommended.component.html
  @author : Raji Sundararajan
  --&gt;
  
 &lt;div class&#x3D;&quot;container&quot;&gt;
 	&lt;div class&#x3D;&quot;starter-template&quot;&gt;
-		&lt;h2 id&#x3D;&quot;heading&quot;&gt;
- 			Welcome {{name}}!
+		&lt;h2&gt;
+			TOP RECOMMENDED MOVIES FOR {{name}}
 		&lt;/h2&gt;
 		&lt;br&gt;
-		&lt;div class&#x3D;&quot;row&quot;&gt;
-		  &lt;div class&#x3D;&quot;col-sm-6&quot;&gt;
-		    &lt;div class&#x3D;&quot;card&quot;&gt;
-		      &lt;div class&#x3D;&quot;card-block&quot;&gt;
-		        &lt;h4 id&#x3D;&quot;reco&quot; class&#x3D;&quot;card-title&quot;&gt;RECOMMENDED MOVIES FOR {{name}}&lt;/h4&gt;
-		        &lt;p class&#x3D;&quot;card-text&quot;&gt;
-		        	&lt;a id&#x3D;&quot;movie1&quot; routerLink&#x3D;&quot;/reviews/{{r1}}&quot; routerLinkActive&#x3D;&quot;active&quot;&gt;{{r1}}&lt;/a&gt;&lt;br&gt;
-		        	&lt;a routerLink&#x3D;&quot;/reviews/{{r2}}&quot; routerLinkActive&#x3D;&quot;active&quot;&gt;{{r2}}&lt;/a&gt;&lt;br&gt;
-		        	&lt;a routerLink&#x3D;&quot;/reviews/{{r3}}&quot; routerLinkActive&#x3D;&quot;active&quot;&gt;{{r3}}&lt;/a&gt;
-		        &lt;/p&gt;
-		        &lt;a class&#x3D;&quot;btn btn-primary&quot; id&#x3D;&quot;seemoreBtn1&quot; routerLink&#x3D;&quot;/recommended&quot; routerLinkActive&#x3D;&quot;active&quot;&gt;See More&lt;/a&gt;
-		      &lt;/div&gt;
-		    &lt;/div&gt;
-		  &lt;/div&gt;
-		  &lt;div class&#x3D;&quot;col-sm-6&quot;&gt;
-		    &lt;div class&#x3D;&quot;card&quot;&gt;
-		      &lt;div class&#x3D;&quot;card-block&quot;&gt;
-		        &lt;h4 class&#x3D;&quot;card-title&quot;&gt;TOP RATED MOVIES&lt;/h4&gt;
-		        &lt;p class&#x3D;&quot;card-text&quot;&gt;
-		        	&lt;a routerLink&#x3D;&quot;/reviews/{{m1}}&quot; routerLinkActive&#x3D;&quot;active&quot;&gt;{{m1}}&lt;/a&gt;&lt;br&gt;
-		        	&lt;a routerLink&#x3D;&quot;/reviews/{{m2}}&quot; routerLinkActive&#x3D;&quot;active&quot;&gt;{{m2}}&lt;/a&gt;&lt;br&gt;
-		        	&lt;a routerLink&#x3D;&quot;/reviews/{{m3}}&quot; routerLinkActive&#x3D;&quot;active&quot;&gt;{{m3}}&lt;/a&gt;
-		        &lt;/p&gt;
-		        &lt;a class&#x3D;&quot;btn btn-primary&quot; id&#x3D;&quot;seemoreBtn2&quot; routerLink&#x3D;&quot;/trm&quot; routerLinkActive&#x3D;&quot;active&quot;&gt;See More&lt;/a&gt;
-		      &lt;/div&gt;
-		    &lt;/div&gt;
-		  &lt;/div&gt;
+		&lt;div class&#x3D;&quot;card&quot;&gt;
+			&lt;div *ngFor&#x3D;&quot;let movieResult of movies&quot; style&#x3D;&quot;margin-top:20px&quot;&gt;
+        		&lt;p class&#x3D;&quot;card-text&quot;&gt;
+        			&lt;a id &#x3D; &quot;movie1&quot; routerLink&#x3D;&quot;/reviews/{{movieResult}}&quot; routerLinkActive&#x3D;&quot;active&quot;&gt;{{movieResult}}&lt;/a&gt;
+        		&lt;/p&gt;
+      		&lt;/div&gt;
 		&lt;/div&gt;
-	&lt;/div&gt;
-
-	&lt;div class &#x3D; &quot;card&quot;&gt;
-	 	&lt;a style&#x3D;&quot;text-align: center;&quot; id&#x3D;&quot;watched&quot; class&#x3D;&quot;btn btn-primary&quot; routerLink&#x3D;&quot;/movieswatched&quot; routerLinkActive&#x3D;&quot;active&quot;&gt;&lt;h5&gt;MOVIES WATCHED&lt;/h5&gt;&lt;/a&gt;
 	&lt;/div&gt;
 &lt;/div&gt;</code></pre>
     </div>
@@ -1008,10 +785,10 @@ export class ProfileComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><!-- File name : profile.component.html @author : Raji Sundararajan --> <div class="container">	<div class="starter-template">		<h2 id="heading"> 			Welcome {{name}}!		</h2>		<br>		<div class="row">		  <div class="col-sm-6">		    <div class="card">		      <div class="card-block">		        <h4 id="reco" class="card-title">RECOMMENDED MOVIES FOR {{name}}</h4>		        <p class="card-text">		        	<a id="movie1" routerLink="/reviews/{{r1}}" routerLinkActive="active">{{r1}}</a><br>		        	<a routerLink="/reviews/{{r2}}" routerLinkActive="active">{{r2}}</a><br>		        	<a routerLink="/reviews/{{r3}}" routerLinkActive="active">{{r3}}</a>		        </p>		        <a class="btn btn-primary" id="seemoreBtn1" routerLink="/recommended" routerLinkActive="active">See More</a>		      </div>		    </div>		  </div>		  <div class="col-sm-6">		    <div class="card">		      <div class="card-block">		        <h4 class="card-title">TOP RATED MOVIES</h4>		        <p class="card-text">		        	<a routerLink="/reviews/{{m1}}" routerLinkActive="active">{{m1}}</a><br>		        	<a routerLink="/reviews/{{m2}}" routerLinkActive="active">{{m2}}</a><br>		        	<a routerLink="/reviews/{{m3}}" routerLinkActive="active">{{m3}}</a>		        </p>		        <a class="btn btn-primary" id="seemoreBtn2" routerLink="/trm" routerLinkActive="active">See More</a>		      </div>		    </div>		  </div>		</div>	</div>	<div class = "card">	 	<a style="text-align: center;" id="watched" class="btn btn-primary" routerLink="/movieswatched" routerLinkActive="active"><h5>MOVIES WATCHED</h5></a>	</div></div></div>'
+        var COMPONENT_TEMPLATE = '<div><!-- File name : recommended.component.html @author : Raji Sundararajan --> <div class="container">	<div class="starter-template">		<h2>			TOP RECOMMENDED MOVIES FOR {{name}}		</h2>		<br>		<div class="card">			<div *ngFor="let movieResult of movies" style="margin-top:20px">        		<p class="card-text">        			<a id = "movie1" routerLink="/reviews/{{movieResult}}" routerLinkActive="active">{{movieResult}}</a>        		</p>      		</div>		</div>	</div></div></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MovieReviewComponent', 'selector': 'app-movie-review'},{'name': 'MovieswatchedComponent', 'selector': 'app-movieswatched'},{'name': 'NavComponent', 'selector': 'app-nav'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RecommendedComponent', 'selector': 'app-recommended'},{'name': 'SearchResultsComponent', 'selector': 'app-search-results'},{'name': 'SignUpComponent', 'selector': 'app-sign-up'},{'name': 'TrmComponent', 'selector': 'app-trm'}];
     var DIRECTIVES = [];
-    var ACTUAL_COMPONENT = {'name': 'ProfileComponent'};
+    var ACTUAL_COMPONENT = {'name': 'RecommendedComponent'};
 </script>
 <script src="../js/tree.js"></script>
 

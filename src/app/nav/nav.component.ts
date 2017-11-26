@@ -1,3 +1,8 @@
+/**
+ * File name : nav.component.ts
+ * @author Raji Sundararajan
+ */
+
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Router, ActivatedRoute, Params, RoutesRecognized } from '@angular/router';
 import { UserService } from '../user.service';
@@ -32,7 +37,7 @@ export class NavComponent implements OnInit {
 
   /** Stores the search movie name. */
   private queryText = '';
-
+  searchTerm = '';
   /**
    * Constructor provides Router, ActivatedRoute, FormBuilder, ElasticsearchService, ChangeDetectorRef and UserService on object instantiation.
    * @constructor
@@ -82,32 +87,38 @@ export class NavComponent implements OnInit {
    * @param {string} searchTerm
    */
   onSubmit(searchTerm:string) {
-   this.queryText = searchTerm;
-   this.es.fullTextSearch(
-     this.INDEX,
-     this.TYPE,
-     this.queryText).then(
-       response => {
 
-         /** Gets all the results and stores it in movieResults. */
-         this.movieResults = response.hits.hits;
+    /** Displays the term searched for in the resulta page. */
+    this.userService.searchString = searchTerm;
+    this.queryText = searchTerm;
 
-         /** movies array of UserServices holds all the results. */
-         this.userService.movies = this.movieResults;
-         for (let i = 0; i < this.movieResults.length; i++) {
-           this.movieResults[i] = this.movieResults[i]._source.name;
-         }
+    /** Resetting search bar. */
+    this.searchTerm = '';
 
-         /** queryText is reset. */
-         this.queryText = '';
+    this.es.fullTextSearch(
+      this.INDEX,
+      this.TYPE,
+      this.queryText).then(
+        response => {
 
-         /** Navigate to results page to display results. */
-         this.router.navigate(['/results']);
+          /** Gets all the results and stores it in movieResults. */
+          this.movieResults = response.hits.hits;
 
-       }, err => {
-         console.error(err);
-     }).then(() => {
-     console.log('Search completed!');
-   });
+          /** movies array of UserServices holds all the results. */
+          this.userService.movies = this.movieResults;
+          for (let i = 0; i < this.movieResults.length; i++) {
+            this.movieResults[i] = this.movieResults[i]._source.name;
+          }
+          /** queryText is reset. */
+          this.queryText = '';
+
+          /** Navigate to results page to display results. */
+          this.router.navigate(['/results']);
+
+      }, err => {
+        console.error(err);
+      }).then(() => {
+        console.log('Search completed!');
+      });
   }
 }

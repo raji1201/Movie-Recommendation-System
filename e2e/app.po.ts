@@ -1,3 +1,8 @@
+/**
+ * File name : app.po.ts
+ * @author Raji Sundararajan
+ */
+
 import { browser, by, element } from 'protractor';
 
 /**
@@ -50,7 +55,7 @@ export class AppPage {
      * Returns the sign up button element.
      */
     getSignup(){
-        return element(by.css('.btn.btn-signin'));
+        return element(by.id('signupBtn2'));
     }
 
     /**
@@ -87,6 +92,14 @@ export class AppPage {
     getSeeMoreBtn2()
     {
         return element(by.id('seemoreBtn2'));
+    }
+
+    /**
+     * Returns the 'See More recommended movies' button element.
+     */
+    getSeeMoreBtn1()
+    {
+        return element(by.id('seemoreBtn1'));
     }
 
     /**
@@ -181,6 +194,22 @@ export class AppPage {
      * Returns the top search result element.
      */
     getSearchMovie()
+    {
+        return element(by.id('smovie'));
+    }
+
+    /**
+     * Returns the watched movies button element.
+     */
+    getWatchedMovieBtn()
+    {
+        return element(by.id('watched'));
+    }
+
+    /**
+     * Returns the first watched movie element.
+     */
+    getWatchedMovie()
     {
         return element(by.id('smovie'));
     }
