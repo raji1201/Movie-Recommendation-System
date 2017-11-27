@@ -108,7 +108,7 @@ app.post('/signupuser',function(req,res){
 		res.json({name:"NOTEQUAL"});
 	}
 	else {
-		var sql="INSERT INTO user VALUES('"+name+"','"+email+"','"+password+"');";
+		var sql="INSERT INTO user VALUES('"+name+"','"+email+"','"+password+"',0,0,0,0,0,0,0,0,0,0,0);";
 		
 		connection.query(sql,function(err,result,fields){
 
@@ -300,7 +300,8 @@ app.post('/watched',function(req,res){
 
 				connection.query(sql2,function(err,result,fields){
 
-					
+					if(err) throw err;
+
 					var gen=result[0].genres;
 					gen=JSON.parse(gen);
 					console.log(gen);
@@ -308,36 +309,80 @@ app.post('/watched',function(req,res){
 					for(var i=0;i<gen.length;i++) {
 						if(gen[i].name == 'Action') {
 							console.log("Entered action")
+							var sql3="update user set action=action + 1 where name='"+uname+"';";
+							connection.query(sql3,function(err,result,fields){
+								if(err) throw err;
+							});
 						}
 						else if(gen[i].name == 'Adventure') {
 							console.log("Entered adeventure")
+							var sql3="update user set adventure=adventure + 1 where name='"+uname+"';";
+							connection.query(sql3,function(err,result,fields){
+								if(err) throw err;
+							});
 						}
 						else if(gen[i].name == 'Drama') {
 							console.log("Entered drama")
+							var sql3="update user set drama=drama + 1 where name='"+uname+"';";
+							connection.query(sql3,function(err,result,fields){
+								if(err) throw err;
+							});
 						}
 						else if(gen[i].name == 'Romance') {
 							console.log("Entered romance")
+							var sql3="update user set romance=romance + 1 where name='"+uname+"';";
+							connection.query(sql3,function(err,result,fields){
+								if(err) throw err;
+							});
 						}
 						else if(gen[i].name == 'Comedy') {
 							console.log("Entered comedy")
+							var sql3="update user set comedy=comedy + 1 where name='"+uname+"';";
+							connection.query(sql3,function(err,result,fields){
+								if(err) throw err;
+							});
 						}
 						else if(gen[i].name == 'Horror') {
 							console.log("Entered horror")
+							var sql3="update user set horror=horror + 1 where name='"+uname+"';";
+							connection.query(sql3,function(err,result,fields){
+								if(err) throw err;
+							});
 						}
 						else if(gen[i].name == 'Thriller') {
 							console.log("Entered thriller")
+							var sql3="update user set thriller=thriller + 1 where name='"+uname+"';";
+							connection.query(sql3,function(err,result,fields){
+								if(err) throw err;
+							});
 						}
 						else if(gen[i].name == 'Science Fiction') {
 							console.log("Entered  sci fi")
+							var sql3="update user set scifi=scifi + 1 where name='"+uname+"';";
+							connection.query(sql3,function(err,result,fields){
+								if(err) throw err;
+							});
 						}
 						else if(gen[i].name == 'Fantasy') {
 							console.log("Entered fantasy")
+							var sql3="update user set fantasy=fantasy + 1 where name='"+uname+"';";
+							connection.query(sql3,function(err,result,fields){
+								if(err) throw err;
+							});
 						}
 						else if(gen[i].name == 'Animation') {
 							console.log("Entered animation")
+							var sql3="update user set animation=animation + 1 where name='"+uname+"';";
+							connection.query(sql3,function(err,result,fields){
+								if(err) throw err;
+							});
 						}
 						else if(gen[i].name == 'Mystery') {
 							console.log("Entered mystery")
+							var sql3="update user set mystery=mystery + 1 where name='"+uname+"';";
+							connection.query(sql3,function(err,result,fields){
+								if(err) throw err;
+							});
 						}
 						else
 						{
@@ -412,11 +457,11 @@ The JSON object sent back is an array which has all the movies that the user has
 */
 
 app.post('/watchedmovies',function(req,res){
-
+	console.log("Entered here")
 	var username=req.body.username;
 	var sql="select mname from watched where user='"+username+"';";
 	var movies=[];
-	
+	console.log(sql)
 
 	connection.query(sql,function(err,result,fields){
 
@@ -429,65 +474,129 @@ app.post('/watchedmovies',function(req,res){
 
 		}
 		var obj={movies:movies};
+		console.log(obj)
 		res.json(obj);
 	});
 });
 
-app.post('/testing', function(req,res){
+app.post('/reco', function(req,res)
+{
 	console.log("I came here!");
-	var sql='select * from test;';
-	connection.query(sql,function(err,result,fields){
+	var username=req.body.username;
+	var sql="select * from ( select 'Drama' name,drama as X from user where name='"+username+"' union select 'Adventure' name, adventure as X from user where name='"+username+"' union select 'Action' name, action as X from user where name='"+username+"' union select 'Romance' name, romance as X from user where name='"+username+"' union select 'Comedy' name, comedy as X from user where name='"+username+"' union select 'Horror' name, horror as X from user where name='"+username+"' union select 'Thriller' name, thriller as X from user where name='"+username+"' union select 'Science Fiction' name, scifi as X from user where name='"+username+"' union select 'Fantasy' name, fantasy as X from user where name='"+username+"' union select 'Mystery' name, mystery as X from user where name='"+username+"' union select 'Animation' name, animation as X from user where name='"+username+"' ) as T order by X desc limit 3";
+	var genres=[];
+	console.log("~~About to start query");
+	connection.query(sql,function(err,result,fields)
+	{
+
+		console.log("~~Query done");
 		if(err) throw err;
-
 		console.log(result);
-		var data=(result[0].data);
-		console.log(data);
-		console.log(Object.prototype.toString.call(data));
-		var jdat=JSON.parse(data);
-		console.log(jdat);
-		console.log(jdat[0].name);
+		//console.log(result[0].X)
 
-		console.log(jdat[1].name);
-
-		console.log(jdat[2].name);
-
-	})
-	res.json({name:'Kavin'});
-
-
-	/*
-		I get a user's name.
-		I extract user's top 3 choices and store in an array ( gotta see how to extract top 3 from rows)
-
-
-		Start for loop to go for 100/150 movies
+		for(var i=0;i<3;i++)
 		{
-			Take a movie
-			Extract it's genres
-			Store them in an array.
-			Perform intersection of two arrays to get common genres.
-			if(common.length == 3)
-				reco.3same.push(moviename)
-			else if(common.length == 2)
-				reco.2same.push(moviename)
-			else if(common.length ==2)
-				reco.1same.push(moviename)
-
-			if(reco.3same. length = * number of movies I want *)
-				send json(movies: reco.3same)
-			else if ( reco3.same.length + reco2same.length == * number of movies I want + 4*)
-				concat both of them
-				slice to amount I want
-				send it
-			else if(3same + 2same + 1same  == * movies I want + 10 * )
-				concat 3 of them
-				slice it
-				send it 
+			var temp=result[i].name;
+			if(result[i].X != 0)
+			{
+				genres.push(temp)	
+			}
+			
 		}
-	*/
-});
+		
+		console.log("Checking for 0 length");
+			if(genres.length ==  0) 
+			{
+				console.log("//Length is 0" + genres);
+				var sql3="select title from movie where users >= 20 order by rating desc,users desc limit 3;";
+				console.log("//Inside my if");
+				connection.query(sql3,function(err,result1,fields)
+				{
+					console.log("//About to send my TRM");
+					if(err) throw err;
+					if(genres.length ==  0) {
+					console.log("//Sent TRM");
+					var obj={r1:result1[0].title, r2:result1[1].title,r3:result1[2].title};
+					res.json(obj);
+				}
+				});
+		
+			}
+			else 
+			{
+				console.log("Length beyond 0");
+				var sql2="select genres,title from movie where users>20 order by rating desc limit 150;"
 
+				connection.query(sql2,function(err,result,fields)
+				{
+					if(err) throw err;
+					var movie;
+					var gen=[];
+					var gen_str;
+					var same3=[];
+					var same2=[];
+					var same1=[];
+					console.log("Entered query")
+					for(var i=0;i<150;i++) 
+					{
 
+						movie=result[i].title;
+						gen_str=result[i].genres;
+						gen_str=JSON.parse(gen_str);
+						
+						for(var j=0;j<gen_str.length;j++) 
+						{
+							gen.push(gen_str[j].name)
+						}
+
+						var common=genres.filter((n) => gen.includes(n))
+						
+						if(common.length == 3) {
+							same3.push(movie);
+						}else if(common.length == 2) {
+							same2.push(movie);
+						}else if(common.length == 1) {
+							same1.push(movie);
+						}
+
+						if(same3.length == 3) {
+							outerFlag=false;
+							res.json({r1:same3[0],r2:same3[1],r3:same3[2]});
+						}else if(same3.length + same2.length == 7) {
+							same3=same3.concat(same2)
+							var reco_movies=same3.slice(0,3)
+							outerFlag=false;
+							//reco_movies=reco_movies.reverse();
+							res.json({r1:reco_movies[0],r2:reco_movies[1],r3:reco_movies[2]});
+						}else if(same3.length + same2.length + same1.length == 30) {
+							same2=same2.concat(same1)
+							same3=same3.concat(same2)
+							var reco_movies=same3.slice(0,3)
+							outerFlag=false;
+							//reco_movies=reco_movies.reverse();
+							res.json({r1:reco_movies[0],r2:reco_movies[1],r3:reco_movies[2]});
+						}
+
+						gen.length=0;
+					}	//For loop ended
+				}); //Query ended
+			}//Else ended
+		
+
+	});
+	
+
+			
+
+});	//Route ended
+
+function topGenres(username,callback) {
+
+	console.log("~~Entered function")
+	
+
+	callback(genres);
+}
 
 
 app.listen(port,function(){
