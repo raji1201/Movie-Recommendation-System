@@ -102,7 +102,7 @@ export class MovieReviewComponent implements OnInit {
       req.subscribe(
       res => {
           var response = res["_body"];
-          console.log(response);
+
           /** If the user has watched the movie, 'Watched' is displayed. Else, 'Add to watch list' is displayed. */
           if(JSON.parse(response)['watch'])
             this.watchStatus = 'Watched';
