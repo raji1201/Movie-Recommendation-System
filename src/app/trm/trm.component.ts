@@ -41,6 +41,7 @@ export class TrmComponent implements OnInit {
 
         /** Bind the movie details from the http response to local variable. */
         var response = res["_body"];
+
         this.movies = JSON.parse(response)['movie'];
       },
       err => {

@@ -34,12 +34,15 @@ export class MovieswatchedComponent implements OnInit {
 
 	ngOnInit() {
 		this.name = this.userService.getCurrUser();
+
 		/** Http post request for movies watched by the user. */
 		const req = this.http.post('/watchedmovies', {username:this.name});
-		/** Gets the http response with the movie list as an array. */
+		
+    /** Gets the http response with the movie list as an array. */
     req.subscribe(
     	res => {
 				var response = res["_body"];
+
 		    /** Bind the movie details from the http response to local variables. */
         this.movies = JSON.parse(response)['movies'];
           
