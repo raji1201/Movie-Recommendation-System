@@ -73,7 +73,7 @@ export class MovieReviewComponent implements OnInit {
     	req.subscribe(
   			res => {
         	var response = res["_body"];
-          
+
           /** Bind the movie details from the http response to local variables. */
         	this.name = JSON.parse(response)['title'];
           this.genres = JSON.parse(response)['genres'];
@@ -158,6 +158,7 @@ export class MovieReviewComponent implements OnInit {
     req.subscribe(
       res => {
         var response = res["_body"];
+        
         /** Bind the movie data from the http response to local variables. */
         this.rating = JSON.parse(response)['rating'];
         this.users = JSON.parse(response)['users'];

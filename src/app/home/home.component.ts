@@ -39,11 +39,13 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     /** logs out the user */
     this.userService.logoutUser();
+
     /** Http post request for homepage to get the top movies on initialisation */
   	const req = this.http.get('/home');
     	req.subscribe(
     	res => {
         var response = res["_body"];
+        
         /** Bind the movie details from the http response to local variables. */
         this.m1 = JSON.parse(response)['m1'];
         this.m2 = JSON.parse(response)['m2'];
