@@ -228,10 +228,9 @@ app.post('/moviereview',function(req,res){
 		for(var i=0;i<gen.length;i++) {
 			genre.push(gen[i].name);
 		}
-		
+		console.log("Sent a movie details")
 		var obj={budget:result[0].budget,site:result[0].homepage,genres:genre,des:result[0].overview,rel:result[0].release_date,run:result[0].runtime,tag:result[0].tagline,production:prod_c,title:result[0].title,rating:result[0].rating,user:result[0].users};
 		
-
 		res.json(obj);
 
 	});
@@ -272,6 +271,7 @@ When the user clicks on the Watched button a post request is made with the usern
 The database is updated with the username and moviename.
 A check is in place in case the user clicks the on the button again.
 This is to prevent from entering the same values multiple times.
+As the user has watched that movie, it also shows a certain preference for those kind of genres, so the preferecne columns are updated as well
 A dummy data is sent back to frontend to signify end of function.
 */
 
@@ -304,8 +304,7 @@ app.post('/watched',function(req,res){
 
 					var gen=result[0].genres;
 					gen=JSON.parse(gen);
-					console.log(gen);
-
+					
 					for(var i=0;i<gen.length;i++) {
 						if(gen[i].name == 'Action') {
 							console.log("Entered action")
@@ -390,7 +389,6 @@ app.post('/watched',function(req,res){
 							console.log(gen[i].name);
 						}
 
-
 					}
 
 				});
@@ -402,7 +400,6 @@ app.post('/watched',function(req,res){
 
 	});
 
-	
 });
 
 /*
@@ -457,12 +454,10 @@ The JSON object sent back is an array which has all the movies that the user has
 */
 
 app.post('/watchedmovies',function(req,res){
-	console.log("Entered here")
 	var username=req.body.username;
 	var sql="select mname from watched where user='"+username+"';";
 	var movies=[];
-	console.log(sql)
-
+	
 	connection.query(sql,function(err,result,fields){
 
 		if(err) throw err;
@@ -474,10 +469,27 @@ app.post('/watchedmovies',function(req,res){
 
 		}
 		var obj={movies:movies};
-		console.log(obj)
 		res.json(obj);
 	});
 });
+
+/*
+This function is responsible for recommendation system to work.
+It starts off by taking the username for whom movies are to be recommended.
+Then it queries the database and finds out the top 3 genres the user likes out of 11 possible ones.
+If the user is logging in for the first time,then the movies recommended are same as top rated movies.
+
+If the user has some previously watched movies then based off on them, we suggest different movies.
+We check the genres of top 150 movies against the genres which the user has liked and based off on them suggest different movies.
+Highest priority is to find movies where all 3 genres and least priority is where 1 out of 3 matches.
+The result is returned in JSON object in the following format
+{
+r1: 
+r2:
+r3:
+}
+
+*/
 
 app.post('/reco', function(req,res)
 {
@@ -485,15 +497,11 @@ app.post('/reco', function(req,res)
 	var username=req.body.username;
 	var sql="select * from ( select 'Drama' name,drama as X from user where name='"+username+"' union select 'Adventure' name, adventure as X from user where name='"+username+"' union select 'Action' name, action as X from user where name='"+username+"' union select 'Romance' name, romance as X from user where name='"+username+"' union select 'Comedy' name, comedy as X from user where name='"+username+"' union select 'Horror' name, horror as X from user where name='"+username+"' union select 'Thriller' name, thriller as X from user where name='"+username+"' union select 'Science Fiction' name, scifi as X from user where name='"+username+"' union select 'Fantasy' name, fantasy as X from user where name='"+username+"' union select 'Mystery' name, mystery as X from user where name='"+username+"' union select 'Animation' name, animation as X from user where name='"+username+"' ) as T order by X desc limit 3";
 	var genres=[];
-	console.log("~~About to start query");
 	connection.query(sql,function(err,result,fields)
 	{
 
-		console.log("~~Query done");
 		if(err) throw err;
-		console.log(result);
-		//console.log(result[0].X)
-
+		
 		for(var i=0;i<3;i++)
 		{
 			var temp=result[i].name;
@@ -504,100 +512,185 @@ app.post('/reco', function(req,res)
 			
 		}
 		
-		console.log("Checking for 0 length");
-			if(genres.length ==  0) 
+		if(genres.length ==  0) 
+		{
+			var sql3="select title from movie where users >= 20 order by rating desc,users desc limit 3;";
+			connection.query(sql3,function(err,result1,fields)
 			{
-				console.log("//Length is 0" + genres);
-				var sql3="select title from movie where users >= 20 order by rating desc,users desc limit 3;";
-				console.log("//Inside my if");
-				connection.query(sql3,function(err,result1,fields)
-				{
-					console.log("//About to send my TRM");
-					if(err) throw err;
-					if(genres.length ==  0) {
-					console.log("//Sent TRM");
-					var obj={r1:result1[0].title, r2:result1[1].title,r3:result1[2].title};
-					res.json(obj);
-				}
-				});
+				if(err) throw err;
+				var obj={r1:result1[0].title, r2:result1[1].title,r3:result1[2].title};
+				res.json(obj);
+			});
 		
-			}
-			else 
-			{
-				console.log("Length beyond 0");
-				var sql2="select genres,title from movie where users>20 order by rating desc limit 150;"
+		}
+		else 
+		{
+			var sql2="select genres,title from movie where users>20 order by rating desc limit 150;"
 
-				connection.query(sql2,function(err,result,fields)
+			connection.query(sql2,function(err,result,fields)
+			{
+				if(err) throw err;
+				var movie;
+				var gen=[];
+				var gen_str;
+				var same3=[];
+				var same2=[];
+				var same1=[];
+				for(var i=0;i<150;i++) 
 				{
-					if(err) throw err;
-					var movie;
-					var gen=[];
-					var gen_str;
-					var same3=[];
-					var same2=[];
-					var same1=[];
-					console.log("Entered query")
-					for(var i=0;i<150;i++) 
+
+					movie=result[i].title;
+					gen_str=result[i].genres;
+					gen_str=JSON.parse(gen_str);
+					
+					for(var j=0;j<gen_str.length;j++) 
 					{
+						gen.push(gen_str[j].name)
+					}
 
-						movie=result[i].title;
-						gen_str=result[i].genres;
-						gen_str=JSON.parse(gen_str);
+					var common=genres.filter((n) => gen.includes(n))
 						
-						for(var j=0;j<gen_str.length;j++) 
-						{
-							gen.push(gen_str[j].name)
-						}
+					if(common.length == 3) {
+						same3.push(movie);
+					}else if(common.length == 2) {
+						same2.push(movie);
+					}else if(common.length == 1) {
+						same1.push(movie);
+					}
 
-						var common=genres.filter((n) => gen.includes(n))
-						
-						if(common.length == 3) {
-							same3.push(movie);
-						}else if(common.length == 2) {
-							same2.push(movie);
-						}else if(common.length == 1) {
-							same1.push(movie);
-						}
+					if(same3.length == 3) {
+						res.json({r1:same3[0],r2:same3[1],r3:same3[2]});
+					}else if(same3.length + same2.length == 7) {
+						same3=same3.concat(same2)
+						var reco_movies=same3.slice(0,3)
+						res.json({r1:reco_movies[0],r2:reco_movies[1],r3:reco_movies[2]});
+					}else if(same3.length + same2.length + same1.length == 30) {
+						same2=same2.concat(same1)
+						same3=same3.concat(same2)
+						var reco_movies=same3.slice(0,3)
+						res.json({r1:reco_movies[0],r2:reco_movies[1],r3:reco_movies[2]});
+					}
 
-						if(same3.length == 3) {
-							outerFlag=false;
-							res.json({r1:same3[0],r2:same3[1],r3:same3[2]});
-						}else if(same3.length + same2.length == 7) {
-							same3=same3.concat(same2)
-							var reco_movies=same3.slice(0,3)
-							outerFlag=false;
-							//reco_movies=reco_movies.reverse();
-							res.json({r1:reco_movies[0],r2:reco_movies[1],r3:reco_movies[2]});
-						}else if(same3.length + same2.length + same1.length == 30) {
-							same2=same2.concat(same1)
-							same3=same3.concat(same2)
-							var reco_movies=same3.slice(0,3)
-							outerFlag=false;
-							//reco_movies=reco_movies.reverse();
-							res.json({r1:reco_movies[0],r2:reco_movies[1],r3:reco_movies[2]});
-						}
-
-						gen.length=0;
-					}	//For loop ended
-				}); //Query ended
-			}//Else ended
-		
-
-	});
-	
-
-			
-
+					gen.length=0;
+				}	//For loop ended
+			}); //Inner Query ended
+		}//Else ended
+	});	//Outer Query Ended	
 });	//Route ended
 
-function topGenres(username,callback) {
 
-	console.log("~~Entered function")
-	
+/*
+This route sends back 10 recommended movies instead of 3.
+The underlying logic is same as previous route , only 10 movies are sent back instead of 3.
+The returning JSON object is in the following format
 
-	callback(genres);
+{
+	movies: [Array with 10 movies]
 }
 
+*/
+
+app.post('/recommended', function(req,res)
+{
+	console.log("I came inside recommended!");
+	var username=req.body.username;
+	var sql="select * from ( select 'Drama' name,drama as X from user where name='"+username+"' union select 'Adventure' name, adventure as X from user where name='"+username+"' union select 'Action' name, action as X from user where name='"+username+"' union select 'Romance' name, romance as X from user where name='"+username+"' union select 'Comedy' name, comedy as X from user where name='"+username+"' union select 'Horror' name, horror as X from user where name='"+username+"' union select 'Thriller' name, thriller as X from user where name='"+username+"' union select 'Science Fiction' name, scifi as X from user where name='"+username+"' union select 'Fantasy' name, fantasy as X from user where name='"+username+"' union select 'Mystery' name, mystery as X from user where name='"+username+"' union select 'Animation' name, animation as X from user where name='"+username+"' ) as T order by X desc limit 3";
+	var genres=[];
+	connection.query(sql,function(err,result,fields)
+	{
+
+		if(err) throw err;
+		
+		for(var i=0;i<3;i++)
+		{
+			var temp=result[i].name;
+			if(result[i].X != 0)
+			{
+				genres.push(temp)	
+			}
+			
+		}
+		console.log("Able to execute first query properly")
+		
+		if(genres.length ==  0) 
+		{
+			var sql3="select title from movie where users >= 20 order by rating desc,users desc limit 10;";
+			connection.query(sql3,function(err,result1,fields)
+			{
+				if(err) throw err;
+				var movie=[]
+				for(var i=0;i<10;i++) {
+					movie.push(result1[i].title);
+				}
+				var obj={movies:movie};
+				res.json(obj);
+			});
+		
+		}
+		else 
+		{
+			var sql2="select genres,title from movie where users>20 order by rating desc limit 350;"
+
+			connection.query(sql2,function(err,result,fields)
+			{
+				if(err) throw err;
+				var movie;
+				var gen=[];
+				var gen_str;
+				var same3=[];
+				var same2=[];
+				var same1=[];
+				for(var i=0;i<350;i++) 
+				{
+
+					movie=result[i].title;
+					gen_str=result[i].genres;
+					gen_str=JSON.parse(gen_str);
+					
+					for(var j=0;j<gen_str.length;j++) 
+					{
+						gen.push(gen_str[j].name)
+					}
+
+					var common=genres.filter((n) => gen.includes(n))
+						
+					if(common.length == 3) {
+						same3.push(movie);
+					}else if(common.length == 2) {
+						same2.push(movie);
+					}else if(common.length == 1) {
+						same1.push(movie);
+					}
+
+					if(same3.length == 10) {
+						res.json({movies:same3});
+					}else if(same3.length + same2.length == 28) {
+						same3=same3.concat(same2)
+						var reco_movies=same3.slice(0,10)
+						res.json({movies:reco_movies});
+					}else if((same3.length + same2.length + same1.length) > 80 && same2.length > 30) {
+						same2=same2.concat(same1)
+						same3=same3.concat(same2)
+						var reco_movies=same3.slice(0,10)
+						res.json({movies:reco_movies});
+					}
+
+					if(i== 349) {
+						console.log("Reached the end! No movie found!")
+						same2=same2.concat(same1)
+						same3=same3.concat(same2)
+						var reco_movies=same3.slice(0,10)
+						res.json({movies:reco_movies});
+					}
+
+					
+
+					gen.length=0;
+				}	//For loop ended
+			}); //Inner Query ended
+		}//Else ended
+	});	//Outer Query Ended	
+});	//Route ended
 
 app.listen(port,function(){
 
