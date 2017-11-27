@@ -560,15 +560,18 @@ app.post('/reco', function(req,res)
 
 					if(same3.length == 3) {
 						res.json({r1:same3[0],r2:same3[1],r3:same3[2]});
+						break;
 					}else if(same3.length + same2.length == 7) {
 						same3=same3.concat(same2)
 						var reco_movies=same3.slice(0,3)
 						res.json({r1:reco_movies[0],r2:reco_movies[1],r3:reco_movies[2]});
+						break;
 					}else if(same3.length + same2.length + same1.length == 30) {
 						same2=same2.concat(same1)
 						same3=same3.concat(same2)
 						var reco_movies=same3.slice(0,3)
 						res.json({r1:reco_movies[0],r2:reco_movies[1],r3:reco_movies[2]});
+						break;
 					}
 
 					gen.length=0;
@@ -629,7 +632,7 @@ app.post('/recommended', function(req,res)
 		}
 		else 
 		{
-			var sql2="select genres,title from movie where users>20 order by rating desc limit 350;"
+			var sql2="select genres,title from movie where users>20 order by rating desc limit 550;"
 
 			connection.query(sql2,function(err,result,fields)
 			{
@@ -640,7 +643,7 @@ app.post('/recommended', function(req,res)
 				var same3=[];
 				var same2=[];
 				var same1=[];
-				for(var i=0;i<350;i++) 
+				for(var i=0;i<550;i++) 
 				{
 
 					movie=result[i].title;
@@ -664,23 +667,27 @@ app.post('/recommended', function(req,res)
 
 					if(same3.length == 10) {
 						res.json({movies:same3});
-					}else if(same3.length + same2.length == 28) {
+						break;
+					}else if(same3.length + same2.length == 38) {
 						same3=same3.concat(same2)
 						var reco_movies=same3.slice(0,10)
 						res.json({movies:reco_movies});
+						break;
 					}else if((same3.length + same2.length + same1.length) > 80 && same2.length > 30) {
 						same2=same2.concat(same1)
 						same3=same3.concat(same2)
 						var reco_movies=same3.slice(0,10)
 						res.json({movies:reco_movies});
+						break;
 					}
 
-					if(i== 349) {
+					if(i== 549) {
 						console.log("Reached the end! No movie found!")
 						same2=same2.concat(same1)
 						same3=same3.concat(same2)
 						var reco_movies=same3.slice(0,10)
 						res.json({movies:reco_movies});
+						break;
 					}
 
 					
