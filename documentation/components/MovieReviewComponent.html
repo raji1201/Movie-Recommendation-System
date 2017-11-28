@@ -1263,7 +1263,7 @@ export class MovieReviewComponent implements OnInit {
     	req.subscribe(
   			res &#x3D;&gt; {
         	var response &#x3D; res[&quot;_body&quot;];
-          
+
           /** Bind the movie details from the http response to local variables. */
         	this.name &#x3D; JSON.parse(response)[&#x27;title&#x27;];
           this.genres &#x3D; JSON.parse(response)[&#x27;genres&#x27;];
@@ -1348,6 +1348,7 @@ export class MovieReviewComponent implements OnInit {
     req.subscribe(
       res &#x3D;&gt; {
         var response &#x3D; res[&quot;_body&quot;];
+        
         /** Bind the movie data from the http response to local variables. */
         this.rating &#x3D; JSON.parse(response)[&#x27;rating&#x27;];
         this.users &#x3D; JSON.parse(response)[&#x27;users&#x27;];

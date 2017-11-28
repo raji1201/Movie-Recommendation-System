@@ -62,7 +62,10 @@ export class SignUpComponent {
           var name = JSON.parse(response)['name'];
     
           if(name == "DUPLICATE")
+          {
+            alert('Email already exists!');
             this.router.navigate(['/']);
+          }
           else
             /** Redirected to profile page on successful signup, setUserLoggedIn set to username for that user who signedup. */
             this.router.navigate(['/profile', name]);
