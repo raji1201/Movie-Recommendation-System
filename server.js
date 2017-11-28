@@ -493,7 +493,6 @@ r3:
 
 app.post('/reco', function(req,res)
 {
-	console.log("I came here!");
 	var username=req.body.username;
 	var sql="select * from ( select 'Drama' name,drama as X from user where name='"+username+"' union select 'Adventure' name, adventure as X from user where name='"+username+"' union select 'Action' name, action as X from user where name='"+username+"' union select 'Romance' name, romance as X from user where name='"+username+"' union select 'Comedy' name, comedy as X from user where name='"+username+"' union select 'Horror' name, horror as X from user where name='"+username+"' union select 'Thriller' name, thriller as X from user where name='"+username+"' union select 'Science Fiction' name, scifi as X from user where name='"+username+"' union select 'Fantasy' name, fantasy as X from user where name='"+username+"' union select 'Mystery' name, mystery as X from user where name='"+username+"' union select 'Animation' name, animation as X from user where name='"+username+"' ) as T order by X desc limit 3";
 	var genres=[];
@@ -595,7 +594,6 @@ The returning JSON object is in the following format
 
 app.post('/recommended', function(req,res)
 {
-	console.log("I came inside recommended!");
 	var username=req.body.username;
 	var sql="select * from ( select 'Drama' name,drama as X from user where name='"+username+"' union select 'Adventure' name, adventure as X from user where name='"+username+"' union select 'Action' name, action as X from user where name='"+username+"' union select 'Romance' name, romance as X from user where name='"+username+"' union select 'Comedy' name, comedy as X from user where name='"+username+"' union select 'Horror' name, horror as X from user where name='"+username+"' union select 'Thriller' name, thriller as X from user where name='"+username+"' union select 'Science Fiction' name, scifi as X from user where name='"+username+"' union select 'Fantasy' name, fantasy as X from user where name='"+username+"' union select 'Mystery' name, mystery as X from user where name='"+username+"' union select 'Animation' name, animation as X from user where name='"+username+"' ) as T order by X desc limit 3";
 	var genres=[];
@@ -613,7 +611,6 @@ app.post('/recommended', function(req,res)
 			}
 			
 		}
-		console.log("Able to execute first query properly")
 		
 		if(genres.length ==  0) 
 		{
@@ -682,7 +679,6 @@ app.post('/recommended', function(req,res)
 					}
 
 					if(i== 549) {
-						console.log("Reached the end! No movie found!")
 						same2=same2.concat(same1)
 						same3=same3.concat(same2)
 						var reco_movies=same3.slice(0,10)

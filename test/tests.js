@@ -174,9 +174,9 @@ describe('Testing to get movie details', function() {
 
 				res.should.have.status(200);
 				res.body.should.be.a('object');
-				res.body.should.have.property('name').eql('The Avengers');
+				res.body.should.have.property('title').eql('The Avengers');
 				res.body.should.have.property('rating');
-				res.body.should.have.property('users');
+				res.body.should.have.property('user');
 				res.body.should.have.property('run').eql(143);
 				res.body.should.have.property('des');
 				res.body.should.have.property('budget');
@@ -287,9 +287,8 @@ describe('Testing watched movies list',function() {
 			.post('/watchedmovies')
 			.send(data)
 			.end((err,res) => {
-				res.shoud.have.status(200);
-				res.should.be.a.('object');
-				res.should.have.property('movies');
+				res.body.should.have.property('movies');
+				res.should.be.a('object');
 		done();
 		});
 	});
@@ -302,6 +301,55 @@ In second test, user has some preference so the movies should be different
 */
 describe('Testing top 3 recommended movies',function() {
 	it('should return top rated movies',(done) => {
-		
-	})
-})
+		let data = {
+			username:'test2'
+		}
+		server
+			.post('/reco')
+			.send(data)
+			.end((err,res) => {
+				res.should.have.status(200);
+				res.should.be.a('object');
+				res.body.should.have.property('r1')
+				res.body.should.have.property('r2');
+				res.body.should.have.property('r3');
+		done();
+			});
+	});
+	it('should return recommendations',(done) => {
+		let data = {
+			username:'test'
+		}
+		server
+			.post('/reco')
+			.send(data)
+			.end((err,res) => {
+				res.should.have.status(200);
+				res.should.be.a('object');
+				res.body.should.have.property('r1').eql('Spirited Away');
+				res.body.should.have.property('r2').eql('Howl\'s Moving Castle');
+				res.body.should.have.property('r3').eql('Princess Mononoke');
+			done();
+			});
+	});
+});
+
+/*
+This test checks for 10 recommended movies
+*/
+describe('Testing top 10 recommended movies',function() {
+	it('should return an array of 10 movies',(done) => {
+		let data= {
+			username:'test'
+		}
+		server
+			.post('/recommended')
+			.send(data)
+			.end((err,res) => {
+				res.should.have.status(200);
+				res.should.be.a('object');
+				res.body.should.have.property('movies');
+		done();
+		});
+	});
+});
