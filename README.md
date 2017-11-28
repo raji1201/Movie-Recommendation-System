@@ -1,5 +1,12 @@
 # Movie Recommendation Engine
 
+Team members :
+
+Raji Sundararajan
+Kavin Desai
+Manoj Prakash
+Reena Paranjape
+
 Instructions to run project
 1. Open terminal and run npm install
 2. Run ng build --w
