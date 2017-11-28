@@ -111,14 +111,6 @@ export class AppPage {
     }
 
     /**
-     * Returns the first top recommended movie link element.
-     */
-    getTopRecommendedMovies()
-    {
-        return element(by.id('movie2'));
-    }
-
-    /**
      * Returns the watched button element.
      */
     getWatchedBtn()

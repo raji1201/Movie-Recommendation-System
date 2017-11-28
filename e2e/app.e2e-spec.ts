@@ -55,14 +55,14 @@ describe('Movie Recommendation App', () => {
         let email = page.getSignupFormEmail();
         let password = page.getSignupFormPassword();
         let confirmPassword = page.getSignupFormConfirmPassword();
-        name.sendKeys('ZZ');
-        email.sendKeys('zz@gmail.com');
-        password.sendKeys('zz');
-        confirmPassword.sendKeys('zz');
-        expect(name.getAttribute('value')).toEqual('ZZ');
-        expect(email.getAttribute('value')).toEqual('zz@gmail.com');
-        expect(password.getAttribute('value')).toEqual('zz');
-        expect(confirmPassword.getAttribute('value')).toEqual('zz');
+        name.sendKeys('Smith');
+        email.sendKeys('smith@gmail.com');
+        password.sendKeys('smith');
+        confirmPassword.sendKeys('smith');
+        expect(name.getAttribute('value')).toEqual('Smith');
+        expect(email.getAttribute('value')).toEqual('smith@gmail.com');
+        expect(password.getAttribute('value')).toEqual('smith');
+        expect(confirmPassword.getAttribute('value')).toEqual('smith');
         let btn = page.getSignup();
         btn.click();
         page.pause();
@@ -125,6 +125,12 @@ describe('Movie Recommendation App', () => {
         logoutBtn.click();
     });
 
+    /**
+     * Testing the navigation to home page after logout.
+     */
+    it('should navigate to home page', () => {
+        page.pause();
+    });
 
     /**
      * Testing the navigation to the login page.
@@ -144,10 +150,10 @@ describe('Movie Recommendation App', () => {
     it('should fill in the login form', () => {
         let email = page.getLoginFormEmail();
         let password = page.getLoginFormPassword();
-        email.sendKeys('raji@gmail.com');
-        password.sendKeys('password');
-        expect(email.getAttribute('value')).toEqual('raji@gmail.com');
-        expect(password.getAttribute('value')).toEqual('password');
+        email.sendKeys('smith@gmail.com');
+        password.sendKeys('smith');
+        expect(email.getAttribute('value')).toEqual('smith@gmail.com');
+        expect(password.getAttribute('value')).toEqual('smith');
         let btn = page.getLoginBtn2();
         btn.click();
     });
@@ -166,15 +172,6 @@ describe('Movie Recommendation App', () => {
 
         let btn = page.getSeeMoreBtn1();
         btn.click();
-        page.pause();
-    });
-
-    /**
-     * Testing navigation to top recommended movie's review page.
-     */
-    it('should display top rated movies page', () => {
-        let movieBtn = page.getTopRecommendedMovies();
-        movieBtn.click();
         page.pause();
     });
 
