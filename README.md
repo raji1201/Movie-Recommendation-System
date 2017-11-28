@@ -3,8 +3,11 @@
 Team members :
 
 Raji Sundararajan
+
 Kavin Desai
+
 Manoj Prakash
+
 Reena Paranjape
 
 Instructions to run project
