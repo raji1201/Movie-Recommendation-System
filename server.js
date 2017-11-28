@@ -4,6 +4,10 @@ Written by : Kavin Desai
 Written for : As part of project for CEN 5035 Software Engineering
 
 This file is server code for Movie recommendation system
+
+All systems ready and working.
+Ready for deployment.
+Version 1.0.0
 */
 
 /*
